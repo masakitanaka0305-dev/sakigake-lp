@@ -93,6 +93,10 @@
   .hero-meta .v small{color:rgba(255,255,255,.4)}
 
   .hero-visual{position:relative;height:100%;min-height:auto;display:flex;align-items:center;justify-content:center}
+  .hero-people-visual{min-height:420px;align-items:flex-end}
+  .hero-people-visual img{transition:transform .4s ease}
+  @media(max-width:980px){.hero-people-visual{min-height:300px}}
+  @media(max-width:780px){.hero-people-visual{min-height:220px}}
   .hero-card{background:rgba(255,255,255,.04);color:#fff;border-radius:24px;padding:44px 40px;width:100%;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);box-shadow:0 40px 100px -30px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06)}
   .hero-card::before{content:"";position:absolute;inset:auto -20% -40% auto;width:400px;height:400px;background:radial-gradient(closest-side, rgba(0,229,160,.2), transparent 70%);pointer-events:none}
   .hero-card::after{content:"";position:absolute;top:-20%;left:-20%;width:300px;height:300px;background:radial-gradient(closest-side, rgba(0,150,255,.1), transparent 70%);pointer-events:none}
@@ -482,29 +486,10 @@
         </div>
       </div>
 
-      <div class="hero-visual">
-        <div class="hero-card">
-          <div class="sc-grid" style="opacity:.5"></div>
-          <div class="hero-card-top">
-            <span class="hero-card-label">60万案件の報酬シミュレーション</span>
-            <span class="hero-card-dot"></span>
-          </div>
-          <div class="hero-card-num mono-num">9<span class="pct">万円</span></div>
-          <div style="font-family:var(--jp);font-weight:700;font-size:15px;color:rgba(255,255,255,.45);margin:4px 0 20px;position:relative;line-height:1.4;letter-spacing:.02em">会社員時代の3〜5倍の手取り</div>
-          <div class="hero-card-desc">
-            <div style="display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px;line-height:1.9">
-              <span style="color:rgba(255,255,255,.4)">案件単価</span><span style="color:#fff;font-weight:700">60万円</span>
-              <span style="color:rgba(255,255,255,.4)">エンジニア</span><span style="color:#fff">48万円<small style="opacity:.5">（80%還元）</small></span>
-              <span style="color:rgba(255,255,255,.4)">粗利</span><span style="color:#fff;font-weight:700">12万円</span>
-              <span style="color:rgba(255,255,255,.4)">うちの分</span><span style="color:rgba(255,255,255,.6)">−3万円<small style="opacity:.5">（税別）</small></span>
-              <span style="color:var(--accent);font-weight:900">あなた</span><span style="color:var(--accent);font-weight:900;font-size:20px">9万円</span>
-            </div>
-          </div>
-          <div class="hero-card-row">
-            <span class="hero-card-tag" style="color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.04em">× 10人 ＝ 月収70万円</span>
-            <span class="hero-card-arrow">↗</span>
-          </div>
-        </div>
+      <div class="hero-visual hero-people-visual">
+        <img src="person4.png" alt="" class="hero-person-main" style="position:absolute;left:0;bottom:0;width:55%;filter:drop-shadow(0 10px 30px rgba(0,0,0,.4))">
+        <img src="person2.png" alt="" class="hero-person-main" style="position:absolute;right:5%;bottom:0;width:50%;filter:drop-shadow(0 10px 30px rgba(0,0,0,.4))">
+        <img src="person3.png" alt="" class="hero-person-main" style="position:absolute;left:30%;bottom:0;width:52%;z-index:2;filter:drop-shadow(0 10px 30px rgba(0,0,0,.4))">
       </div>
     </div>
     </div><!-- /.hero-inner -->
