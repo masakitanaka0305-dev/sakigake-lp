@@ -95,14 +95,12 @@
   .hero-visual{display:none}
   .hero-grid{grid-template-columns:1fr !important;max-width:580px}
   .hero-people-bg{position:absolute;top:0;right:0;bottom:0;width:55%;z-index:1;pointer-events:none;display:flex;align-items:center;justify-content:center}
-  .hp{position:absolute;filter:drop-shadow(0 16px 48px rgba(0,0,0,.55));width:180%}
-  .hp[data-i="1"]{right:32%;top:18%;z-index:2}
-  .hp[data-i="2"]{right:14%;top:30%;z-index:4}
-  .hp[data-i="3"]{right:2%;top:14%;z-index:5}
-  .hp[data-i="4"]{right:26%;top:42%;z-index:3}
-  .hp[data-i="5"]{right:8%;top:52%;z-index:1}
+  .hp{position:absolute;filter:drop-shadow(0 12px 36px rgba(0,0,0,.5));width:60%}
+  .hp[data-i="1"]{right:38%;top:8%;z-index:2}
+  .hp[data-i="2"]{right:4%;top:16%;z-index:3}
+  .hp[data-i="3"]{right:20%;top:40%;z-index:1}
   @media(max-width:980px){.hero-people-bg{width:50%;opacity:.8}}
-  @media(max-width:780px){.hero-people-bg{position:relative;width:100%;height:280px;opacity:1;margin-top:24px}.hero-grid{max-width:none}.hp{width:26%}.hp[data-i="1"]{right:auto;left:5%;bottom:0}.hp[data-i="2"]{right:auto;left:22%;bottom:10%}.hp[data-i="3"]{right:auto;left:40%;bottom:0}.hp[data-i="4"]{right:auto;left:56%;bottom:15%}.hp[data-i="5"]{right:auto;left:72%;bottom:5%}}
+  @media(max-width:780px){.hero-people-bg{position:relative;width:100%;height:240px;opacity:1;margin-top:24px}.hero-grid{max-width:none}.hp{width:35%}.hp[data-i="1"]{right:auto;left:5%;bottom:0;top:auto}.hp[data-i="2"]{right:auto;left:35%;bottom:10%;top:auto}.hp[data-i="3"]{right:auto;left:62%;bottom:0;top:auto}}
   .hero-card{background:rgba(255,255,255,.04);color:#fff;border-radius:24px;padding:44px 40px;width:100%;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);box-shadow:0 40px 100px -30px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06)}
   .hero-card::before{content:"";position:absolute;inset:auto -20% -40% auto;width:400px;height:400px;background:radial-gradient(closest-side, rgba(0,229,160,.2), transparent 70%);pointer-events:none}
   .hero-card::after{content:"";position:absolute;top:-20%;left:-20%;width:300px;height:300px;background:radial-gradient(closest-side, rgba(0,150,255,.1), transparent 70%);pointer-events:none}
@@ -517,10 +515,8 @@
   <!-- people (background, absolute) -->
   <div class="hero-people-bg">
     <img src="person1.png" alt="" class="hp" data-i="1">
-    <img src="person4.png" alt="" class="hp" data-i="2">
-    <img src="person3.png" alt="" class="hp" data-i="3">
-    <img src="person2.png" alt="" class="hp" data-i="4">
-    <img src="person5.png" alt="" class="hp" data-i="5">
+    <img src="person2.png" alt="" class="hp" data-i="2">
+    <img src="person4.png" alt="" class="hp" data-i="3">
   </div>
 </section>
 
