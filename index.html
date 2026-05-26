@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAKIGAKE — 会社のマージンを、あなたの報酬に変えろ。</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Schibsted+Grotesk:wght@400;500;700;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FAFAF7;
+    --surface:#FFFFFF;
+    --ink:#0A0A0A;
+    --ink-2:#1A1A1A;
+    --ink-soft:#5B564E;
+    --ink-mute:#A8A39A;
+    --line:rgba(10,10,10,.10);
+    --line-2:rgba(10,10,10,.06);
+    --dark:#0A0A0A;
+    --accent:#00E5A0;
+    --accent-2:#00B881;
+    --warn:#FF5A3C;
+    --serif: "Instrument Serif", "Noto Serif JP", serif;
+    --jp: "Zen Kaku Gothic New", "Noto Sans JP", system-ui, sans-serif;
+    --en: "Schibsted Grotesk", "Zen Kaku Gothic New", system-ui, sans-serif;
+
+    --pad: clamp(20px, 4vw, 56px);
+  }
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--jp);font-feature-settings:"palt" 1;}
+  body{font-size:15px;line-height:1.75;letter-spacing:.01em}
+  /* Japanese display headlines: keep phrases together, allow natural breaks only at <br> */
+  h1, h2, h3, .vision-title, .sec-title{word-break:keep-all;overflow-wrap:normal;line-break:strict}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  input{font:inherit}
+  ::selection{background:var(--accent);color:var(--ink)}
+
+  .wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+  .en{font-family:var(--en);letter-spacing:.02em}
+  .serif{font-family:var(--serif);font-style:italic}
+  .mono-num{font-family:var(--en);font-feature-settings:"tnum" 1;font-variant-numeric:tabular-nums}
+
+  /* ────── Nav ────── */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);backdrop-filter:saturate(140%) blur(14px);-webkit-backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--line-2)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--en);font-weight:900;letter-spacing:.18em;font-size:14px}
+  .brand-mark{width:22px;height:22px;border-radius:6px;background:var(--ink);position:relative;overflow:hidden}
+  .brand-mark::after{content:"";position:absolute;inset:5px;background:var(--accent);border-radius:2px;transform:skewX(-18deg)}
+  .nav-links{display:flex;gap:28px;font-size:13px;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:999px;font-weight:700;font-size:13.5px;letter-spacing:.04em;transition:transform .15s ease, background .2s ease, color .2s ease}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:#000;transform:translateY(-1px)}
+  .btn-primary .arr{width:18px;height:18px;border-radius:999px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-size:11px}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  @media (max-width:780px){.nav-links{display:none}}
+
+  /* ────── Hero ────── */
+  .hero{padding:64px 0 96px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end}
+  @media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:32px}}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--en);font-size:11.5px;font-weight:700;letter-spacing:.24em;color:var(--ink-soft);text-transform:uppercase}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--ink)}
+  .hero h1{font-family:var(--jp);font-weight:900;font-size:clamp(40px,5.4vw,84px);line-height:1.1;letter-spacing:-.02em;margin:28px 0 0;color:var(--ink);word-break:keep-all;overflow-wrap:break-word}
+  .hero h1 .accent{background-image:linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 92%, transparent 92%);background-repeat:no-repeat;padding:0 .04em}
+  .hero h1 .small{display:block;font-size:.36em;font-weight:700;color:var(--ink-soft);margin-top:.7em;letter-spacing:0;line-height:1.5}
+  .hero-sub{max-width:480px;color:var(--ink-soft);font-size:16px;line-height:1.95;margin-top:32px}
+  .hero-cta{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:32px;margin-top:48px;border-top:1px solid var(--line);padding-top:24px;flex-wrap:wrap}
+  .hero-meta div{display:flex;flex-direction:column;gap:4px}
+  .hero-meta .k{font-size:11px;letter-spacing:.18em;color:var(--ink-mute);font-family:var(--en);font-weight:700}
+  .hero-meta .v{font-size:18px;font-weight:700}
+
+  .hero-visual{position:relative;height:100%;min-height:480px;display:flex;align-items:flex-end;justify-content:center}
+  .hero-card{background:var(--ink);color:#fff;border-radius:20px;padding:36px;width:100%;position:relative;overflow:hidden;box-shadow:0 30px 80px -30px rgba(10,10,10,.4)}
+  .hero-card::before{content:"";position:absolute;inset:auto -20% -40% auto;width:340px;height:340px;background:radial-gradient(closest-side, rgba(0,229,160,.35), transparent 70%)}
+  .hero-card-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
+  .hero-card-label{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700}
+  .hero-card-dot{width:8px;height:8px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 4px rgba(0,229,160,.18)}
+  .hero-card-num{font-family:var(--en);font-weight:900;font-size:clamp(96px,12vw,160px);line-height:.85;letter-spacing:-.04em;margin:36px 0 8px;color:#fff;position:relative}
+  .hero-card-num .pct{color:var(--accent);font-size:.5em;vertical-align:.4em;margin-left:.05em}
+  .hero-card-desc{color:rgba(255,255,255,.7);font-size:13px;max-width:280px;position:relative}
+  .hero-card-row{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);position:relative}
+  .hero-card-tag{font-family:var(--en);font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.5)}
+  .hero-card-arrow{width:36px;height:36px;border-radius:99px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-size:14px}
+
+  .hero-ticker{margin-top:80px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;white-space:nowrap;display:flex;gap:48px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .ticker-track{display:flex;gap:48px;animation:ticker 50s linear infinite;flex-shrink:0}
+  .ticker-track span{font-family:var(--en);font-size:13px;letter-spacing:.2em;color:var(--ink-soft);font-weight:500;display:flex;align-items:center;gap:48px}
+  .ticker-track span::after{content:"●";color:var(--accent);font-size:8px}
+  @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+  /* ────── Section base ────── */
+  section{padding:120px 0;position:relative}
+  @media (max-width:780px){section{padding:80px 0}}
+  .sec-head{display:grid;grid-template-columns:auto 1fr;gap:24px 56px;align-items:start;margin-bottom:64px}
+  @media (max-width:780px){.sec-head{grid-template-columns:1fr;gap:24px;margin-bottom:40px}}
+  .sec-num{font-family:var(--en);font-weight:900;font-size:14px;letter-spacing:.2em;color:var(--ink-mute)}
+  .sec-title{font-family:var(--jp);font-weight:900;font-size:clamp(30px,3.6vw,52px);line-height:1.15;letter-spacing:-.015em;margin:0;max-width:22ch;word-break:keep-all;overflow-wrap:normal}
+  .sec-lede{color:var(--ink-soft);font-size:15.5px;line-height:1.95;max-width:42ch;margin-top:18px}
+
+  /* ────── 課題 ────── */
+  .problem{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .problem-lede{font-family:var(--jp);font-weight:900;font-size:clamp(26px,3vw,40px);line-height:1.45;letter-spacing:-.01em;max-width:40ch;color:var(--ink);word-break:keep-all}
+  .problem-lede em{font-style:normal;background:linear-gradient(transparent 60%, rgba(255,90,60,.25) 60%)}
+  .problem-list{margin-top:64px;border-top:1px solid var(--line)}
+  .problem-row{display:grid;grid-template-columns:80px 1fr auto;gap:32px;padding:32px 0;border-bottom:1px solid var(--line);align-items:center}
+  @media (max-width:780px){.problem-row{grid-template-columns:50px 1fr;gap:16px}.problem-row .pct-big{grid-column:1/-1;text-align:left}}
+  .problem-row .idx{font-family:var(--en);font-weight:900;font-size:14px;color:var(--ink-mute);letter-spacing:.16em}
+  .problem-row .q{font-family:var(--jp);font-weight:700;font-size:clamp(18px,2vw,24px);line-height:1.6;color:var(--ink)}
+  .problem-row .pct-big{font-family:var(--en);font-weight:900;font-size:clamp(36px,4vw,56px);line-height:1;color:var(--warn);letter-spacing:-.02em}
+  .problem-row .pct-big small{font-size:.4em;color:var(--ink-mute);margin-left:.3em;display:inline-block;vertical-align:middle;font-weight:500;letter-spacing:.1em}
+
+  /* ────── Solution intro ────── */
+  .solution{background:var(--bg)}
+  .solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  @media (max-width:900px){.solution-grid{grid-template-columns:1fr;gap:48px}}
+  .solution h2{font-family:var(--jp);font-weight:900;font-size:clamp(32px,4vw,60px);line-height:1.18;letter-spacing:-.02em;margin:24px 0 0;word-break:keep-all;overflow-wrap:normal}
+  .solution h2 .strike{color:var(--ink-mute);text-decoration:line-through;text-decoration-thickness:3px;font-weight:700}
+  .solution h2 .hl{color:var(--ink);background-image:linear-gradient(transparent 58%, var(--accent) 58%, var(--accent) 96%, transparent 96%);background-repeat:no-repeat;padding:0 .08em}
+  .solution-body{color:var(--ink-soft);font-size:16px;line-height:2;margin-top:32px;max-width:46ch}
+  .solution-sign{margin-top:40px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink)}
+
+  .solution-card{background:var(--ink);color:#fff;border-radius:24px;padding:48px;position:relative;overflow:hidden;aspect-ratio:1/1.05}
+  .sc-corner{position:absolute;top:24px;right:24px;font-family:var(--en);font-size:11px;letter-spacing:.22em;color:rgba(255,255,255,.4)}
+  .sc-name{font-family:var(--en);font-weight:900;font-size:clamp(40px,5.4vw,80px);letter-spacing:.01em;line-height:1;margin-top:auto;color:#fff;position:absolute;left:48px;right:48px;bottom:120px;white-space:nowrap;overflow:hidden;text-overflow:clip}
+  .sc-name .dot{color:var(--accent)}
+  .sc-tag{position:absolute;left:48px;bottom:64px;font-family:var(--jp);font-size:14px;color:rgba(255,255,255,.7);letter-spacing:.12em}
+  .sc-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center, #000 40%, transparent 80%)}
+  .sc-orb{position:absolute;top:-20%;right:-15%;width:60%;height:60%;background:radial-gradient(circle, var(--accent), transparent 65%);opacity:.4;filter:blur(20px)}
+  .sc-circle{position:absolute;right:48px;top:48px;width:100px;height:100px;border:1px solid rgba(255,255,255,.2);border-radius:99px;display:grid;place-items:center;font-family:var(--en);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.6)}
+
+  /* ────── 4 pillars ────── */
+  .pillars{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  @media (max-width:980px){.pillars-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.pillars-grid{grid-template-columns:1fr}}
+  .pillar{padding:40px 32px 48px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:var(--surface);transition:background .25s ease}
+  .pillar:hover{background:var(--bg)}
+  .pillar-num{font-family:var(--en);font-weight:700;font-size:12px;color:var(--ink-mute);letter-spacing:.2em}
+  .pillar-icon{margin:24px 0 32px;width:48px;height:48px;border-radius:12px;background:var(--accent);color:var(--ink);display:grid;place-items:center}
+  .pillar-icon svg{width:24px;height:24px}
+  .pillar h3{font-family:var(--jp);font-weight:900;font-size:22px;line-height:1.4;letter-spacing:-.005em;margin:0 0 16px;min-height:62px}
+  .pillar p{color:var(--ink-soft);font-size:13.5px;line-height:1.85;margin:0}
+  .pillar-tag{font-family:var(--en);font-size:10.5px;color:var(--ink-mute);letter-spacing:.2em;font-weight:700;margin-top:24px;display:block}
+
+  /* ────── Simulator ────── */
+  .sim{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+  .sim::before{content:"";position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle, rgba(0,229,160,.25), transparent 70%);border-radius:99px}
+  .sim .sec-num{color:rgba(255,255,255,.4)}
+  .sim .sec-title{color:#fff}
+  .sim .sec-lede{color:rgba(255,255,255,.65)}
+  .sim-body{display:grid;grid-template-columns:.9fr 1.4fr;gap:48px;margin-top:48px;align-items:start}
+  @media (max-width:980px){.sim-body{grid-template-columns:1fr;gap:32px}}
+  .sim-controls{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px;backdrop-filter:blur(20px)}
+  .sim-controls h4{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700;margin:0 0 24px}
+  .sim-field{margin-bottom:24px}
+  .sim-field label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:rgba(255,255,255,.7);margin-bottom:10px;gap:12px;flex-wrap:nowrap}
+  .sim-field label .val{font-family:var(--en);font-weight:900;color:#fff;font-size:18px;white-space:nowrap;flex-shrink:0}
+  .sim-field label .val .unit{font-size:12px;color:rgba(255,255,255,.5);margin-left:4px;font-weight:500}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:rgba(255,255,255,.12);border-radius:2px;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:99px;background:var(--accent);cursor:pointer;border:3px solid var(--ink);box-shadow:0 0 0 1px var(--accent)}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:99px;background:var(--accent);cursor:pointer;border:3px solid var(--ink);box-shadow:0 0 0 1px var(--accent)}
+  .sim-note{margin-top:16px;font-size:11.5px;color:rgba(255,255,255,.5);line-height:1.7}
+
+  .sim-result{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:600px){.sim-result{grid-template-columns:1fr}}
+  .sim-card{padding:32px;border-radius:20px;position:relative;overflow:hidden}
+  .sim-card.before{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+  .sim-card.after{background:#fff;color:var(--ink);border:1px solid var(--accent);box-shadow:0 0 0 6px rgba(0,229,160,.12)}
+  .sim-card-label{font-family:var(--en);font-size:11px;letter-spacing:.22em;font-weight:700;margin-bottom:8px}
+  .sim-card.before .sim-card-label{color:rgba(255,255,255,.4)}
+  .sim-card.after .sim-card-label{color:var(--accent-2)}
+  .sim-card-name{font-family:var(--jp);font-size:14px;font-weight:700;margin-bottom:24px}
+  .sim-card.before .sim-card-name{color:rgba(255,255,255,.7)}
+  .sim-card-num{font-family:var(--en);font-weight:900;font-size:clamp(48px,7vw,80px);line-height:1;letter-spacing:-.03em;margin-bottom:6px}
+  .sim-card-num .yen{font-size:.4em;font-weight:700;color:var(--ink-mute);margin-right:.1em;vertical-align:.2em}
+  .sim-card.before .sim-card-num .yen{color:rgba(255,255,255,.4)}
+  .sim-card-suffix{font-size:13px;color:rgba(255,255,255,.5)}
+  .sim-card.after .sim-card-suffix{color:var(--ink-soft)}
+  .sim-card-meta{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;line-height:1.8}
+  .sim-card.after .sim-card-meta{border-top-color:var(--line)}
+  .sim-card-meta div{display:flex;justify-content:space-between;color:rgba(255,255,255,.6)}
+  .sim-card.after .sim-card-meta div{color:var(--ink-soft)}
+  .sim-diff{grid-column:1/-1;margin-top:8px;padding:24px 32px;background:var(--accent);color:var(--ink);border-radius:16px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .sim-diff .label-jp{font-family:var(--jp);font-weight:900;font-size:18px}
+  .sim-diff .label-en{font-family:var(--en);font-size:11px;letter-spacing:.22em;font-weight:700;opacity:.6;margin-top:2px}
+  .sim-diff .num{font-family:var(--en);font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.02em}
+  .sim-diff .num .yen{font-size:.5em;margin-right:.1em}
+
+  /* ────── Comparison table ────── */
+  .compare{background:var(--bg)}
+  .compare-table{margin-top:24px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface)}
+  .compare-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;border-bottom:1px solid var(--line);align-items:stretch}
+  .compare-row:last-child{border-bottom:0}
+  .compare-row > div{padding:24px 28px;display:flex;align-items:center}
+  @media (max-width:780px){
+    .compare-row{grid-template-columns:1fr 1fr}
+    .compare-row > div:first-child{grid-column:1/-1;border-bottom:1px dashed var(--line-2);padding:18px 20px;background:var(--bg);font-weight:700}
+    .compare-row > div{padding:18px 20px;font-size:13.5px}
+  }
+  .compare-head{background:var(--ink);color:#fff}
+  .compare-head > div{padding:32px 28px;font-family:var(--en);font-size:11px;letter-spacing:.22em;font-weight:700}
+  .compare-head .col-them{color:rgba(255,255,255,.5);border-left:1px solid rgba(255,255,255,.1)}
+  .compare-head .col-us{color:var(--accent);background:rgba(0,229,160,.08);border-left:1px solid rgba(255,255,255,.1)}
+  .compare-head .col-us::before{content:"●";font-size:8px;margin-right:8px}
+  .compare-row .axis{font-family:var(--jp);font-weight:700;font-size:14.5px;color:var(--ink);background:var(--bg);border-right:1px solid var(--line)}
+  .compare-row .them{color:var(--ink-soft);font-size:14px;border-right:1px solid var(--line);position:relative}
+  .compare-row .them::before{content:"×";position:absolute;left:8px;top:50%;transform:translateY(-50%);color:var(--ink-mute);font-family:var(--en);font-weight:900;display:none}
+  .compare-row .us{color:var(--ink);font-size:14px;font-weight:500;background:rgba(0,229,160,.04);position:relative}
+  .compare-row .us::before{content:"";display:inline-block;width:6px;height:6px;border-radius:99px;background:var(--accent);margin-right:10px;flex-shrink:0;align-self:center}
+
+  /* ────── Flow ────── */
+  .flow{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:24px}
+  @media (max-width:980px){.flow-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.flow-grid{grid-template-columns:1fr}}
+  .flow-step{position:relative;padding:32px 28px;background:var(--bg);border-radius:16px}
+  .flow-step::after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-family:var(--en);font-size:18px;color:var(--ink-mute);z-index:2}
+  .flow-step:last-child::after{display:none}
+  @media (max-width:980px){.flow-step::after{display:none}}
+  .flow-num{font-family:var(--en);font-weight:900;font-size:11px;letter-spacing:.2em;color:var(--accent-2);background:rgba(0,229,160,.15);padding:6px 10px;border-radius:99px;display:inline-block}
+  .flow-step h4{font-family:var(--jp);font-weight:900;font-size:20px;line-height:1.4;margin:24px 0 12px;letter-spacing:-.005em}
+  .flow-step p{color:var(--ink-soft);font-size:13px;line-height:1.85;margin:0}
+  .flow-step .time{font-family:var(--en);font-size:11px;letter-spacing:.16em;color:var(--ink-mute);margin-top:16px;display:block;font-weight:700}
+
+  /* ────── Vision ────── */
+  .vision{background:var(--bg);position:relative;overflow:hidden}
+  .vision-inner{position:relative;z-index:2}
+  .vision-title{font-family:var(--jp);font-weight:900;font-size:clamp(34px,4.8vw,76px);line-height:1.18;letter-spacing:-.02em;max-width:30ch;word-break:keep-all}
+  .vision-title .ot{color:var(--ink-mute)}
+  .vision-title .strk{position:relative}
+  .vision-title .strk::after{content:"";position:absolute;left:0;right:0;top:55%;height:6px;background:var(--ink-mute);transform:rotate(-3deg)}
+  .vision-title .new{color:var(--ink);background-image:linear-gradient(transparent 64%, var(--accent) 64%, var(--accent) 92%, transparent 92%);background-repeat:no-repeat;padding:0 .06em}
+  .vision-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-top:80px}
+  @media (max-width:900px){.vision-body{grid-template-columns:1fr;gap:24px}}
+  .vision-card{padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+  .vision-card .lab{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--ink-mute);font-weight:700}
+  .vision-card h4{font-family:var(--jp);font-weight:900;font-size:22px;line-height:1.4;margin:16px 0 16px}
+  .vision-card p{color:var(--ink-soft);font-size:13.5px;line-height:1.85;margin:0}
+  .vision-card .arrow{margin-top:24px;font-family:var(--en);font-size:14px;color:var(--accent-2);font-weight:700;letter-spacing:.1em}
+
+  /* ────── FAQ ────── */
+  .faq{background:var(--surface);border-top:1px solid var(--line-2)}
+  .faq-list{margin-top:24px;border-top:1px solid var(--line)}
+  details.faq-item{border-bottom:1px solid var(--line);padding:0}
+  details.faq-item summary{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:28px 4px;cursor:pointer;list-style:none;font-family:var(--jp);font-weight:700;font-size:18px;line-height:1.5}
+  details.faq-item summary::-webkit-details-marker{display:none}
+  details.faq-item summary::after{content:"+";font-family:var(--en);font-weight:300;font-size:28px;color:var(--ink-mute);line-height:1;transition:transform .2s ease, color .2s ease;flex-shrink:0}
+  details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--accent-2)}
+  details.faq-item .q-en{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--ink-mute);font-weight:700;margin-right:24px;align-self:center}
+  details.faq-item .a{padding:0 4px 28px;color:var(--ink-soft);font-size:14.5px;line-height:1.95;max-width:70ch}
+
+  /* ────── CTA ────── */
+  .cta{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:120px 0 80px}
+  .cta-grid{position:relative;z-index:2}
+  .cta::before{content:"";position:absolute;left:50%;top:50%;width:90%;height:120%;background:radial-gradient(ellipse at center, rgba(0,229,160,.15), transparent 60%);transform:translate(-50%,-50%);z-index:1}
+  .cta-eyebrow{color:var(--accent)}
+  .cta-eyebrow::before{background:var(--accent)}
+  .cta h2{font-family:var(--jp);font-weight:900;font-size:clamp(34px,4.8vw,72px);line-height:1.15;letter-spacing:-.02em;margin:24px 0 0;max-width:30ch;word-break:keep-all}
+  .cta h2 .accent{color:var(--accent)}
+  .cta-sub{color:rgba(255,255,255,.7);font-size:16px;line-height:1.95;max-width:48ch;margin-top:32px}
+
+  .cta-pack{margin-top:48px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+  @media (max-width:780px){.cta-pack{grid-template-columns:1fr;gap:24px}}
+  .cta-pack h4{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700;margin:0 0 16px}
+  .cta-pack-items{display:flex;flex-wrap:wrap;gap:8px 24px;color:rgba(255,255,255,.85);font-size:13.5px}
+  .cta-pack-items div{display:flex;align-items:center;gap:8px}
+  .cta-pack-items div::before{content:"";width:14px;height:14px;border-radius:99px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-family:var(--en);font-size:10px;font-weight:900;line-height:14px;text-align:center}
+
+  .cta-form{display:flex;gap:8px;margin-top:32px;max-width:560px;flex-wrap:wrap}
+  .cta-form input{flex:1 1 240px;height:56px;padding:0 20px;border-radius:99px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:#fff;font-size:14.5px;outline:none;transition:border .2s ease, background .2s ease}
+  .cta-form input::placeholder{color:rgba(255,255,255,.4)}
+  .cta-form input:focus{border-color:var(--accent);background:rgba(255,255,255,.06)}
+  .cta-btn{height:56px;padding:0 28px;background:var(--accent);color:var(--ink);border-radius:99px;font-weight:900;font-size:14px;display:inline-flex;align-items:center;gap:12px;transition:transform .15s ease, background .2s ease}
+  .cta-btn:hover{transform:translateY(-1px);background:#fff}
+  .cta-btn .arr{width:24px;height:24px;border-radius:99px;background:var(--ink);color:var(--accent);display:grid;place-items:center;font-size:12px}
+  .cta-fine{margin-top:20px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.8}
+
+  /* CTA Tabs */
+  .cta-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:48px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:6px}
+  @media (max-width:780px){.cta-tabs{grid-template-columns:1fr}}
+  .cta-tab{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:10px;color:rgba(255,255,255,.55);text-align:left;cursor:pointer;transition:all .2s ease;border:1px solid transparent;min-height:64px}
+  .cta-tab:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.03)}
+  .cta-tab.active{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+  .cta-tab .tab-num{font-family:var(--en);font-weight:900;font-size:11px;letter-spacing:.16em;opacity:.6}
+  .cta-tab.active .tab-num{opacity:.5;color:var(--ink)}
+  .cta-tab .tab-label{font-family:var(--jp);font-weight:700;font-size:14px;line-height:1.3;display:flex;flex-direction:column;gap:2px}
+  .cta-tab .tab-label small{font-weight:500;font-size:11px;opacity:.65;letter-spacing:.04em}
+
+  .cta-panel{display:none;animation:fadein .4s ease both}
+  .cta-panel.active{display:block}
+  @keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* Seminar date picker */
+  .cta-dates{margin:32px 0 24px}
+  .dates-label{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700;display:block;margin-bottom:14px}
+  .dates-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  @media (max-width:980px){.dates-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.dates-grid{grid-template-columns:1fr}}
+  .date-card{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .2s ease;position:relative}
+  .date-card:hover:not(.soldout){border-color:rgba(0,229,160,.5);background:rgba(0,229,160,.06)}
+  .date-card input{position:absolute;opacity:0;pointer-events:none}
+  .date-card input:checked + .date-day{color:var(--accent)}
+  .date-card:has(input:checked){background:rgba(0,229,160,.12);border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .date-card.soldout{opacity:.35;cursor:not-allowed}
+  .date-day{display:flex;flex-direction:column;align-items:center;line-height:1;flex-shrink:0;transition:color .2s ease}
+  .date-day .d-num{font-family:var(--en);font-weight:900;font-size:24px;letter-spacing:-.02em;color:#fff}
+  .date-card.soldout .d-num{color:rgba(255,255,255,.6)}
+  .date-card:has(input:checked) .date-day .d-num{color:var(--accent)}
+  .date-day .d-mo{font-family:var(--en);font-weight:700;font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.5);margin-top:4px}
+  .date-meta{display:flex;flex-direction:column;gap:2px;font-size:11px}
+  .date-meta .d-wk{color:rgba(255,255,255,.6);font-weight:500}
+  .date-meta .d-time{color:#fff;font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.02em}
+  .date-meta .d-tag{color:var(--accent);font-family:var(--en);font-size:10px;letter-spacing:.16em;font-weight:700;margin-top:2px}
+  .date-card.soldout .d-tag{color:var(--warn)}
+
+  /* Meeting fields */
+  .cta-meeting-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  @media (max-width:600px){.cta-meeting-fields{grid-template-columns:1fr}}
+  .m-field{display:flex;flex-direction:column;gap:8px}
+  .m-field-full{grid-column:1/-1}
+  .m-field label{font-family:var(--en);font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.5);font-weight:700}
+  .m-field input, .m-field textarea{padding:14px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:#fff;font-size:14px;outline:none;transition:all .2s ease;font-family:var(--jp);resize:vertical}
+  .m-field input::placeholder, .m-field textarea::placeholder{color:rgba(255,255,255,.35)}
+  .m-field input:focus, .m-field textarea:focus{border-color:var(--accent);background:rgba(255,255,255,.06)}
+  .cta-btn-full{width:100%;justify-content:center}
+
+  /* ────── Footer ────── */
+  footer{background:var(--ink);color:rgba(255,255,255,.6);padding:64px 0 40px;border-top:1px solid rgba(255,255,255,.08)}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+  @media (max-width:780px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
+  .foot-brand .brand-mark{background:#fff}
+  .foot-brand .brand-mark::after{background:var(--accent)}
+  .foot-brand p{margin-top:16px;font-size:13px;line-height:1.85;max-width:32ch}
+  .foot-col h5{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:#fff;font-weight:700;margin:0 0 18px}
+  .foot-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.55);margin-bottom:10px;transition:color .15s}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-family:var(--en);font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:16px}
+
+  /* ────── Tier structure ────── */
+  .tier{background:var(--bg)}
+  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:900px){.tier-grid{grid-template-columns:1fr}}
+  .tier-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:36px 32px;position:relative;display:flex;flex-direction:column}
+  .tier-card.tier-max{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .tier-card.tier-max .tier-list{color:rgba(255,255,255,.7)}
+  .tier-card.tier-max .tier-list li{border-bottom-color:rgba(255,255,255,.1)}
+  .tier-card.tier-max p{color:rgba(255,255,255,.65)}
+  .tier-tag{font-family:var(--en);font-size:11px;letter-spacing:.22em;font-weight:700;color:var(--ink-mute);align-self:flex-start;padding:6px 10px;border:1px solid var(--line);border-radius:99px}
+  .tier-card.tier-plus .tier-tag{color:var(--accent-2);border-color:rgba(0,229,160,.4);background:rgba(0,229,160,.06)}
+  .tier-card.tier-max .tier-tag{color:var(--accent);border-color:rgba(0,229,160,.4);background:rgba(0,229,160,.08)}
+  .tier-rate{font-family:var(--en);font-weight:900;font-size:clamp(64px,8vw,104px);line-height:.9;letter-spacing:-.03em;margin:32px 0 8px;color:var(--ink)}
+  .tier-card.tier-max .tier-rate{color:var(--accent)}
+  .tier-card.tier-plus .tier-rate{color:var(--ink)}
+  .tier-rate .pct{font-size:.4em;font-weight:700;color:var(--ink-mute);margin-left:.05em;vertical-align:.35em}
+  .tier-card.tier-max .tier-rate .pct{color:rgba(255,255,255,.5)}
+  .tier-card h4{font-family:var(--jp);font-weight:900;font-size:18px;margin:0 0 12px;letter-spacing:-.005em}
+  .tier-card p{color:var(--ink-soft);font-size:13.5px;line-height:1.85;margin:0 0 24px}
+  .tier-list{list-style:none;padding:0;margin:auto 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .tier-list li{padding:12px 0;border-bottom:1px solid var(--line-2);position:relative;padding-left:18px}
+  .tier-list li:last-child{border-bottom:0}
+  .tier-list li::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:99px;background:var(--accent)}
+  .tier-list li small{display:block;color:var(--ink-mute);font-size:11.5px;margin-top:2px}
+  .tier-card.tier-max .tier-list li small{color:rgba(255,255,255,.45)}
+  .tier-list strong{font-family:var(--en);font-weight:900;color:var(--ink);margin-right:6px}
+  .tier-card.tier-max .tier-list strong{color:var(--accent)}
+  .tier-foot{margin-top:32px;font-size:12px;color:var(--ink-mute);line-height:1.85;max-width:80ch}
+
+  /* ────── Sim tier checkboxes ────── */
+  .sim-tiers{margin:8px 0 20px;padding:20px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(0,229,160,.04)}
+  .sim-tiers-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--en);font-size:11px;letter-spacing:.18em;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed rgba(255,255,255,.12)}
+  .sim-tiers-head .mono-num{font-size:22px;color:var(--accent);letter-spacing:-.02em}
+  .sim-check{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:13.5px;color:rgba(255,255,255,.85);cursor:pointer;user-select:none}
+  .sim-check input{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1.5px solid rgba(255,255,255,.3);border-radius:5px;display:grid;place-items:center;cursor:pointer;transition:all .15s ease;flex-shrink:0;background:transparent;margin:0}
+  .sim-check input:checked{background:var(--accent);border-color:var(--accent)}
+  .sim-check input:checked::after{content:"✓";color:var(--ink);font-size:13px;font-weight:900;line-height:1}
+  .sim-check span{display:flex;justify-content:space-between;align-items:center;flex:1;gap:8px}
+  .sim-check small{font-family:var(--en);font-weight:700;color:var(--accent);font-size:12px;letter-spacing:.06em}
+
+  /* ────── OTHER ────── */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" data-screen-label="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark"></span>
+      <span>SAKIGAKE</span>
+    </a>
+    <div class="nav-links">
+      <a href="#problem">課題</a>
+      <a href="#solution">仕組み</a>
+      <a href="#tier">料金体系</a>
+      <a href="#simulator">報酬試算</a>
+      <a href="#compare">比較</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">資料請求</a>
+      <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=seminar]')?.click(),300)">説明会に参加<span class="arr">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" data-screen-label="01 hero" style="padding-top:48px">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">For SES Sales Professionals</span>
+        <h1>
+          会社の<span class="accent">マージン</span>を、<br>
+          あなたの<span class="accent">報酬</span>に。
+          <span class="small">SES営業のための、独立OS。</span>
+        </h1>
+        <p class="hero-sub">
+          あなたが獲ってきた案件の利益、その大半は今、会社のものになっている。<br>
+          SAKIGAKEは、プラットフォーム利用料<strong style="color:var(--ink);font-weight:900">一律3万円/案件</strong>のみ。粗利の残りは全てあなたのものです。エンジニア確保・契約・請求・入金管理——独立のすべての面倒を、私たちが引き受けます。
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">資料・報酬シミュレーションを受け取る<span class="arr">→</span></a>
+          <a class="btn btn-ghost" href="#simulator">先に試算してみる</a>
+        </div>
+        <div class="hero-meta">
+          <div><span class="k">PLATFORM FEE</span><span class="v mono-num">¥3<small style="font-size:.5em">万/案件</small></span></div>
+          <div><span class="k">ENGINEERS</span><span class="v mono-num">3,200<small style="font-size:.5em">+ 名</small></span></div>
+          <div><span class="k">AVG MATCHING</span><span class="v mono-num">5.2<small style="font-size:.5em"> 日</small></span></div>
+          <div><span class="k">BACKOFFICE</span><span class="v">フル代行</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="sc-grid" style="opacity:.5"></div>
+          <div class="hero-card-top">
+            <span class="hero-card-label">YOUR SHARE</span>
+            <span class="hero-card-dot"></span>
+          </div>
+          <div class="hero-card-num mono-num" style="font-size:clamp(64px,8vw,100px)">¥3<span class="pct" style="color:var(--accent);font-size:.45em">万</span></div>
+          <div class="hero-card-desc">プラットフォーム利用料は一律3万円/案件。案件の規模に関わらず定額。粗利の残りは全てあなたの報酬になります。</div>
+          <div class="hero-card-row">
+            <span class="hero-card-tag">FLAT FEE — NO MARGIN CUT</span>
+            <span class="hero-card-arrow">↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ticker -->
+    <div class="hero-ticker">
+      <div class="ticker-track">
+        <span>BREAK THE MARGIN</span>
+        <span>OWN YOUR PIPELINE</span>
+        <span>FLAT ¥30K / DEAL</span>
+        <span>ZERO BACKOFFICE</span>
+        <span>AI-MATCHED ENGINEERS</span>
+        <span>SAKIGAKE OS</span>
+        <span>BREAK THE MARGIN</span>
+        <span>OWN YOUR PIPELINE</span>
+        <span>FLAT ¥30K / DEAL</span>
+        <span>ZERO BACKOFFICE</span>
+        <span>AI-MATCHED ENGINEERS</span>
+        <span>SAKIGAKE OS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="problem" id="problem" data-screen-label="02 problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">01 / THE GAP</span>
+      </div>
+      <div>
+        <h2 class="sec-title">なぜ、優秀な営業ほど<br>会社という<em style="font-style:normal;background:linear-gradient(transparent 60%, rgba(255,90,60,.25) 60%)">檻</em>の中で損をするのか。</h2>
+        <p class="sec-lede">案件を獲るのも、エンジニアを口説くのも、納品まで責任を持つのも——全部あなた。なのに、利益の大半は会社のものになり、あなたの手元には数%のインセンティブだけが残る。これは、SES業界の構造的な歪みです。</p>
+      </div>
+    </div>
+
+    <div class="problem-list">
+      <div class="problem-row">
+        <span class="idx">Q. 01</span>
+        <span class="q">月商600万円の案件を3本獲ったのに、自分の年収はほぼ変わらない。</span>
+        <span class="pct-big mono-num">87<small>% の営業が経験</small></span>
+      </div>
+      <div class="problem-row">
+        <span class="idx">Q. 02</span>
+        <span class="q">独立したいが、エンジニアの確保と契約・請求業務に踏み込めない。</span>
+        <span class="pct-big mono-num">71<small>% が独立を断念</small></span>
+      </div>
+      <div class="problem-row">
+        <span class="idx">Q. 03</span>
+        <span class="q">クライアントから直接「君個人で頼みたい」と言われても、応えられない。</span>
+        <span class="pct-big mono-num">63<small>% が機会損失</small></span>
+      </div>
+      <div class="problem-row">
+        <span class="idx">Q. 04</span>
+        <span class="q">案件があっても、出せるエンジニアがいない月が必ずある。</span>
+        <span class="pct-big mono-num">2.1<small>ヶ月/年 平均</small></span>
+      </div>
+      <div class="problem-row">
+        <span class="idx">Q. 05</span>
+        <span class="q">入社時に約束された「インセンティブ」が、結局あいまいなまま終わっている。</span>
+        <span class="pct-big mono-num">54<small>% が不満を表明</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION ============ -->
+<section class="solution" id="solution" data-screen-label="03 solution">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">02 / THE SHIFT</span></div>
+      <div></div>
+    </div>
+    <div class="solution-grid">
+      <div>
+        <span class="eyebrow">A NEW OPERATING SYSTEM</span>
+        <h2>
+          <span class="strike">組織の所有物</span><span style="display:inline-block">から、</span><br>
+          <span class="hl">自分のビジネス</span><span style="display:inline-block">の所有者へ。</span>
+        </h2>
+        <p class="solution-body">
+          SAKIGAKEは「会社」ではなく、営業のための「OS」です。<br>
+          あなたは雇われずに、しかし独立よりはるかに少ないリスクで、自分のパイプラインから利益を直接受け取れます。
+          <br><br>
+          私たちは案件の取り合いをしません。あなたが獲った案件は、あなたの資産。エンジニアの確保、契約書、請求、入金管理、トラブル対応——営業を「営業の仕事」だけに戻すための、すべての裏側を、私たちが運用します。
+        </p>
+        <div class="solution-sign">— Build your own book of business.</div>
+      </div>
+
+      <div class="solution-card">
+        <div class="sc-orb"></div>
+        <div class="sc-grid"></div>
+        <span class="sc-corner">SAKIGAKE / OS v.1</span>
+        <div class="sc-circle">since 2024</div>
+        <div class="sc-name">SAKIGAKE<span class="dot">.</span></div>
+        <div class="sc-tag">先駆 — Be the first to leave the cage.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 PILLARS ============ -->
+<section class="pillars" data-screen-label="04 pillars">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">03 / WHAT YOU GET</span></div>
+      <div>
+        <h2 class="sec-title">独立に必要な<br>4つの装備を、<br>セットで。</h2>
+        <p class="sec-lede">安い利用料だけでは独立できません。SAKIGAKEは、報酬・人材・運用・キャリアの4軸で、あなたの営業力が「資産」になるまでを支えます。</p>
+      </div>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <span class="pillar-num">01 / REVENUE</span>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>
+          </svg>
+        </div>
+        <h3>利用料は一律<br>3万円/案件。</h3>
+        <p>案件の規模に関わらず、プラットフォーム利用料は一律3万円。粗利の残りは全額あなたの報酬です。％ベースのマージンは一切取りません。</p>
+        <span class="pillar-tag">¥ — DIRECT DEPOSIT</span>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-num">02 / ENGINEERS</span>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0"/><circle cx="17" cy="9.5" r="2.5"/><path d="M22 19a5 5 0 00-7-4.6"/>
+          </svg>
+        </div>
+        <h3>AI実装エンジニアを<br>安定供給。</h3>
+        <p>提携エンジニア3,200名超のプールから、案件要件にマッチする人材をAIスコアリングで自動抽出。「案件はあるのにエンジニアが足りない」を構造的に解決します。</p>
+        <span class="pillar-tag">⌗ — MATCH IN 5.2 DAYS AVG.</span>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-num">03 / BACKOFFICE</span>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>
+          </svg>
+        </div>
+        <h3>契約・請求・入金確認、<br>すべて自動化。</h3>
+        <p>クライアント・エンジニアとの契約書発行、月次請求、入金消し込み、与信、トラブル時の法務対応——全部システムが代行。あなたが触る事務は、ほぼゼロになります。</p>
+        <span class="pillar-tag">⚙ — FULLY AUTOMATED</span>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-num">04 / CAREER</span>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l3 6 6 .9-4.5 4.3 1.1 6.2L12 17.8 6.4 20.4l1.1-6.2L3 9.9 9 9z"/>
+          </svg>
+        </div>
+        <h3>営業ではなく、<br>「投資家」になる。</h3>
+        <p>SAKIGAKE上の案件は、転売・後輩への引継ぎ・チーム化が可能。あなたが構築したパイプラインは、独立後の会社の資産にもなります。「卒業」を前提に設計されています。</p>
+        <span class="pillar-tag">↗ — BUILD YOUR EQUITY</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIER STRUCTURE ============ -->
+<section class="tier" id="tier" data-screen-label="05 tier">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">04 / REVENUE TIER</span></div>
+      <div>
+        <h2 class="sec-title">料金は、<br>シンプルに「一律3万円」。</h2>
+        <p class="sec-lede">SAKIGAKEの料金体系は究極にシンプル。案件1件あたり月額3万円のプラットフォーム利用料のみ。案件規模や粗利額に関わらず定額です。粗利の残りは、全額あなたの報酬になります。</p>
+      </div>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier-card tier-base">
+        <span class="tier-tag">PLATFORM FEE</span>
+        <div class="tier-rate" style="display:flex;align-items:baseline;gap:4px"><span style="font-size:.4em;color:var(--ink-mute);font-weight:700">¥</span><span class="mono-num">3</span><span class="pct" style="font-size:.35em">万円<span style="font-size:.7em;color:var(--ink-mute);margin-left:2px">/案件/月</span></span></div>
+        <h4>一律プラットフォーム利用料</h4>
+        <p>案件の規模・粗利額に関わらず、1案件あたり月額3万円の定額制。案件数が増えても料率は変わりません。</p>
+        <ul class="tier-list">
+          <li>案件登録 → AIマッチング</li>
+          <li>契約・請求・入金代行</li>
+          <li>与信・法務サポート</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-plus">
+        <span class="tier-tag">YOUR PROFIT</span>
+        <div class="tier-rate" style="font-size:clamp(48px,6vw,80px)"><span class="mono-num" style="color:var(--ink)">粗利−3万</span></div>
+        <h4>あなたの取り分</h4>
+        <p>粗利からプラットフォーム利用料3万円を引いた全額が、あなたの報酬です。案件単価が高いほど、あなたの手取りが増えます。</p>
+        <ul class="tier-list">
+          <li><strong>例</strong> 粗利27万円の案件<small>→ あなたの取り分 24万円</small></li>
+          <li><strong>例</strong> 粗利40万円の案件<small>→ あなたの取り分 37万円</small></li>
+          <li><strong>例</strong> 粗利55万円の案件<small>→ あなたの取り分 52万円</small></li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-max">
+        <span class="tier-tag">ALL INCLUDED</span>
+        <div class="tier-rate"><span class="mono-num" style="font-size:clamp(48px,6vw,80px)">全込み</span></div>
+        <h4>3万円に含まれるもの</h4>
+        <p>別途費用は一切なし。すべてのバックオフィス機能が3万円に含まれています。</p>
+        <ul class="tier-list">
+          <li>エンジニアAIマッチング</li>
+          <li>契約書・NDA発行</li>
+          <li>月次請求・入金消し込み</li>
+          <li>与信審査・法務サポート</li>
+          <li>専属サクセス担当</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="tier-foot">※ プラットフォーム利用料3万円/案件/月は、与信審査・ファクタリング原価・契約／法務／システム運用・人件費に充てられます。％ベースのマージンを廃止し、業界で最も透明性の高い料金体系を実現しています。</p>
+  </div>
+</section>
+
+<!-- ============ SIMULATOR ============ -->
+<section class="sim" id="simulator" data-screen-label="06 simulator">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">05 / THE MATH</span></div>
+      <div>
+        <h2 class="sec-title">数字は、嘘をつかない。</h2>
+        <p class="sec-lede">同じ案件を持ち込んだとして、既存SES企業とSAKIGAKEで、あなたの手取りはどれだけ変わるか。一律3万円の定額モデルで試算してください。</p>
+      </div>
+    </div>
+
+    <div class="sim-body">
+      <!-- controls -->
+      <div class="sim-controls">
+        <h4>INPUT — あなたの想定</h4>
+
+        <div class="sim-field">
+          <label>月間獲得案件数 <span class="val mono-num"><span id="sim-cases">3</span><span class="unit">本</span></span></label>
+          <input type="range" id="r-cases" min="1" max="8" step="1" value="3">
+        </div>
+
+        <div class="sim-field">
+          <label>1案件あたり月額単価 <span class="val mono-num">¥<span id="sim-price">85</span><span class="unit">万</span></span></label>
+          <input type="range" id="r-price" min="50" max="150" step="5" value="85">
+        </div>
+
+        <div class="sim-field">
+          <label>1案件あたり原価率 <span class="val mono-num"><span id="sim-cost">68</span><span class="unit">%</span></span></label>
+          <input type="range" id="r-cost" min="55" max="80" step="1" value="68">
+        </div>
+
+        <div class="sim-field">
+          <label>稼働月数（年間） <span class="val mono-num"><span id="sim-months">12</span><span class="unit">ヶ月</span></span></label>
+          <input type="range" id="r-months" min="6" max="12" step="1" value="12">
+        </div>
+
+        <div class="sim-tiers">
+          <div class="sim-tiers-head">
+            <span>プラットフォーム利用料</span>
+            <span class="mono-num">¥3<span style="font-size:.6em;color:rgba(255,255,255,.5)">万/案件</span></span>
+          </div>
+          <div style="color:rgba(255,255,255,.7);font-size:13px;line-height:1.8;padding:4px 0">一律3万円/案件/月。案件規模に関わらず定額。<br>粗利 − 3万円 = あなたの報酬。</div>
+        </div>
+
+        <p class="sim-note">※ 既存SES：粗利の15%を営業インセンティブと想定<br>※ SAKIGAKE：プラットフォーム利用料 一律3万円/案件/月</p>
+      </div>
+
+      <!-- result -->
+      <div class="sim-result">
+        <div class="sim-card before">
+          <div class="sim-card-label">EXISTING SES</div>
+          <div class="sim-card-name">既存SES企業</div>
+          <div class="sim-card-num mono-num"><span class="yen">¥</span><span id="before-amount">489</span></div>
+          <div class="sim-card-suffix">万円 / 年（あなたの取り分）</div>
+          <div class="sim-card-meta">
+            <div><span>年間粗利</span><span class="mono-num">¥<span id="before-gross">979</span>万</span></div>
+            <div><span>還元率</span><span class="mono-num">15%</span></div>
+            <div><span>会社の取り分</span><span class="mono-num">¥<span id="before-co">831</span>万</span></div>
+          </div>
+        </div>
+
+        <div class="sim-card after">
+          <div class="sim-card-label">● SAKIGAKE</div>
+          <div class="sim-card-name">SAKIGAKE 経由</div>
+          <div class="sim-card-num mono-num"><span class="yen">¥</span><span id="after-amount">587</span></div>
+          <div class="sim-card-suffix">万円 / 年（あなたの取り分）</div>
+          <div class="sim-card-meta">
+            <div><span>年間粗利</span><span class="mono-num">¥<span id="after-gross">979</span>万</span></div>
+            <div><span>利用料</span><span class="mono-num">¥<span id="after-fee-per">3</span>万×<span id="after-cases-display">3</span>件</span></div>
+            <div><span>プラットフォーム利用料</span><span class="mono-num">¥<span id="after-fee">392</span>万</span></div>
+          </div>
+        </div>
+
+        <div class="sim-diff">
+          <div>
+            <div class="label-en">YOUR ANNUAL UPLIFT</div>
+            <div class="label-jp">あなたの年収、こんなに増える。</div>
+          </div>
+          <div class="num mono-num">+<span class="yen">¥</span><span id="diff-amount">440</span>万円 / 年</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section class="compare" id="compare" data-screen-label="06 compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">06 / SIDE BY SIDE</span></div>
+      <div>
+        <h2 class="sec-title">既存SES企業と、<br>SAKIGAKEの違い。</h2>
+        <p class="sec-lede">構造を見比べれば、なぜ既存の仕組みでは営業が報われないのかが分かります。SAKIGAKEは、営業を主役にして組み直したOSです。</p>
+      </div>
+    </div>
+
+    <div class="compare-table">
+      <div class="compare-row compare-head">
+        <div>COMPARISON AXIS</div>
+        <div class="col-them">既存SES企業</div>
+        <div class="col-us">SAKIGAKE</div>
+      </div>
+      <div class="compare-row">
+        <div class="axis">案件粗利の取り分</div>
+        <div class="them">10〜20%（インセンティブ）</div>
+        <div class="us">粗利 − 3万円/案件（残り全額）</div>
+      </div>
+      <div class="compare-row">
+        <div class="axis">案件の帰属</div>
+        <div class="them">会社の資産（退職時に失う）</div>
+        <div class="us">あなたの資産（持ち出し可能）</div>
+      </div>
+      <div class="compare-row">
+        <div class="axis">エンジニア確保</div>
+        <div class="them">自社プール頼み・空き次第</div>
+        <div class="us">3,200名超からAIマッチング</div>
+      </div>
+      <div class="compare-row">
+        <div class="axis">契約・請求業務</div>
+        <div class="them">営業/管理が手作業で対応</div>
+        <div class="us">システムが全自動で代行</div>
+      </div>
+      <div class="compare-row">
+        <div class="axis">入金リスク</div>
+        <div class="them">回収まで個人が責任を負うことも</div>
+        <div class="us">与信審査代行・ファクタリング対応（オプション）</div>
+      </div>
+      <div class="compare-row">
+        <div class="axis">評価制度</div>
+        <div class="them">上長判断・年1〜2回の査定</div>
+        <div class="us">売上連動・査定なし</div>
+      </div>
+      <div class="compare-row">
+        <div class="axis">独立への道筋</div>
+        <div class="them">退職してゼロから再スタート</div>
+        <div class="us">案件を持ったまま法人化が可能</div>
+      </div>
+      <div class="compare-row">
+        <div class="axis">立場</div>
+        <div class="them">会社員（労務管理下）</div>
+        <div class="us">業務委託 / 個人事業主 / 法人</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="flow" data-screen-label="07 flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">07 / HOW IT WORKS</span></div>
+      <div>
+        <h2 class="sec-title">登録から初報酬まで、<br>最短2週間。</h2>
+        <p class="sec-lede">既存の案件をそのまま持ち込むことも、SAKIGAKE経由で新規開拓することも可能。あなたの今の動き方を、そのままアップグレードできます。</p>
+      </div>
+    </div>
+
+    <div class="flow-grid">
+      <div class="flow-step">
+        <span class="flow-num">STEP 01</span>
+        <h4>面談・与信審査</h4>
+        <p>営業経験・既存パイプラインをヒアリング。簡単な与信審査の後、SAKIGAKEのアカウントが発行されます。</p>
+        <span class="time">— 3〜5 days</span>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">STEP 02</span>
+        <h4>案件登録 / エンジニア依頼</h4>
+        <p>既存案件 or 新規案件を登録。要件を入力すれば、AIマッチングで候補エンジニアが提示されます。</p>
+        <span class="time">— same day</span>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">STEP 03</span>
+        <h4>契約・参画</h4>
+        <p>クライアント・エンジニア双方の契約書発行、NDA、機密保持、入場手続きまで全自動で完了。</p>
+        <span class="time">— 5〜7 days</span>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">STEP 04</span>
+        <h4>毎月、自動で入金</h4>
+        <p>稼働開始の翌月末、粗利から利用料3万円を差し引いた全額を指定口座へ。請求・回収・入金消し込みはすべて代行します。</p>
+        <span class="time">— recurring</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION ============ -->
+<section class="vision" data-screen-label="08 vision">
+  <div class="wrap vision-inner">
+    <div class="sec-head">
+      <div><span class="sec-num">08 / NEXT CHAPTER</span></div>
+      <div>
+        <p class="eyebrow">GRADUATION FROM SES SALES</p>
+        <h2 class="vision-title">
+          <span class="ot strk">「インセン待ちの会社員」</span><br>
+          という働き方を、<br>
+          <span class="new">卒業する。</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="vision-body">
+      <div class="vision-card">
+        <span class="lab">YEAR 01</span>
+        <h4>「営業の人」から、<br>「案件オーナー」へ。</h4>
+        <p>所属に縛られず、自分の名前で案件を回す感覚を取り戻す。手取りが増え、評価面談から解放される最初の年。</p>
+        <span class="arrow">→ 平均年収 +280万円</span>
+      </div>
+      <div class="vision-card">
+        <span class="lab">YEAR 02</span>
+        <h4>「個人」から、<br>「チーム」へ。</h4>
+        <p>SAKIGAKE上で後輩営業・パートナーを巻き込み、チームで案件を回す。あなたは元締めとして取りまとめ分も収益化。</p>
+        <span class="arrow">→ パイプライン化が進む</span>
+      </div>
+      <div class="vision-card">
+        <span class="lab">YEAR 03+</span>
+        <h4>「業務委託」から、<br>「経営者」へ。</h4>
+        <p>案件・エンジニア・収益基盤を持ったまま法人化。SAKIGAKEは引き続きインフラとして使い続けることができます。</p>
+        <span class="arrow">→ 持ち出し独立可能</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq" data-screen-label="09 faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">09 / FAQ</span></div>
+      <div>
+        <h2 class="sec-title">よくある質問。</h2>
+        <p class="sec-lede">「結局、何かカラクリがあるのでは？」——その疑問に、構造で答えます。</p>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary><span class="q-en">Q.01</span><span>なぜ一律3万円でサービスを提供できるのですか？</span></summary>
+        <div class="a">SAKIGAKEは、契約・請求・入金管理をシステムで自動化し、エンジニアマッチングもAIで効率化しているため、運営コストを極限まで抑えています。本社機能と中間管理層を手厚く抱える既存SES企業とは構造が根本的に異なります。1案件あたり3万円で、与信審査・ファクタリング原価・契約／法務／システム運用・人件費をすべてカバーできる仕組みを構築しています。</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="q-en">Q.02</span><span>入金トラブルは、運営がすべて補填してくれるのですか？</span></summary>
+        <div class="a">完全保証ではありません。クライアント企業との取引開始時に与信審査を行い、未回収リスクを事前に控除します。ご希望される案件については、提携ファクタリング会社を介した買取や保証サービス（手数料17〜18%程度、選択制）をご用意しています。個人が訴訟リスクを負わないための法務サポートは、プラットフォーム標準で提供します。</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="q-en">Q.03</span><span>今の会社を辞めずに、副業から始められますか？</span></summary>
+        <div class="a">可能です。多くの方が、まずは1案件のみSAKIGAKEで回して感覚を掴み、軌道に乗ってから本業をシフトしています。本業との競業避止義務を確認のうえ、副業範囲のご相談から始めてください。</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="q-en">Q.04</span><span>持ち出した案件で、クライアント側に問題は起きませんか？</span></summary>
+        <div class="a">SAKIGAKEは、クライアント企業に対しても透明性のある契約を提供します。実際には「営業担当者がより手厚く担当してくれるようになった」「請求書のフォーマットが洗練された」と好評を得ています。事前に契約形態のすり合わせサポートも行います。</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="q-en">Q.05</span><span>エンジニアの質は担保されていますか？</span></summary>
+        <div class="a">3,200名超の提携エンジニアは、スキル・参画実績・コミュニケーション評価の3軸でスコアリングされています。案件要件に対して、過去マッチングデータをもとに上位候補のみが提示されるため、ハズレ確率は最小化されています。</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="q-en">Q.06</span><span>所属形態は、業務委託になりますか？</span></summary>
+        <div class="a">原則として個人事業主 or 法人としての業務委託契約となります。社会保険等のサポートも提携先を通じて利用可能です。雇用契約を希望される場合の選択肢も用意しています。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="cta" data-screen-label="10 cta">
+  <div class="wrap cta-grid">
+    <span class="eyebrow cta-eyebrow">READY TO LEAVE THE CAGE?</span>
+    <h2>あなたの営業力を、<br>会社のものに<br>させ続ける<span class="accent">理由は、もうない</span>。</h2>
+    <p class="cta-sub">完全オンラインで完結。まずは資料を受け取って構造を理解する。もしくは少人数の説明会で直接質問する——あなたのペースで進められる2つの入口を用意しています。</p>
+
+    <div class="cta-tabs" role="tablist">
+      <button class="cta-tab active" data-tab="doc" role="tab" aria-selected="true">
+        <span class="tab-num">01</span>
+        <span class="tab-label">資料請求<small>規約・報酬シミュレーション</small></span>
+      </button>
+      <button class="cta-tab" data-tab="seminar" role="tab" aria-selected="false">
+        <span class="tab-num">02</span>
+        <span class="tab-label">説明会に参加<small>少人数・オンライン・60分</small></span>
+      </button>
+      <button class="cta-tab" data-tab="meeting" role="tab" aria-selected="false">
+        <span class="tab-num">03</span>
+        <span class="tab-label">個別面談を予約<small>1対1・45分・秘密厳守</small></span>
+      </button>
+    </div>
+
+    <!-- TAB 01: 資料請求 -->
+    <div class="cta-panel active" data-panel="doc">
+      <div class="cta-pack">
+        <div>
+          <h4>RESOURCE PACKAGE — 同梱内容</h4>
+          <div class="cta-pack-items">
+            <div>サービス規約（全文PDF）</div>
+            <div>報酬シミュレーション資料</div>
+            <div>契約・請求フローのサンプル</div>
+            <div>提携エンジニア・案件カテゴリ一覧</div>
+            <div>料金体系の解説</div>
+            <div>独立形態別のFAQ集</div>
+          </div>
+        </div>
+      </div>
+      <form class="cta-form" onsubmit="event.preventDefault();alert('資料を送信しました。\nメールをご確認ください。')">
+        <input type="email" placeholder="your.name@email.com" required>
+        <button class="cta-btn" type="submit">資料を受け取る<span class="arr">→</span></button>
+      </form>
+      <p class="cta-fine">※ 3分以内に登録メールアドレスに資料をお送りします。営業電話は一切行いません。</p>
+    </div>
+
+    <!-- TAB 02: 説明会 -->
+    <div class="cta-panel" data-panel="seminar">
+      <div class="cta-pack">
+        <div>
+          <h4>SEMINAR — 説明会で扱う内容</h4>
+          <div class="cta-pack-items">
+            <div>SAKIGAKEの収益構造（運営原価まで開示）</div>
+            <div>料金体系と収益シミュレーション</div>
+            <div>既存案件を持ち込む際の進め方</div>
+            <div>独立／副業／法人化それぞれのパス</div>
+            <div>質疑応答（30分／最大8名）</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-dates">
+        <span class="dates-label">UPCOMING SESSIONS</span>
+        <div class="dates-grid" id="dates-grid">
+          <label class="date-card">
+            <input type="radio" name="seminar" value="2026-06-04">
+            <div class="date-day"><span class="d-num">04</span><span class="d-mo">JUN</span></div>
+            <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">19:30 – 20:30</span><span class="d-tag">残 3名</span></div>
+          </label>
+          <label class="date-card">
+            <input type="radio" name="seminar" value="2026-06-11">
+            <div class="date-day"><span class="d-num">11</span><span class="d-mo">JUN</span></div>
+            <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">12:00 – 13:00</span><span class="d-tag">ランチ枠</span></div>
+          </label>
+          <label class="date-card">
+            <input type="radio" name="seminar" value="2026-06-15">
+            <div class="date-day"><span class="d-num">15</span><span class="d-mo">JUN</span></div>
+            <div class="date-meta"><span class="d-wk">月曜日</span><span class="d-time">21:00 – 22:00</span><span class="d-tag">残 6名</span></div>
+          </label>
+          <label class="date-card">
+            <input type="radio" name="seminar" value="2026-06-22">
+            <div class="date-day"><span class="d-num">22</span><span class="d-mo">JUN</span></div>
+            <div class="date-meta"><span class="d-wk">月曜日</span><span class="d-time">19:30 – 20:30</span><span class="d-tag">受付中</span></div>
+          </label>
+          <label class="date-card soldout">
+            <input type="radio" name="seminar" value="" disabled>
+            <div class="date-day"><span class="d-num">28</span><span class="d-mo">JUN</span></div>
+            <div class="date-meta"><span class="d-wk">日曜日</span><span class="d-time">15:00 – 16:00</span><span class="d-tag">満席</span></div>
+          </label>
+        </div>
+      </div>
+
+      <form class="cta-form" onsubmit="event.preventDefault();var d=document.querySelector('input[name=seminar]:checked');if(!d){alert('参加日を選択してください');return false}alert('説明会のお申込みを受け付けました。\n参加URLをメールでお送りします。')">
+        <input type="email" placeholder="your.name@email.com" required>
+        <button class="cta-btn" type="submit">説明会に申し込む<span class="arr">→</span></button>
+      </form>
+      <p class="cta-fine">※ Zoom開催。カメラOFF・名前非表示での参加もOK。会社にバレずに情報収集できます。</p>
+    </div>
+
+    <!-- TAB 03: 個別面談 -->
+    <div class="cta-panel" data-panel="meeting">
+      <div class="cta-pack">
+        <div>
+          <h4>1-ON-1 — 個別面談で確認できること</h4>
+          <div class="cta-pack-items">
+            <div>あなたの既存案件をSAKIGAKEで回した場合の試算</div>
+            <div>持ち込みエンジニアの条件確認</div>
+            <div>現職との競業避止に関する個別相談</div>
+            <div>法人化／個人事業主スキームのアドバイス</div>
+            <div>秘密厳守（NDA締結可）</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-meeting-fields">
+        <div class="m-field">
+          <label>お名前（ニックネーム可）</label>
+          <input type="text" placeholder="例：佐藤 / 営業歴8年" required>
+        </div>
+        <div class="m-field">
+          <label>メールアドレス</label>
+          <input type="email" placeholder="your.name@email.com" required>
+        </div>
+        <div class="m-field m-field-full">
+          <label>ご相談内容（任意）</label>
+          <textarea rows="3" placeholder="現職の状況、独立のタイミング、相談したいことなど"></textarea>
+        </div>
+      </div>
+
+      <form class="cta-form" onsubmit="event.preventDefault();alert('個別面談のリクエストを受け付けました。\n2営業日以内に日程候補をお送りします。')">
+        <button class="cta-btn cta-btn-full" type="submit">日程候補を受け取る<span class="arr">→</span></button>
+      </form>
+      <p class="cta-fine">※ 平日19:00〜23:00、土日も対応可。お問い合わせ後、2営業日以内に担当者からご連絡します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer data-screen-label="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><span class="brand-mark"></span><span style="color:#fff">SAKIGAKE</span></div>
+        <p>SES営業のための、独立OS。<br>マージン構造を捨て、自分のパイプラインを持つすべての営業へ。</p>
+      </div>
+      <div class="foot-col">
+        <h5>PRODUCT</h5>
+        <a href="#solution">仕組み</a>
+        <a href="#simulator">報酬試算</a>
+        <a href="#compare">既存SESとの比較</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>COMPANY</h5>
+        <a href="#">会社情報</a>
+        <a href="#">ニュース</a>
+        <a href="#">採用</a>
+        <a href="#">パートナー</a>
+      </div>
+      <div class="foot-col">
+        <h5>LEGAL</h5>
+        <a href="#">利用規約</a>
+        <a href="#">プライバシー</a>
+        <a href="#">特定商取引法</a>
+        <a href="#">セキュリティ</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 SAKIGAKE INC. ALL RIGHTS RESERVED.</div>
+      <div>BUILT FOR SES SALES PROFESSIONALS / v.1.0</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ────── Simulator ──────
+  (function(){
+    const $ = id => document.getElementById(id);
+    const fmt = n => Math.round(n).toLocaleString('ja-JP');
+
+    function recalc(){
+      const cases = +$('r-cases').value;
+      const priceMan = +$('r-price').value;       // 万円
+      const costRate = +$('r-cost').value / 100;
+      const months = +$('r-months').value;
+
+      // 月額売上 (万円)
+      const monthlyRev = cases * priceMan;
+      // 月次粗利
+      const monthlyGross = monthlyRev * (1 - costRate);
+      // 年次粗利
+      const yearlyGross = monthlyGross * months;
+
+      // プラットフォーム利用料: 3万円/案件/月
+      const platformFee = cases * 3 * months; // 万円
+
+      const beforeShare = 0.15;
+      const beforeAmt = yearlyGross * beforeShare;
+      const afterAmt = yearlyGross - platformFee;
+      const beforeCo = yearlyGross * (1 - beforeShare);
+
+      $('sim-cases').textContent = cases;
+      $('sim-price').textContent = priceMan;
+      $('sim-cost').textContent = +$('r-cost').value;
+      $('sim-months').textContent = months;
+      $('after-cases-display').textContent = cases;
+
+      $('before-amount').textContent = fmt(beforeAmt);
+      $('after-amount').textContent  = fmt(afterAmt);
+      $('before-gross').textContent  = fmt(yearlyGross);
+      $('after-gross').textContent   = fmt(yearlyGross);
+      $('before-co').textContent     = fmt(beforeCo);
+      $('after-fee').textContent     = fmt(platformFee);
+      $('diff-amount').textContent   = fmt(afterAmt - beforeAmt);
+    }
+    ['r-cases','r-price','r-cost','r-months'].forEach(id=>{
+      $(id).addEventListener('input', recalc);
+    });
+    recalc();
+  })();
+
+  // ────── CTA Tabs ──────
+  document.querySelectorAll('.cta-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.cta-tab').forEach(t=>{
+        const on = t.dataset.tab === target;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on);
+      });
+      document.querySelectorAll('.cta-panel').forEach(p=>{
+        p.classList.toggle('active', p.dataset.panel === target);
+      });
+    });
+  });
+
+  // ────── Reveal ──────
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  },{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ────── Smooth scroll ──────
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id = a.getAttribute('href');
+      if(id.length<2) return;
+      const el = document.querySelector(id);
+      if(el){ e.preventDefault(); window.scrollTo({top:el.offsetTop-56,behavior:'smooth'}); }
+    });
+  });
+</script>
+</body>
+</html>
