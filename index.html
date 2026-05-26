@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SAKIGAKE — 会社のマージンを、あなたの報酬に変えろ。</title>
+<title>SAKIGAKE — 次世代SESエージェントファーム</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,10 +93,16 @@
   .hero-meta .v small{color:rgba(255,255,255,.4)}
 
   .hero-visual{position:relative;height:100%;min-height:auto;display:flex;align-items:center;justify-content:center}
-  .hero-people-visual{min-height:420px;align-items:flex-end}
-  .hero-people-visual img{transition:transform .4s ease}
-  @media(max-width:980px){.hero-people-visual{min-height:300px}}
-  @media(max-width:780px){.hero-people-visual{min-height:220px}}
+  .hero-people-visual{display:flex;align-items:flex-end;justify-content:center;gap:0;min-height:500px;padding:0;margin:0 -20px}
+  .hp{flex-shrink:0;width:22%;position:relative;filter:drop-shadow(0 10px 40px rgba(0,0,0,.5));transition:transform .4s ease}
+  .hp:hover{transform:translateY(-8px) scale(1.02);z-index:10}
+  .hp[data-i="1"]{align-self:flex-end;margin-bottom:40px;z-index:1;margin-right:-15px}
+  .hp[data-i="2"]{align-self:flex-end;margin-bottom:0;z-index:3;margin-right:-15px;width:24%}
+  .hp[data-i="3"]{align-self:flex-end;margin-bottom:60px;z-index:5;width:26%;margin-right:-15px}
+  .hp[data-i="4"]{align-self:flex-end;margin-bottom:15px;z-index:2;margin-right:-15px;width:23%}
+  .hp[data-i="5"]{align-self:flex-end;margin-bottom:50px;z-index:1;width:21%}
+  @media(max-width:980px){.hero-people-visual{min-height:350px}.hp{width:24%}}
+  @media(max-width:780px){.hero-people-visual{min-height:200px;margin:0 -10px}.hp{width:26%;margin-right:-10px !important}}
   .hero-card{background:rgba(255,255,255,.04);color:#fff;border-radius:24px;padding:44px 40px;width:100%;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);box-shadow:0 40px 100px -30px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06)}
   .hero-card::before{content:"";position:absolute;inset:auto -20% -40% auto;width:400px;height:400px;background:radial-gradient(closest-side, rgba(0,229,160,.2), transparent 70%);pointer-events:none}
   .hero-card::after{content:"";position:absolute;top:-20%;left:-20%;width:300px;height:300px;background:radial-gradient(closest-side, rgba(0,150,255,.1), transparent 70%);pointer-events:none}
@@ -459,20 +465,20 @@
     <div class="hero-inner">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">SES営業の独立支援プラットフォーム</span>
+        <span class="eyebrow">次世代SESエージェントファーム</span>
         <h1>
-          会社のマージンを、<br>
-          <span class="accent">あなたの報酬</span>に変える。
-          <span class="small">SAKIGAKE — SES営業が「自分の名前」で稼ぐための仕組み</span>
+          SESのプロが集まる、<br>
+          <span class="accent">新しい働き方</span>のかたち。
+          <span class="small">SAKIGAKE — フリーランスエージェントとして、自由に、もっと稼ぐ</span>
         </h1>
         <p class="hero-sub">
-          SAKIGAKEは、SES営業が独立して<br>
-          <strong style="color:#fff;font-weight:900">案件の粗利を直接受け取れる</strong>プラットフォーム。<br>
-          契約・請求・入金管理はすべて自動化。<br>
-          あなたは営業だけに集中できます。<br><br>
+          SAKIGAKEは、SESのプロフェッショナルが集まる<br>
+          <strong style="color:#fff;font-weight:900">次世代SESエージェントファーム</strong>です。<br>
+          フリーランスとして自由な場所・時間で活動しながら、<br>
+          契約・請求・入金管理はすべてSAKIGAKEが代行。<br><br>
           60万の案件 → エンジニアに48万（80%還元）<br>
-          → うちが貰うのは<strong style="color:#fff;font-weight:900">3万円（税別）だけ</strong>。<br>
-          <strong style="color:var(--accent);font-weight:900">残り9万円は、全部あなたの口座へ。</strong>
+          → SAKIGAKEの手数料は<strong style="color:#fff;font-weight:900">3万円（税別）だけ</strong>。<br>
+          <strong style="color:var(--accent);font-weight:900">残り9万円は、全部あなたの報酬に。</strong>
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">まず資料だけ見てみる<span class="arr">→</span></a>
@@ -487,9 +493,11 @@
       </div>
 
       <div class="hero-visual hero-people-visual">
-        <img src="person4.png" alt="" class="hero-person-main" style="position:absolute;left:0;bottom:0;width:55%;filter:drop-shadow(0 10px 30px rgba(0,0,0,.4))">
-        <img src="person2.png" alt="" class="hero-person-main" style="position:absolute;right:5%;bottom:0;width:50%;filter:drop-shadow(0 10px 30px rgba(0,0,0,.4))">
-        <img src="person3.png" alt="" class="hero-person-main" style="position:absolute;left:30%;bottom:0;width:52%;z-index:2;filter:drop-shadow(0 10px 30px rgba(0,0,0,.4))">
+        <img src="person1.png" alt="" class="hp" data-i="1">
+        <img src="person4.png" alt="" class="hp" data-i="2">
+        <img src="person3.png" alt="" class="hp" data-i="3">
+        <img src="person2.png" alt="" class="hp" data-i="4">
+        <img src="person5.png" alt="" class="hp" data-i="5">
       </div>
     </div>
     </div><!-- /.hero-inner -->
@@ -537,7 +545,7 @@
       </div>
       <div class="problem-row">
         <span class="idx">02</span>
-        <span class="q">独立したい。でも契約書とか請求書とか、営業以外の仕事が怖くて踏み出せない。</span>
+        <span class="q">フリーランスでやりたい。でも契約書とか請求書とか、営業以外の仕事が怖くて踏み出せない。</span>
         <span class="pct-big mono-num">71<small>%</small></span>
       </div>
       <div class="problem-row">
@@ -570,16 +578,16 @@
       <div>
         <span class="eyebrow">SAKIGAKEの仕組み</span>
         <h2>
-          <span class="strike">会社のコマ</span><span style="display:inline-block">を辞めて、</span><br>
-          <span class="hl">自分の看板</span><span style="display:inline-block">で稼ぐ。</span>
+          <span class="strike">会社の歯車</span><span style="display:inline-block">から、</span><br>
+          <span class="hl">フリーランスエージェント</span><span style="display:inline-block">へ。</span>
         </h2>
         <p class="solution-body">
           やることは今と同じ。案件を獲って、エンジニアを提案するだけ。<br><br>
           違うのは、<strong style="color:var(--ink)">お金の流れ</strong>。<br>
           60万の案件 → エンジニアに48万（80%還元） → 粗利12万。<br>
-          ここからうちが貰うのは<strong style="color:var(--ink)">3万円（税別）だけ</strong>。<br>
-          <strong style="color:var(--ink)">残り9万円、全部あなた。</strong><br><br>
-          契約書も請求書も入金確認も、全部こっちがやります。<br>
+          SAKIGAKEの手数料は<strong style="color:var(--ink)">3万円（税別）だけ</strong>。<br>
+          <strong style="color:var(--ink)">残り9万円、全部あなたの報酬。</strong><br><br>
+          契約書も請求書も入金確認も、SAKIGAKEが代行。<br>
           エンジニア探しはあなた自身で。あなたは「売る」ことだけに集中してください。
         </p>
         <div class="solution-sign">— 10人回せば、月収70万円。</div>
@@ -591,7 +599,7 @@
         <span class="sc-corner"></span>
         <div class="sc-circle"></div>
         <div class="sc-name">SAKIGAKE<span class="dot">.</span></div>
-        <div class="sc-tag">先駆 — 会社のマージンを、あなたの報酬に変える。</div>
+        <div class="sc-tag">先駆 — 次世代SESエージェントファーム</div>
       </div>
     </div>
   </div>
@@ -603,8 +611,8 @@
     <div class="sec-head">
       <div><span class="sec-num">03</span></div>
       <div>
-        <h2 class="sec-title">「独立が怖い」を<br>全部つぶす<br>4つの武器。</h2>
-        <p class="sec-lede">独立できない理由って結局「お金の計算が不安」「事務が面倒」「失敗したら終わり」。SAKIGAKEは、これを全部引き受けます。</p>
+        <h2 class="sec-title">「フリーランスは不安」を<br>全部つぶす<br>4つの武器。</h2>
+        <p class="sec-lede">踏み出せない理由って結局「お金の計算が不安」「事務が面倒」「失敗したら終わり」。SAKIGAKEが全部バックアップします。</p>
       </div>
     </div>
 
@@ -641,7 +649,7 @@
           </svg>
         </div>
         <h3>めんどくさい事務、<br>全部こっちがやる。</h3>
-        <p>契約書・請求書・入金確認・与信・法務——「営業以外の仕事」が嫌で独立を諦めてたなら、もう大丈夫。全部うちのシステムが自動でやります。あなたが触る事務はゼロ。</p>
+        <p>契約書・請求書・入金確認・与信・法務——「営業以外の仕事」が不安で踏み出せなかったなら、もう大丈夫。全部SAKIGAKEのシステムが自動でやります。あなたが触る事務はゼロ。</p>
         <span class="pillar-tag">事務作業ゼロ</span>
       </div>
 
@@ -868,7 +876,7 @@
       <div><span class="sec-num">07</span></div>
       <div>
         <h2 class="sec-title">始め方は、<br>びっくりするほど簡単。</h2>
-        <p class="sec-lede">「独立」って聞くと大ごとに感じますが、やることは今と同じ。案件を獲って、エンジニアを提案するだけ。お金の振込先が変わるだけです。</p>
+        <p class="sec-lede">やることは今と同じ。案件を獲って、エンジニアを提案するだけ。違うのは、報酬の受け取り方だけです。</p>
       </div>
     </div>
 
@@ -907,11 +915,11 @@
     <div class="sec-head">
       <div><span class="sec-num">08</span></div>
       <div>
-        <p class="eyebrow">SES営業からの卒業</p>
+        <p class="eyebrow">SAKIGAKEで描く未来</p>
         <h2 class="vision-title">
-          <span class="ot strk">「誰かの数字」</span>を作る<br>
-          人生は、もう<br>
-          <span class="new">終わりにする。</span>
+          <span class="ot strk">「会社の数字」</span>のために<br>
+          働く時代は、<br>
+          <span class="new">もう終わり。</span>
         </h2>
       </div>
     </div>
@@ -926,14 +934,14 @@
       <div class="vision-card">
         <span class="lab">2年目</span>
         <h4>後輩に声をかけて<br>チームを作る。</h4>
-        <p>「俺も独立したい」という仲間をSAKIGAKEに誘う。チームで回せば、あなたは売らなくても収益が入る仕組みへ。</p>
+        <p>「俺もSAKIGAKEでやりたい」という仲間を誘う。チームで回せば、あなたは売らなくても収益が入る仕組みへ。</p>
         <span class="arrow">→ 売らなくても稼げる状態</span>
       </div>
       <div class="vision-card">
         <span class="lab">3年目〜</span>
-        <h4>気づいたら、<br>社長になってた。</h4>
-        <p>案件もエンジニアも顧客も全部あなたの資産。法人化して、かつての同僚が「すごいな」と言うポジションへ。</p>
-        <span class="arrow">→ 案件を持ったまま法人化</span>
+        <h4>気づいたら、<br>自分のチームができてた。</h4>
+        <p>案件もエンジニアも顧客も全部あなたの資産。チームを拡大して、かつての同僚が「すごいな」と言うポジションへ。</p>
+        <span class="arrow">→ 自分のチームで事業拡大</span>
       </div>
     </div>
   </div>
@@ -972,8 +980,8 @@
         <div class="a">はい。エンジニア探しはあなた自身で行っていただきます。SES営業としての人脈やネットワークを活かして、信頼できるエンジニアを直接アサインできるのが強みです。あなたが選んだ人だから、品質も関係性も安心です。</div>
       </details>
       <details class="faq-item">
-        <summary><span class="q-en">質問6</span><span>雇用契約じゃないよね？</span></summary>
-        <div class="a">個人事業主 or 法人としての業務委託です。「雇われてない」から、自分のペースで働けます。社保が不安な方には提携先を紹介してます。</div>
+        <summary><span class="q-en">質問6</span><span>どんな契約形態？</span></summary>
+        <div class="a">フリーランスとしての業務委託契約です。自分のペースで、自由な場所・時間で活動できます。社保が不安な方には提携先を紹介してます。</div>
       </details>
     </div>
   </div>
@@ -1012,7 +1020,7 @@
             <div>契約・請求フローのサンプル</div>
             <div>案件カテゴリ一覧</div>
             <div>料金体系の解説</div>
-            <div>独立形態別のFAQ集</div>
+            <div>働き方別のFAQ集</div>
           </div>
         </div>
       </div>
@@ -1032,7 +1040,7 @@
             <div>SAKIGAKEの収益構造（運営原価まで開示）</div>
             <div>料金体系と収益シミュレーション</div>
             <div>既存案件を持ち込む際の進め方</div>
-            <div>独立／副業／法人化それぞれのパス</div>
+            <div>フリーランス／副業／法人化それぞれのパス</div>
             <div>質疑応答（30分／最大8名）</div>
           </div>
         </div>
@@ -1102,7 +1110,7 @@
         </div>
         <div class="m-field m-field-full">
           <label>ご相談内容（任意）</label>
-          <textarea rows="3" placeholder="現職の状況、独立のタイミング、相談したいことなど"></textarea>
+          <textarea rows="3" placeholder="現職の状況、参加のタイミング、相談したいことなど"></textarea>
         </div>
       </div>
 
@@ -1120,7 +1128,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="brand"><span class="brand-mark"></span><span style="color:#fff">SAKIGAKE</span></div>
-        <p>SES営業のための、独立プラットフォーム。<br>マージン構造を捨て、自分のパイプラインを持つすべての営業へ。</p>
+        <p>次世代SESエージェントファーム。<br>SESのプロフェッショナルが集まり、自由に稼ぐ場所。</p>
       </div>
       <div class="foot-col">
         <h5>サービス</h5>
@@ -1146,7 +1154,7 @@
     </div>
     <div class="foot-bottom">
       <div>© 2026 SAKIGAKE</div>
-      <div>SES営業のためのプラットフォーム</div>
+      <div>次世代SESエージェントファーム</div>
     </div>
   </div>
 </footer>
