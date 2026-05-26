@@ -79,14 +79,14 @@
   .hero-meta .v{font-size:18px;font-weight:700}
 
   .hero-visual{position:relative;height:100%;min-height:480px;display:flex;align-items:flex-end;justify-content:center}
-  .hero-card{background:var(--ink);color:#fff;border-radius:20px;padding:36px;width:100%;position:relative;overflow:hidden;box-shadow:0 30px 80px -30px rgba(10,10,10,.4)}
+  .hero-card{background:var(--ink);color:#fff;border-radius:20px;padding:48px 40px;width:100%;position:relative;overflow:hidden;box-shadow:0 30px 80px -30px rgba(10,10,10,.4)}
   .hero-card::before{content:"";position:absolute;inset:auto -20% -40% auto;width:340px;height:340px;background:radial-gradient(closest-side, rgba(0,229,160,.35), transparent 70%)}
   .hero-card-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
   .hero-card-label{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700}
   .hero-card-dot{width:8px;height:8px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 4px rgba(0,229,160,.18)}
-  .hero-card-num{font-family:var(--en);font-weight:900;font-size:clamp(96px,12vw,160px);line-height:.85;letter-spacing:-.04em;margin:36px 0 8px;color:#fff;position:relative}
-  .hero-card-num .pct{color:var(--accent);font-size:.5em;vertical-align:.4em;margin-left:.05em}
-  .hero-card-desc{color:rgba(255,255,255,.7);font-size:13px;max-width:280px;position:relative}
+  .hero-card-num{font-family:var(--en);font-weight:900;font-size:clamp(120px,16vw,200px);line-height:.82;letter-spacing:-.04em;margin:28px 0 4px;color:var(--accent);position:relative;text-shadow:0 0 60px rgba(0,229,160,.35)}
+  .hero-card-num .pct{color:#fff;font-size:.35em;vertical-align:.15em;margin-left:.08em;font-weight:700;text-shadow:none}
+  .hero-card-desc{color:rgba(255,255,255,.75);font-size:15px;max-width:360px;position:relative;line-height:1.8}
   .hero-card-row{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);position:relative}
   .hero-card-tag{font-family:var(--en);font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.5)}
   .hero-card-arrow{width:36px;height:36px;border-radius:99px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-size:14px}
@@ -427,16 +427,16 @@
         </h1>
         <p class="hero-sub">
           あなたが獲ってきた案件の利益、その大半は今、会社のものになっている。<br>
-          SAKIGAKEは、プラットフォーム利用料<strong style="color:var(--ink);font-weight:900">一律3万円/案件</strong>のみ。粗利の残りは全てあなたのものです。エンジニア確保・契約・請求・入金管理——独立のすべての面倒を、私たちが引き受けます。
+          SAKIGAKEは、エンジニアに<strong style="color:var(--ink);font-weight:900">80%還元</strong>。60万円の案件なら弊社の取り分は<strong style="color:var(--ink);font-weight:900">たった3万円（税別）</strong>。残りの粗利は全て営業担当者に還元します。<strong style="color:var(--ink);font-weight:900">10人稼働で月収70万円</strong>も可能です。
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">資料・報酬シミュレーションを受け取る<span class="arr">→</span></a>
           <a class="btn btn-ghost" href="#simulator">先に試算してみる</a>
         </div>
         <div class="hero-meta">
-          <div><span class="k">PLATFORM FEE</span><span class="v mono-num">¥3<small style="font-size:.5em">万/案件</small></span></div>
-          <div><span class="k">ENGINEERS</span><span class="v mono-num">3,200<small style="font-size:.5em">+ 名</small></span></div>
-          <div><span class="k">AVG MATCHING</span><span class="v mono-num">5.2<small style="font-size:.5em"> 日</small></span></div>
+          <div><span class="k">PLATFORM FEE</span><span class="v mono-num">¥3<small style="font-size:.5em">万(税別)/案件</small></span></div>
+          <div><span class="k">ENGINEER SHARE</span><span class="v mono-num">80<small style="font-size:.5em">%還元</small></span></div>
+          <div><span class="k">10人稼働時</span><span class="v mono-num">70<small style="font-size:.5em">万円/月</small></span></div>
           <div><span class="k">BACKOFFICE</span><span class="v">フル代行</span></div>
         </div>
       </div>
@@ -445,14 +445,14 @@
         <div class="hero-card">
           <div class="sc-grid" style="opacity:.5"></div>
           <div class="hero-card-top">
-            <span class="hero-card-label">PLATFORM FEE — FLAT</span>
+            <span class="hero-card-label">PLATFORM FEE — PER DEAL</span>
             <span class="hero-card-dot"></span>
           </div>
-          <div class="hero-card-num mono-num">¥3<span class="pct">万</span></div>
-          <div style="font-family:var(--jp);font-weight:900;font-size:clamp(20px,2.8vw,32px);color:#fff;margin:12px 0 8px;position:relative;line-height:1.4">一律、案件あたり。</div>
-          <div class="hero-card-desc" style="font-size:15px;max-width:340px">プラットフォーム利用料は一律3万円/案件。案件の規模に関わらず定額。粗利の残りは全てあなたの報酬になります。</div>
+          <div class="hero-card-num mono-num">3<span class="pct">万円</span></div>
+          <div style="font-family:var(--jp);font-weight:900;font-size:clamp(18px,2.4vw,26px);color:rgba(255,255,255,.6);margin:8px 0 16px;position:relative;line-height:1.4;letter-spacing:.06em">（税別）/ 案件</div>
+          <div class="hero-card-desc">60万円の案件 → エンジニア80%還元<br>→ 粗利12万円のうち<strong style="color:#fff">弊社はたった3万円</strong><br>→ <strong style="color:var(--accent)">残り9万円は全てあなたの報酬</strong></div>
           <div class="hero-card-row">
-            <span class="hero-card-tag">FLAT FEE — NO MARGIN CUT</span>
+            <span class="hero-card-tag">10人稼働で月収70万円も可能</span>
             <span class="hero-card-arrow">↗</span>
           </div>
         </div>
@@ -464,13 +464,13 @@
       <div class="ticker-track">
         <span>BREAK THE MARGIN</span>
         <span>OWN YOUR PIPELINE</span>
-        <span>FLAT ¥30K / DEAL</span>
+        <span>ONLY ¥30K / DEAL</span>
         <span>ZERO BACKOFFICE</span>
         <span>AI-MATCHED ENGINEERS</span>
         <span>SAKIGAKE OS</span>
         <span>BREAK THE MARGIN</span>
         <span>OWN YOUR PIPELINE</span>
-        <span>FLAT ¥30K / DEAL</span>
+        <span>ONLY ¥30K / DEAL</span>
         <span>ZERO BACKOFFICE</span>
         <span>AI-MATCHED ENGINEERS</span>
         <span>SAKIGAKE OS</span>
@@ -576,8 +576,8 @@
             <path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>
           </svg>
         </div>
-        <h3>利用料は一律<br>3万円/案件。</h3>
-        <p>案件の規模に関わらず、プラットフォーム利用料は一律3万円。粗利の残りは全額あなたの報酬です。％ベースのマージンは一切取りません。</p>
+        <h3>弊社の取り分は<br>たった3万円。</h3>
+        <p>エンジニアに80%還元。60万円の案件なら粗利12万円のうち、弊社はたった3万円（税別）。残り9万円は全てあなたの報酬。10人稼働で月収70万円も可能です。</p>
         <span class="pillar-tag">¥ — DIRECT DEPOSIT</span>
       </div>
 
@@ -626,33 +626,34 @@
     <div class="sec-head">
       <div><span class="sec-num">04 / REVENUE TIER</span></div>
       <div>
-        <h2 class="sec-title">料金は、<br>シンプルに「一律3万円」。</h2>
-        <p class="sec-lede">SAKIGAKEの料金体系は究極にシンプル。案件1件あたり月額3万円のプラットフォーム利用料のみ。案件規模や粗利額に関わらず定額です。粗利の残りは、全額あなたの報酬になります。</p>
+        <h2 class="sec-title">弊社の取り分は<br>一律「3万円（税別）」だけ。</h2>
+        <p class="sec-lede">エンジニアには案件単価の80%を還元。残りの粗利から弊社が頂くのは一律3万円（税別）のみ。それ以外の粗利は全額あなたの報酬です。10人のエンジニアが稼働すれば、月収70万円も現実的な数字です。</p>
       </div>
     </div>
 
     <div class="tier-grid">
       <div class="tier-card tier-base">
-        <span class="tier-tag">PLATFORM FEE</span>
-        <div class="tier-rate" style="display:flex;align-items:baseline;gap:4px"><span style="font-size:.4em;color:var(--ink-mute);font-weight:700">¥</span><span class="mono-num">3</span><span class="pct" style="font-size:.35em">万円<span style="font-size:.7em;color:var(--ink-mute);margin-left:2px">/案件/月</span></span></div>
-        <h4>一律プラットフォーム利用料</h4>
-        <p>案件の規模・粗利額に関わらず、1案件あたり月額3万円の定額制。案件数が増えても料率は変わりません。</p>
+        <span class="tier-tag">EXAMPLE</span>
+        <div class="tier-rate" style="display:flex;align-items:baseline;gap:4px"><span style="font-size:.4em;color:var(--ink-mute);font-weight:700">¥</span><span class="mono-num">60</span><span class="pct" style="font-size:.35em">万<span style="font-size:.7em;color:var(--ink-mute);margin-left:2px">の案件</span></span></div>
+        <h4>収益の分配イメージ</h4>
+        <p>60万円の案件を例に、お金の流れをシンプルに解説します。</p>
         <ul class="tier-list">
-          <li>案件登録 → AIマッチング</li>
-          <li>契約・請求・入金代行</li>
-          <li>与信・法務サポート</li>
+          <li><strong>エンジニア</strong> 48万円（80%還元）</li>
+          <li><strong>粗利</strong> 12万円</li>
+          <li><strong>弊社</strong> 3万円（税別）</li>
+          <li><strong style="color:var(--accent-2)">あなた</strong> 9万円</li>
         </ul>
       </div>
 
       <div class="tier-card tier-plus">
-        <span class="tier-tag">YOUR PROFIT</span>
-        <div class="tier-rate" style="font-size:clamp(48px,6vw,80px)"><span class="mono-num" style="color:var(--ink)">粗利−3万</span></div>
-        <h4>あなたの取り分</h4>
-        <p>粗利からプラットフォーム利用料3万円を引いた全額が、あなたの報酬です。案件単価が高いほど、あなたの手取りが増えます。</p>
+        <span class="tier-tag">10人稼働時</span>
+        <div class="tier-rate"><span class="mono-num" style="color:var(--ink)">70</span><span class="pct">万</span></div>
+        <h4>月収70万円も可能</h4>
+        <p>10人のエンジニアが稼働した場合、あなたの月収は70万円に。年収840万円も現実的な数字です。</p>
         <ul class="tier-list">
-          <li><strong>例</strong> 粗利27万円の案件<small>→ あなたの取り分 24万円</small></li>
-          <li><strong>例</strong> 粗利40万円の案件<small>→ あなたの取り分 37万円</small></li>
-          <li><strong>例</strong> 粗利55万円の案件<small>→ あなたの取り分 52万円</small></li>
+          <li><strong>1人</strong> あたり粗利 9万円 × 10人</li>
+          <li><strong>月収</strong> 70万円（弊社分30万円控除後）</li>
+          <li><strong>年収</strong> 840万円</li>
         </ul>
       </div>
 
@@ -660,7 +661,7 @@
         <span class="tier-tag">ALL INCLUDED</span>
         <div class="tier-rate"><span class="mono-num" style="font-size:clamp(48px,6vw,80px)">全込み</span></div>
         <h4>3万円に含まれるもの</h4>
-        <p>別途費用は一切なし。すべてのバックオフィス機能が3万円に含まれています。</p>
+        <p>別途費用は一切なし。すべてのバックオフィス機能が3万円（税別）に含まれています。</p>
         <ul class="tier-list">
           <li>エンジニアAIマッチング</li>
           <li>契約書・NDA発行</li>
@@ -671,7 +672,7 @@
       </div>
     </div>
 
-    <p class="tier-foot">※ プラットフォーム利用料3万円/案件/月は、与信審査・ファクタリング原価・契約／法務／システム運用・人件費に充てられます。％ベースのマージンを廃止し、業界で最も透明性の高い料金体系を実現しています。</p>
+    <p class="tier-foot">※ 上記は60万円/月の案件・エンジニア80%還元の場合の例です。プラットフォーム利用料3万円（税別）/案件/月には、与信審査・契約／法務／システム運用・人件費が全て含まれます。</p>
   </div>
 </section>
 
@@ -682,7 +683,7 @@
       <div><span class="sec-num">05 / THE MATH</span></div>
       <div>
         <h2 class="sec-title">数字は、嘘をつかない。</h2>
-        <p class="sec-lede">同じ案件を持ち込んだとして、既存SES企業とSAKIGAKEで、あなたの手取りはどれだけ変わるか。一律3万円の定額モデルで試算してください。</p>
+        <p class="sec-lede">エンジニア80%還元・弊社の取り分は一律3万円（税別）。同じ案件で、既存SES企業とSAKIGAKEであなたの手取りがどれだけ変わるか試算してください。</p>
       </div>
     </div>
 
@@ -692,18 +693,18 @@
         <h4>INPUT — あなたの想定</h4>
 
         <div class="sim-field">
-          <label>月間獲得案件数 <span class="val mono-num"><span id="sim-cases">3</span><span class="unit">本</span></span></label>
-          <input type="range" id="r-cases" min="1" max="8" step="1" value="3">
+          <label>稼働エンジニア数 <span class="val mono-num"><span id="sim-cases">5</span><span class="unit">人</span></span></label>
+          <input type="range" id="r-cases" min="1" max="20" step="1" value="5">
         </div>
 
         <div class="sim-field">
-          <label>1案件あたり月額単価 <span class="val mono-num">¥<span id="sim-price">85</span><span class="unit">万</span></span></label>
-          <input type="range" id="r-price" min="50" max="150" step="5" value="85">
+          <label>1案件あたり月額単価 <span class="val mono-num">¥<span id="sim-price">60</span><span class="unit">万</span></span></label>
+          <input type="range" id="r-price" min="40" max="150" step="5" value="60">
         </div>
 
         <div class="sim-field">
-          <label>1案件あたり原価率 <span class="val mono-num"><span id="sim-cost">68</span><span class="unit">%</span></span></label>
-          <input type="range" id="r-cost" min="55" max="80" step="1" value="68">
+          <label>エンジニア還元率 <span class="val mono-num"><span id="sim-cost">80</span><span class="unit">%</span></span></label>
+          <input type="range" id="r-cost" min="70" max="85" step="1" value="80">
         </div>
 
         <div class="sim-field">
@@ -713,13 +714,13 @@
 
         <div class="sim-tiers">
           <div class="sim-tiers-head">
-            <span>プラットフォーム利用料</span>
-            <span class="mono-num">¥3<span style="font-size:.6em;color:rgba(255,255,255,.5)">万/案件</span></span>
+            <span>弊社の取り分</span>
+            <span class="mono-num">¥3<span style="font-size:.6em;color:rgba(255,255,255,.5)">万(税別)/案件</span></span>
           </div>
-          <div style="color:rgba(255,255,255,.7);font-size:13px;line-height:1.8;padding:4px 0">一律3万円/案件/月。案件規模に関わらず定額。<br>粗利 − 3万円 = あなたの報酬。</div>
+          <div style="color:rgba(255,255,255,.7);font-size:13px;line-height:1.8;padding:4px 0">エンジニア80%還元 → 粗利から弊社3万円（税別）<br>→ 残り全額があなたの報酬</div>
         </div>
 
-        <p class="sim-note">※ 既存SES：粗利の15%を営業インセンティブと想定<br>※ SAKIGAKE：プラットフォーム利用料 一律3万円/案件/月</p>
+        <p class="sim-note">※ 既存SES：粗利の15%を営業インセンティブと想定<br>※ SAKIGAKE：弊社の取り分は一律3万円（税別）/案件/月</p>
       </div>
 
       <!-- result -->
@@ -780,7 +781,7 @@
       <div class="compare-row">
         <div class="axis">案件粗利の取り分</div>
         <div class="them">10〜20%（インセンティブ）</div>
-        <div class="us">粗利 − 3万円/案件（残り全額）</div>
+        <div class="us">粗利 − 3万円（税別）= 全額あなたへ</div>
       </div>
       <div class="compare-row">
         <div class="axis">案件の帰属</div>
@@ -854,7 +855,7 @@
       <div class="flow-step">
         <span class="flow-num">STEP 04</span>
         <h4>毎月、自動で入金</h4>
-        <p>稼働開始の翌月末、粗利から利用料3万円を差し引いた全額を指定口座へ。請求・回収・入金消し込みはすべて代行します。</p>
+        <p>稼働開始の翌月末、粗利から弊社の取り分3万円（税別）を差し引いた全額を指定口座へ。請求・回収・入金消し込みはすべて代行します。</p>
         <span class="time">— recurring</span>
       </div>
     </div>
@@ -881,7 +882,7 @@
         <span class="lab">YEAR 01</span>
         <h4>「営業の人」から、<br>「案件オーナー」へ。</h4>
         <p>所属に縛られず、自分の名前で案件を回す感覚を取り戻す。手取りが増え、評価面談から解放される最初の年。</p>
-        <span class="arrow">→ 平均年収 +280万円</span>
+        <span class="arrow">→ 10人稼働で月収70万円も可能</span>
       </div>
       <div class="vision-card">
         <span class="lab">YEAR 02</span>
@@ -912,8 +913,8 @@
 
     <div class="faq-list">
       <details class="faq-item" open>
-        <summary><span class="q-en">Q.01</span><span>なぜ一律3万円でサービスを提供できるのですか？</span></summary>
-        <div class="a">SAKIGAKEは、契約・請求・入金管理をシステムで自動化し、エンジニアマッチングもAIで効率化しているため、運営コストを極限まで抑えています。本社機能と中間管理層を手厚く抱える既存SES企業とは構造が根本的に異なります。1案件あたり3万円で、与信審査・ファクタリング原価・契約／法務／システム運用・人件費をすべてカバーできる仕組みを構築しています。</div>
+        <summary><span class="q-en">Q.01</span><span>なぜ弊社の取り分が一律3万円（税別）で済むのですか？</span></summary>
+        <div class="a">SAKIGAKEは、契約・請求・入金管理をシステムで自動化し、エンジニアマッチングもAIで効率化しているため、運営コストを極限まで抑えています。本社機能と中間管理層を手厚く抱える既存SES企業とは構造が根本的に異なります。エンジニアに80%を還元し、1案件あたり3万円（税別）で、与信審査・契約／法務／システム運用・人件費をすべてカバーできる仕組みを構築しています。10人のエンジニアが稼働すれば月収70万円も実現可能です。</div>
       </details>
       <details class="faq-item">
         <summary><span class="q-en">Q.02</span><span>入金トラブルは、運営がすべて補填してくれるのですか？</span></summary>
@@ -1118,24 +1119,23 @@
     const fmt = n => Math.round(n).toLocaleString('ja-JP');
 
     function recalc(){
-      const cases = +$('r-cases').value;
-      const priceMan = +$('r-price').value;       // 万円
-      const costRate = +$('r-cost').value / 100;
+      const cases = +$('r-cases').value;          // 稼働エンジニア数
+      const priceMan = +$('r-price').value;       // 1案件 月額単価（万円）
+      const engRate = +$('r-cost').value / 100;   // エンジニア還元率
       const months = +$('r-months').value;
 
-      // 月額売上 (万円)
-      const monthlyRev = cases * priceMan;
-      // 月次粗利
-      const monthlyGross = monthlyRev * (1 - costRate);
-      // 年次粗利
-      const yearlyGross = monthlyGross * months;
+      // 1案件あたり月次粗利（万円）
+      const grossPerDeal = priceMan * (1 - engRate);
+      // 年間粗利合計
+      const yearlyGross = grossPerDeal * cases * months;
 
-      // プラットフォーム利用料: 3万円/案件/月
+      // SAKIGAKE: 弊社3万円/案件/月 → 残り全額が営業の報酬
       const platformFee = cases * 3 * months; // 万円
+      const afterAmt = yearlyGross - platformFee;
 
+      // 既存SES: 粗利の15%がインセンティブ
       const beforeShare = 0.15;
       const beforeAmt = yearlyGross * beforeShare;
-      const afterAmt = yearlyGross - platformFee;
       const beforeCo = yearlyGross * (1 - beforeShare);
 
       $('sim-cases').textContent = cases;
