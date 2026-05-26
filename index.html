@@ -84,9 +84,9 @@
   .hero-card-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
   .hero-card-label{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700}
   .hero-card-dot{width:8px;height:8px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 4px rgba(0,229,160,.18)}
-  .hero-card-num{font-family:var(--en);font-weight:900;font-size:clamp(120px,16vw,200px);line-height:.82;letter-spacing:-.04em;margin:28px 0 4px;color:var(--accent);position:relative;text-shadow:0 0 60px rgba(0,229,160,.35)}
-  .hero-card-num .pct{color:#fff;font-size:.35em;vertical-align:.15em;margin-left:.08em;font-weight:700;text-shadow:none}
-  .hero-card-desc{color:rgba(255,255,255,.75);font-size:15px;max-width:360px;position:relative;line-height:1.8}
+  .hero-card-num{font-family:var(--en);font-weight:900;font-size:clamp(100px,14vw,180px);line-height:.82;letter-spacing:-.04em;margin:20px 0 0;color:var(--accent);position:relative;text-shadow:0 0 60px rgba(0,229,160,.35)}
+  .hero-card-num .pct{color:#fff;font-size:.38em;vertical-align:.12em;margin-left:.06em;font-weight:700;text-shadow:none}
+  .hero-card-desc{color:rgba(255,255,255,.75);font-size:15px;max-width:400px;position:relative;line-height:1.8}
   .hero-card-row{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);position:relative}
   .hero-card-tag{font-family:var(--en);font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.5)}
   .hero-card-arrow{width:36px;height:36px;border-radius:99px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-size:14px}
@@ -421,23 +421,24 @@
       <div>
         <span class="eyebrow">For SES Sales Professionals</span>
         <h1>
-          会社の<span class="accent">マージン</span>を、<br>
-          あなたの<span class="accent">報酬</span>に。
-          <span class="small">SES営業のための、独立OS。</span>
+          月600万<span class="accent">売っても</span>、<br>
+          手取りは<span class="accent">変わらない</span>？
+          <span class="small">その構造、SAKIGAKEが壊します。</span>
         </h1>
         <p class="hero-sub">
-          あなたが獲ってきた案件の利益、その大半は今、会社のものになっている。<br>
-          SAKIGAKEは、エンジニアに<strong style="color:var(--ink);font-weight:900">80%還元</strong>。60万円の案件なら弊社の取り分は<strong style="color:var(--ink);font-weight:900">たった3万円（税別）</strong>。残りの粗利は全て営業担当者に還元します。<strong style="color:var(--ink);font-weight:900">10人稼働で月収70万円</strong>も可能です。
+          60万円の案件を獲ってきたのに、あなたの取り分は1〜2万円のインセンティブだけ——。<br><br>
+          SAKIGAKEなら、エンジニアに80%還元しても粗利は12万円。そこから弊社が頂くのは<strong style="color:var(--ink);font-weight:900">たった3万円（税別）</strong>だけ。<strong style="color:var(--ink);font-weight:900">残りの9万円は、全額あなたの報酬です。</strong><br>
+          10人回せば<strong style="color:var(--ink);font-weight:900">月収70万円</strong>。契約も請求も入金管理も、全部こちらでやります。
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">資料・報酬シミュレーションを受け取る<span class="arr">→</span></a>
-          <a class="btn btn-ghost" href="#simulator">先に試算してみる</a>
+          <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">報酬シミュレーションを受け取る<span class="arr">→</span></a>
+          <a class="btn btn-ghost" href="#simulator">自分の条件で試算する</a>
         </div>
         <div class="hero-meta">
-          <div><span class="k">PLATFORM FEE</span><span class="v mono-num">¥3<small style="font-size:.5em">万(税別)/案件</small></span></div>
-          <div><span class="k">ENGINEER SHARE</span><span class="v mono-num">80<small style="font-size:.5em">%還元</small></span></div>
+          <div><span class="k">YOUR TAKE</span><span class="v mono-num">9<small style="font-size:.5em">万円/案件</small></span></div>
           <div><span class="k">10人稼働時</span><span class="v mono-num">70<small style="font-size:.5em">万円/月</small></span></div>
-          <div><span class="k">BACKOFFICE</span><span class="v">フル代行</span></div>
+          <div><span class="k">弊社の取り分</span><span class="v mono-num">3<small style="font-size:.5em">万円(税別)</small></span></div>
+          <div><span class="k">事務作業</span><span class="v">ゼロ</span></div>
         </div>
       </div>
 
@@ -445,14 +446,22 @@
         <div class="hero-card">
           <div class="sc-grid" style="opacity:.5"></div>
           <div class="hero-card-top">
-            <span class="hero-card-label">PLATFORM FEE — PER DEAL</span>
+            <span class="hero-card-label">YOUR INCOME — PER DEAL</span>
             <span class="hero-card-dot"></span>
           </div>
-          <div class="hero-card-num mono-num">3<span class="pct">万円</span></div>
-          <div style="font-family:var(--jp);font-weight:900;font-size:clamp(18px,2.4vw,26px);color:rgba(255,255,255,.6);margin:8px 0 16px;position:relative;line-height:1.4;letter-spacing:.06em">（税別）/ 案件</div>
-          <div class="hero-card-desc">60万円の案件 → エンジニア80%還元<br>→ 粗利12万円のうち<strong style="color:#fff">弊社はたった3万円</strong><br>→ <strong style="color:var(--accent)">残り9万円は全てあなたの報酬</strong></div>
+          <div class="hero-card-num mono-num">9<span class="pct">万円</span></div>
+          <div style="font-family:var(--jp);font-weight:700;font-size:14px;color:rgba(255,255,255,.45);margin:4px 0 20px;position:relative;line-height:1.4;letter-spacing:.04em">1案件あたり、あなたの手取り</div>
+          <div class="hero-card-desc">
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px;line-height:1.9">
+              <span style="color:rgba(255,255,255,.4)">案件単価</span><span style="color:#fff;font-weight:700">60万円</span>
+              <span style="color:rgba(255,255,255,.4)">エンジニア</span><span style="color:#fff">48万円<small style="opacity:.5">（80%還元）</small></span>
+              <span style="color:rgba(255,255,255,.4)">粗利</span><span style="color:#fff;font-weight:700">12万円</span>
+              <span style="color:rgba(255,255,255,.4)">弊社</span><span style="color:rgba(255,255,255,.6)">−3万円<small style="opacity:.5">（税別）</small></span>
+              <span style="color:var(--accent);font-weight:900">あなた</span><span style="color:var(--accent);font-weight:900;font-size:18px">9万円</span>
+            </div>
+          </div>
           <div class="hero-card-row">
-            <span class="hero-card-tag">10人稼働で月収70万円も可能</span>
+            <span class="hero-card-tag" style="color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.06em">× 10人 ＝ 月収70万円</span>
             <span class="hero-card-arrow">↗</span>
           </div>
         </div>
@@ -537,10 +546,9 @@
           <span class="hl">自分のビジネス</span><span style="display:inline-block">の所有者へ。</span>
         </h2>
         <p class="solution-body">
-          SAKIGAKEは「会社」ではなく、営業のための「OS」です。<br>
-          あなたは雇われずに、しかし独立よりはるかに少ないリスクで、自分のパイプラインから利益を直接受け取れます。
-          <br><br>
-          私たちは案件の取り合いをしません。あなたが獲った案件は、あなたの資産。エンジニアの確保、契約書、請求、入金管理、トラブル対応——営業を「営業の仕事」だけに戻すための、すべての裏側を、私たちが運用します。
+          あなたが獲った案件は、あなたのもの。SAKIGAKEが裏方を全部引き受けます。<br><br>
+          60万の案件なら、エンジニアに48万（80%還元）、弊社は3万円（税別）。<strong style="color:var(--ink)">残りの9万円は全額あなたの口座へ。</strong><br><br>
+          契約書・請求書・入金確認・エンジニア手配——面倒な事務は全部こちら。あなたは「案件を獲る」ことだけに集中してください。10人回せば月収70万円です。
         </p>
         <div class="solution-sign">— Build your own book of business.</div>
       </div>
@@ -576,8 +584,8 @@
             <path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>
           </svg>
         </div>
-        <h3>弊社の取り分は<br>たった3万円。</h3>
-        <p>エンジニアに80%還元。60万円の案件なら粗利12万円のうち、弊社はたった3万円（税別）。残り9万円は全てあなたの報酬。10人稼働で月収70万円も可能です。</p>
+        <h3>1案件9万円が、<br>あなたの手取り。</h3>
+        <p>60万円の案件ならエンジニアに48万（80%還元）。粗利12万のうち弊社は3万円（税別）だけ。残り9万円は全部あなたのもの。10人回せば月70万円です。</p>
         <span class="pillar-tag">¥ — DIRECT DEPOSIT</span>
       </div>
 
