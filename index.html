@@ -956,7 +956,7 @@
       </button>
       <button class="cta-tab" data-tab="meeting" role="tab" aria-selected="false">
         <span class="tab-num">02</span>
-        <span class="tab-label">個別面談を予約<small>1対1・45分・秘密厳守</small></span>
+        <span class="tab-label">個別面談を予約<small>1対1・30分・秘密厳守</small></span>
       </button>
     </div>
 
@@ -1028,6 +1028,37 @@
         </div>
       </div>
 
+      <div class="cta-dates">
+        <span class="dates-label">面談日程（1対1・30分・Zoom）</span>
+        <div class="dates-grid" id="meeting-dates-grid">
+          <label class="date-card">
+            <input type="radio" name="meeting" value="2026-06-03 19:00-19:30">
+            <div class="date-day"><span class="d-num">03</span><span class="d-mo">6月</span></div>
+            <div class="date-meta"><span class="d-wk">火曜日</span><span class="d-time">19:00 – 19:30</span><span class="d-tag">受付中</span></div>
+          </label>
+          <label class="date-card">
+            <input type="radio" name="meeting" value="2026-06-05 20:00-20:30">
+            <div class="date-day"><span class="d-num">05</span><span class="d-mo">6月</span></div>
+            <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">20:00 – 20:30</span><span class="d-tag">受付中</span></div>
+          </label>
+          <label class="date-card">
+            <input type="radio" name="meeting" value="2026-06-07 14:00-14:30">
+            <div class="date-day"><span class="d-num">07</span><span class="d-mo">6月</span></div>
+            <div class="date-meta"><span class="d-wk">土曜日</span><span class="d-time">14:00 – 14:30</span><span class="d-tag">受付中</span></div>
+          </label>
+          <label class="date-card">
+            <input type="radio" name="meeting" value="2026-06-10 21:00-21:30">
+            <div class="date-day"><span class="d-num">10</span><span class="d-mo">6月</span></div>
+            <div class="date-meta"><span class="d-wk">火曜日</span><span class="d-time">21:00 – 21:30</span><span class="d-tag">受付中</span></div>
+          </label>
+          <label class="date-card">
+            <input type="radio" name="meeting" value="2026-06-14 10:00-10:30">
+            <div class="date-day"><span class="d-num">14</span><span class="d-mo">6月</span></div>
+            <div class="date-meta"><span class="d-wk">土曜日</span><span class="d-time">10:00 – 10:30</span><span class="d-tag">受付中</span></div>
+          </label>
+        </div>
+      </div>
+
       <div class="cta-meeting-fields">
         <div class="m-field">
           <label>お名前（ニックネーム可）</label>
@@ -1044,9 +1075,9 @@
       </div>
 
       <form class="cta-form" data-lark-type="個別面談" onsubmit="submitToLark(event, this)">
-        <button class="cta-btn cta-btn-full" type="submit">日程候補を受け取る<span class="arr">→</span></button>
+        <button class="cta-btn cta-btn-full" type="submit">この日程で面談を予約する<span class="arr">→</span></button>
       </form>
-      <p class="cta-fine">※ 平日19:00〜23:00、土日も対応可。お問い合わせ後、2営業日以内に担当者からご連絡します。</p>
+      <p class="cta-fine">※ Zoom開催。カメラOFF可。秘密厳守（NDA締結可）。</p>
     </div>
   </div>
 </section>
@@ -1177,10 +1208,13 @@
       fields['メールアドレス'] = form.querySelector('input[type="email"]').value;
       fields['希望日程'] = selected.value;
     } else if (type === '個別面談') {
+      const selected = document.querySelector('input[name=meeting]:checked');
+      if (!selected) { alert('面談日程を選択してください'); btn.innerHTML = origText; btn.disabled = false; return; }
       const panel = form.closest('.cta-panel');
       const nameInput = panel.querySelector('input[type="text"]');
       const emailInput = panel.querySelector('input[type="email"]');
       const textarea = panel.querySelector('textarea');
+      fields['希望日程'] = selected.value;
       if (nameInput) fields['名前'] = nameInput.value;
       if (emailInput) fields['メールアドレス'] = emailInput.value;
       if (textarea) fields['当日質問したい内容'] = textarea.value;
