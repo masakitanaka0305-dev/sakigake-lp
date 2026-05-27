@@ -1149,23 +1149,25 @@
     }
 
     // 曜日ごとの時間帯テーブル（0=日〜6=土）
+    // 説明会（1時間）: 平日夜・ランチ・週末午後
     const seminarTimeTable = {
       0: { sh:15, sm:0, eh:16, em:0, tag:'週末枠' },
-      1: { sh:21, sm:0, eh:22, em:0, tag:'受付中' },
-      2: { sh:19, sm:30, eh:20, em:30, tag:'受付中' },
-      3: { sh:12, sm:0, eh:13, em:0, tag:'ランチ枠' },
-      4: { sh:19, sm:30, eh:20, em:30, tag:'受付中' },
-      5: { sh:20, sm:0, eh:21, em:0, tag:'受付中' },
+      1: { sh:19, sm:0, eh:20, em:0, tag:'受付中' },
+      2: { sh:12, sm:0, eh:13, em:0, tag:'ランチ枠' },
+      3: { sh:20, sm:0, eh:21, em:0, tag:'受付中' },
+      4: { sh:19, sm:0, eh:20, em:0, tag:'受付中' },
+      5: { sh:12, sm:0, eh:13, em:0, tag:'ランチ枠' },
       6: { sh:14, sm:0, eh:15, em:0, tag:'週末枠' },
     };
+    // 個別面談（30分）: 説明会と重ならない時間帯
     const meetingTimeTable = {
-      0: { sh:14, sm:0, eh:14, em:30, tag:'受付中' },
-      1: { sh:20, sm:0, eh:20, em:30, tag:'受付中' },
+      0: { sh:10, sm:0, eh:10, em:30, tag:'受付中' },
+      1: { sh:21, sm:0, eh:21, em:30, tag:'受付中' },
       2: { sh:19, sm:0, eh:19, em:30, tag:'受付中' },
-      3: { sh:21, sm:0, eh:21, em:30, tag:'受付中' },
-      4: { sh:20, sm:0, eh:20, em:30, tag:'受付中' },
+      3: { sh:12, sm:0, eh:12, em:30, tag:'ランチ枠' },
+      4: { sh:21, sm:0, eh:21, em:30, tag:'受付中' },
       5: { sh:19, sm:0, eh:19, em:30, tag:'受付中' },
-      6: { sh:14, sm:0, eh:14, em:30, tag:'受付中' },
+      6: { sh:10, sm:0, eh:10, em:30, tag:'受付中' },
     };
 
     function generateSlots(name, timeTable, gridId) {
