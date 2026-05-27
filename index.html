@@ -1134,16 +1134,10 @@
   },{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // ────── 日程自動生成 ──────
+  // ────── 日程自動生成（毎日更新） ──────
   (function generateDates() {
     const WEEK = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
     const now = new Date();
-
-    function nextDayOfWeek(dayIndex, startFrom) {
-      const d = new Date(startFrom);
-      d.setDate(d.getDate() + ((dayIndex - d.getDay() + 7) % 7 || 7));
-      return d;
-    }
 
     function buildCard(name, date, startH, startM, endH, endM, tag) {
       const val = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')} ${String(startH).padStart(2,'0')}:${String(startM).padStart(2,'0')}-${String(endH).padStart(2,'0')}:${String(endM).padStart(2,'0')}`;
@@ -1154,52 +1148,42 @@
       </label>`;
     }
 
-    // 説明会: 毎週木19:30-20:30 / 隔週水12:00-13:00(ランチ枠) を5件
-    const seminarSlots = [];
-    const seminarPatterns = [
-      { day: 4, sh: 19, sm: 30, eh: 20, em: 30, tag: '受付中' },
-      { day: 3, sh: 12, sm: 0, eh: 13, em: 0, tag: 'ランチ枠' },
-    ];
-    let cursor = new Date(now);
-    cursor.setDate(cursor.getDate() + 1);
-    while (seminarSlots.length < 5) {
-      for (const p of seminarPatterns) {
-        const d = nextDayOfWeek(p.day, cursor);
-        seminarSlots.push({ date: new Date(d), ...p });
+    // 曜日ごとの時間帯テーブル（0=日〜6=土）
+    const seminarTimeTable = {
+      0: { sh:15, sm:0, eh:16, em:0, tag:'週末枠' },
+      1: { sh:21, sm:0, eh:22, em:0, tag:'受付中' },
+      2: { sh:19, sm:30, eh:20, em:30, tag:'受付中' },
+      3: { sh:12, sm:0, eh:13, em:0, tag:'ランチ枠' },
+      4: { sh:19, sm:30, eh:20, em:30, tag:'受付中' },
+      5: { sh:20, sm:0, eh:21, em:0, tag:'受付中' },
+      6: { sh:14, sm:0, eh:15, em:0, tag:'週末枠' },
+    };
+    const meetingTimeTable = {
+      0: { sh:14, sm:0, eh:14, em:30, tag:'受付中' },
+      1: { sh:20, sm:0, eh:20, em:30, tag:'受付中' },
+      2: { sh:19, sm:0, eh:19, em:30, tag:'受付中' },
+      3: { sh:21, sm:0, eh:21, em:30, tag:'受付中' },
+      4: { sh:20, sm:0, eh:20, em:30, tag:'受付中' },
+      5: { sh:19, sm:0, eh:19, em:30, tag:'受付中' },
+      6: { sh:14, sm:0, eh:14, em:30, tag:'受付中' },
+    };
+
+    function generateSlots(name, timeTable, gridId) {
+      const slots = [];
+      const d = new Date(now);
+      d.setDate(d.getDate() + 1);
+      d.setHours(0,0,0,0);
+      while (slots.length < 5) {
+        const t = timeTable[d.getDay()];
+        slots.push(buildCard(name, new Date(d), t.sh, t.sm, t.eh, t.em, t.tag));
+        d.setDate(d.getDate() + 1);
       }
-      cursor.setDate(cursor.getDate() + 7);
-    }
-    seminarSlots.sort((a, b) => a.date - b.date);
-    const seminarGrid = document.getElementById('dates-grid');
-    if (seminarGrid) {
-      seminarGrid.innerHTML = seminarSlots.slice(0, 5).map(s =>
-        buildCard('seminar', s.date, s.sh, s.sm, s.eh, s.em, s.tag)
-      ).join('');
+      const grid = document.getElementById(gridId);
+      if (grid) grid.innerHTML = slots.join('');
     }
 
-    // 個別面談: 火19:00-19:30 / 木20:00-20:30 / 土14:00-14:30 を5件
-    const meetingSlots = [];
-    const meetingPatterns = [
-      { day: 2, sh: 19, sm: 0, eh: 19, em: 30, tag: '受付中' },
-      { day: 4, sh: 20, sm: 0, eh: 20, em: 30, tag: '受付中' },
-      { day: 6, sh: 14, sm: 0, eh: 14, em: 30, tag: '受付中' },
-    ];
-    let cursor2 = new Date(now);
-    cursor2.setDate(cursor2.getDate() + 1);
-    while (meetingSlots.length < 5) {
-      for (const p of meetingPatterns) {
-        const d = nextDayOfWeek(p.day, cursor2);
-        meetingSlots.push({ date: new Date(d), ...p });
-      }
-      cursor2.setDate(cursor2.getDate() + 7);
-    }
-    meetingSlots.sort((a, b) => a.date - b.date);
-    const meetingGrid = document.getElementById('meeting-dates-grid');
-    if (meetingGrid) {
-      meetingGrid.innerHTML = meetingSlots.slice(0, 5).map(s =>
-        buildCard('meeting', s.date, s.sh, s.sm, s.eh, s.em, s.tag)
-      ).join('');
-    }
+    generateSlots('seminar', seminarTimeTable, 'dates-grid');
+    generateSlots('meeting', meetingTimeTable, 'meeting-dates-grid');
   })();
 
   // ────── Lark Base 連携（GASプロキシ経由） ──────
