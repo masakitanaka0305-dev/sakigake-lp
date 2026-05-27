@@ -977,33 +977,7 @@
 
       <div class="cta-dates">
         <span class="dates-label">開催予定</span>
-        <div class="dates-grid" id="dates-grid">
-          <label class="date-card">
-            <input type="radio" name="seminar" value="2026-06-04 19:30-20:30">
-            <div class="date-day"><span class="d-num">04</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">19:30 – 20:30</span><span class="d-tag">残 3名</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="seminar" value="2026-06-11 12:00-13:00">
-            <div class="date-day"><span class="d-num">11</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">12:00 – 13:00</span><span class="d-tag">ランチ枠</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="seminar" value="2026-06-15 21:00-22:00">
-            <div class="date-day"><span class="d-num">15</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">月曜日</span><span class="d-time">21:00 – 22:00</span><span class="d-tag">残 6名</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="seminar" value="2026-06-22 19:30-20:30">
-            <div class="date-day"><span class="d-num">22</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">月曜日</span><span class="d-time">19:30 – 20:30</span><span class="d-tag">受付中</span></div>
-          </label>
-          <label class="date-card soldout">
-            <input type="radio" name="seminar" value="" disabled>
-            <div class="date-day"><span class="d-num">28</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">日曜日</span><span class="d-time">15:00 – 16:00</span><span class="d-tag">満席</span></div>
-          </label>
-        </div>
+        <div class="dates-grid" id="dates-grid"></div>
       </div>
 
       <form class="cta-form" data-lark-type="説明会" onsubmit="submitToLark(event, this)">
@@ -1030,33 +1004,7 @@
 
       <div class="cta-dates">
         <span class="dates-label">面談日程（1対1・30分・Zoom）</span>
-        <div class="dates-grid" id="meeting-dates-grid">
-          <label class="date-card">
-            <input type="radio" name="meeting" value="2026-06-03 19:00-19:30">
-            <div class="date-day"><span class="d-num">03</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">火曜日</span><span class="d-time">19:00 – 19:30</span><span class="d-tag">受付中</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="meeting" value="2026-06-05 20:00-20:30">
-            <div class="date-day"><span class="d-num">05</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">20:00 – 20:30</span><span class="d-tag">受付中</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="meeting" value="2026-06-07 14:00-14:30">
-            <div class="date-day"><span class="d-num">07</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">土曜日</span><span class="d-time">14:00 – 14:30</span><span class="d-tag">受付中</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="meeting" value="2026-06-10 21:00-21:30">
-            <div class="date-day"><span class="d-num">10</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">火曜日</span><span class="d-time">21:00 – 21:30</span><span class="d-tag">受付中</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="meeting" value="2026-06-14 10:00-10:30">
-            <div class="date-day"><span class="d-num">14</span><span class="d-mo">6月</span></div>
-            <div class="date-meta"><span class="d-wk">土曜日</span><span class="d-time">10:00 – 10:30</span><span class="d-tag">受付中</span></div>
-          </label>
-        </div>
+        <div class="dates-grid" id="meeting-dates-grid"></div>
       </div>
 
       <div class="cta-meeting-fields">
@@ -1185,6 +1133,74 @@
     es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
   },{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ────── 日程自動生成 ──────
+  (function generateDates() {
+    const WEEK = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
+    const now = new Date();
+
+    function nextDayOfWeek(dayIndex, startFrom) {
+      const d = new Date(startFrom);
+      d.setDate(d.getDate() + ((dayIndex - d.getDay() + 7) % 7 || 7));
+      return d;
+    }
+
+    function buildCard(name, date, startH, startM, endH, endM, tag) {
+      const val = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')} ${String(startH).padStart(2,'0')}:${String(startM).padStart(2,'0')}-${String(endH).padStart(2,'0')}:${String(endM).padStart(2,'0')}`;
+      return `<label class="date-card">
+        <input type="radio" name="${name}" value="${val}">
+        <div class="date-day"><span class="d-num">${String(date.getDate()).padStart(2,'0')}</span><span class="d-mo">${date.getMonth()+1}月</span></div>
+        <div class="date-meta"><span class="d-wk">${WEEK[date.getDay()]}</span><span class="d-time">${String(startH).padStart(2,'0')}:${String(startM).padStart(2,'0')} – ${String(endH).padStart(2,'0')}:${String(endM).padStart(2,'0')}</span><span class="d-tag">${tag}</span></div>
+      </label>`;
+    }
+
+    // 説明会: 毎週木19:30-20:30 / 隔週水12:00-13:00(ランチ枠) を5件
+    const seminarSlots = [];
+    const seminarPatterns = [
+      { day: 4, sh: 19, sm: 30, eh: 20, em: 30, tag: '受付中' },
+      { day: 3, sh: 12, sm: 0, eh: 13, em: 0, tag: 'ランチ枠' },
+    ];
+    let cursor = new Date(now);
+    cursor.setDate(cursor.getDate() + 1);
+    while (seminarSlots.length < 5) {
+      for (const p of seminarPatterns) {
+        const d = nextDayOfWeek(p.day, cursor);
+        seminarSlots.push({ date: new Date(d), ...p });
+      }
+      cursor.setDate(cursor.getDate() + 7);
+    }
+    seminarSlots.sort((a, b) => a.date - b.date);
+    const seminarGrid = document.getElementById('dates-grid');
+    if (seminarGrid) {
+      seminarGrid.innerHTML = seminarSlots.slice(0, 5).map(s =>
+        buildCard('seminar', s.date, s.sh, s.sm, s.eh, s.em, s.tag)
+      ).join('');
+    }
+
+    // 個別面談: 火19:00-19:30 / 木20:00-20:30 / 土14:00-14:30 を5件
+    const meetingSlots = [];
+    const meetingPatterns = [
+      { day: 2, sh: 19, sm: 0, eh: 19, em: 30, tag: '受付中' },
+      { day: 4, sh: 20, sm: 0, eh: 20, em: 30, tag: '受付中' },
+      { day: 6, sh: 14, sm: 0, eh: 14, em: 30, tag: '受付中' },
+    ];
+    let cursor2 = new Date(now);
+    cursor2.setDate(cursor2.getDate() + 1);
+    while (meetingSlots.length < 5) {
+      for (const p of meetingPatterns) {
+        const d = nextDayOfWeek(p.day, cursor2);
+        meetingSlots.push({ date: new Date(d), ...p });
+      }
+      cursor2.setDate(cursor2.getDate() + 7);
+    }
+    meetingSlots.sort((a, b) => a.date - b.date);
+    const meetingGrid = document.getElementById('meeting-dates-grid');
+    if (meetingGrid) {
+      meetingGrid.innerHTML = meetingSlots.slice(0, 5).map(s =>
+        buildCard('meeting', s.date, s.sh, s.sm, s.eh, s.em, s.tag)
+      ).join('');
+    }
+  })();
 
   // ────── Lark Base 連携（GASプロキシ経由） ──────
   const GAS_PROXY_URL = 'https://sakigake-vercel.vercel.app/api/submit';
