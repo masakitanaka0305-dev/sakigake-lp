@@ -1064,8 +1064,8 @@
           <input type="email" placeholder="your.name@email.com" required>
         </div>
         <div class="m-field m-field-full">
-          <label>ご相談内容（任意）</label>
-          <textarea rows="3" placeholder="現職の状況、参加のタイミング、相談したいことなど"></textarea>
+          <label>当日質問したい内容（任意）</label>
+          <textarea rows="3" placeholder="例：報酬の仕組みについて、副業からの始め方など"></textarea>
         </div>
       </div>
 
@@ -1237,7 +1237,7 @@
       const textarea = panel.querySelector('textarea');
       if (nameInput) fields['名前'] = nameInput.value;
       if (emailInput) fields['メールアドレス'] = emailInput.value;
-      if (textarea) fields['相談内容'] = textarea.value;
+      if (textarea) fields['当日質問したい内容'] = textarea.value;
     }
 
     try {
