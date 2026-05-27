@@ -1155,33 +1155,8 @@
   },{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // ────── Lark Base 連携 ──────
-  const LARK_CONFIG = {
-    APP_ID:      'cli_aa99ab9967789e18',
-    APP_SECRET:  'bNsTyGLZXfeee3aBcvpfHe4XZyRuxDqM',
-    APP_TOKEN:   'UOKIbyZ4pa82aZsKOCYjnlKlp9g',
-    TABLE_ID:    'tblEMBMTICDQ0BCy',
-  };
-
-  async function getLarkToken() {
-    const res = await fetch('https://open.larksuite.com/open-apis/auth/v3/tenant_access_token/internal', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ app_id: LARK_CONFIG.APP_ID, app_secret: LARK_CONFIG.APP_SECRET })
-    });
-    const data = await res.json();
-    return data.tenant_access_token;
-  }
-
-  async function createLarkRecord(token, fields) {
-    const url = `https://open.larksuite.com/open-apis/bitable/v1/apps/${LARK_CONFIG.APP_TOKEN}/tables/${LARK_CONFIG.TABLE_ID}/records`;
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-      body: JSON.stringify({ fields })
-    });
-    return res.json();
-  }
+  // ────── Lark Base 連携（GASプロキシ経由） ──────
+  const GAS_PROXY_URL = 'https://sakigake-vercel.vercel.app/api/submit';
 
   async function submitToLark(e, form) {
     e.preventDefault();
@@ -1191,15 +1166,12 @@
     btn.innerHTML = '送信中…';
     btn.disabled = true;
 
-    // フォームデータ収集
     const fields = {
       '種別': type,
       '申込日時': new Date().toLocaleString('ja-JP'),
     };
 
-    if (type === '資料請求') {
-      fields['メールアドレス'] = form.querySelector('input[type="email"]').value;
-    } else if (type === '説明会') {
+    if (type === '説明会') {
       const selected = document.querySelector('input[name=seminar]:checked');
       if (!selected) { alert('参加日を選択してください'); btn.innerHTML = origText; btn.disabled = false; return; }
       fields['メールアドレス'] = form.querySelector('input[type="email"]').value;
@@ -1215,14 +1187,17 @@
     }
 
     try {
-      const token = await getLarkToken();
-      const result = await createLarkRecord(token, fields);
+      const res = await fetch(GAS_PROXY_URL, {
+        method: 'POST',
+        body: JSON.stringify(fields),
+      });
+      const result = await res.json();
       if (result.code === 0) {
-        const msgs = { '資料請求': '資料を送信しました。\nメールをご確認ください。', '説明会': '説明会のお申込みを受け付けました。\n参加URLをメールでお送りします。', '個別面談': '個別面談のリクエストを受け付けました。\n2営業日以内に日程候補をお送りします。' };
+        const msgs = { '説明会': '説明会のお申込みを受け付けました。\n参加URLをメールでお送りします。', '個別面談': '個別面談のリクエストを受け付けました。\n2営業日以内に日程候補をお送りします。' };
         alert(msgs[type]);
         form.reset();
       } else {
-        console.error('Lark API Error:', result);
+        console.error('API Error:', result);
         alert('送信に失敗しました。しばらくしてから再度お試しください。');
       }
     } catch (err) {
