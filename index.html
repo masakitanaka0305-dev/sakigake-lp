@@ -979,7 +979,7 @@
           </div>
         </div>
       </div>
-      <form class="cta-form" onsubmit="event.preventDefault();alert('資料を送信しました。\nメールをご確認ください。')">
+      <form class="cta-form" data-lark-type="資料請求" onsubmit="submitToLark(event, this)">
         <input type="email" placeholder="your.name@email.com" required>
         <button class="cta-btn" type="submit">資料を受け取る<span class="arr">→</span></button>
       </form>
@@ -1032,7 +1032,7 @@
         </div>
       </div>
 
-      <form class="cta-form" onsubmit="event.preventDefault();var d=document.querySelector('input[name=seminar]:checked');if(!d){alert('参加日を選択してください');return false}alert('説明会のお申込みを受け付けました。\n参加URLをメールでお送りします。')">
+      <form class="cta-form" data-lark-type="説明会" onsubmit="submitToLark(event, this)">
         <input type="email" placeholder="your.name@email.com" required>
         <button class="cta-btn" type="submit">説明会に申し込む<span class="arr">→</span></button>
       </form>
@@ -1069,7 +1069,7 @@
         </div>
       </div>
 
-      <form class="cta-form" onsubmit="event.preventDefault();alert('個別面談のリクエストを受け付けました。\n2営業日以内に日程候補をお送りします。')">
+      <form class="cta-form" data-lark-type="個別面談" onsubmit="submitToLark(event, this)">
         <button class="cta-btn cta-btn-full" type="submit">日程候補を受け取る<span class="arr">→</span></button>
       </form>
       <p class="cta-fine">※ 平日19:00〜23:00、土日も対応可。お問い合わせ後、2営業日以内に担当者からご連絡します。</p>
@@ -1180,6 +1180,84 @@
     es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
   },{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ────── Lark Base 連携 ──────
+  const LARK_CONFIG = {
+    APP_ID:      'YOUR_APP_ID',        // ← Lark App ID を入力
+    APP_SECRET:  'YOUR_APP_SECRET',    // ← Lark App Secret を入力
+    APP_TOKEN:   'YOUR_BASE_APP_TOKEN',// ← Base の App Token を入力
+    TABLE_ID:    'YOUR_TABLE_ID',      // ← Table ID を入力
+  };
+
+  async function getLarkToken() {
+    const res = await fetch('https://open.larksuite.com/open-apis/auth/v3/tenant_access_token/internal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ app_id: LARK_CONFIG.APP_ID, app_secret: LARK_CONFIG.APP_SECRET })
+    });
+    const data = await res.json();
+    return data.tenant_access_token;
+  }
+
+  async function createLarkRecord(token, fields) {
+    const url = `https://open.larksuite.com/open-apis/bitable/v1/apps/${LARK_CONFIG.APP_TOKEN}/tables/${LARK_CONFIG.TABLE_ID}/records`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({ fields })
+    });
+    return res.json();
+  }
+
+  async function submitToLark(e, form) {
+    e.preventDefault();
+    const type = form.dataset.larkType;
+    const btn = form.querySelector('button[type="submit"]');
+    const origText = btn.innerHTML;
+    btn.innerHTML = '送信中…';
+    btn.disabled = true;
+
+    // フォームデータ収集
+    const fields = {
+      '種別': type,
+      '申込日時': new Date().toLocaleString('ja-JP'),
+    };
+
+    if (type === '資料請求') {
+      fields['メールアドレス'] = form.querySelector('input[type="email"]').value;
+    } else if (type === '説明会') {
+      const selected = document.querySelector('input[name=seminar]:checked');
+      if (!selected) { alert('参加日を選択してください'); btn.innerHTML = origText; btn.disabled = false; return; }
+      fields['メールアドレス'] = form.querySelector('input[type="email"]').value;
+      fields['希望日程'] = selected.value;
+    } else if (type === '個別面談') {
+      const panel = form.closest('.cta-panel');
+      const nameInput = panel.querySelector('input[type="text"]');
+      const emailInput = panel.querySelector('input[type="email"]');
+      const textarea = panel.querySelector('textarea');
+      if (nameInput) fields['名前'] = nameInput.value;
+      if (emailInput) fields['メールアドレス'] = emailInput.value;
+      if (textarea) fields['相談内容'] = textarea.value;
+    }
+
+    try {
+      const token = await getLarkToken();
+      const result = await createLarkRecord(token, fields);
+      if (result.code === 0) {
+        const msgs = { '資料請求': '資料を送信しました。\nメールをご確認ください。', '説明会': '説明会のお申込みを受け付けました。\n参加URLをメールでお送りします。', '個別面談': '個別面談のリクエストを受け付けました。\n2営業日以内に日程候補をお送りします。' };
+        alert(msgs[type]);
+        form.reset();
+      } else {
+        console.error('Lark API Error:', result);
+        alert('送信に失敗しました。しばらくしてから再度お試しください。');
+      }
+    } catch (err) {
+      console.error('Submit Error:', err);
+      alert('送信に失敗しました。しばらくしてから再度お試しください。');
+    }
+    btn.innerHTML = origText;
+    btn.disabled = false;
+  }
 
   // ────── Smooth scroll ──────
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
