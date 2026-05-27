@@ -452,7 +452,7 @@
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a class="btn btn-ghost" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">資料請求</a>
+      <a class="btn btn-ghost" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=meeting]')?.click(),300)">個別面談を予約</a>
       <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=seminar]')?.click(),300)">説明会に参加<span class="arr">→</span></a>
     </div>
   </div>
@@ -480,7 +480,7 @@
           <strong style="color:var(--accent-text);font-weight:900">残り9万円は、全部あなたの報酬に。</strong>
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">まず資料だけ見てみる<span class="arr">→</span></a>
+          <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=seminar]')?.click(),300)">説明会に参加する<span class="arr">→</span></a>
           <a class="btn btn-ghost" href="#simulator">自分の年収を試算する</a>
         </div>
         <div class="hero-meta">
@@ -950,44 +950,18 @@
     <p class="cta-sub">まずは資料を見てみる、説明会で話を聞いてみる——それだけでOKです。SAKIGAKEがあなたに合うかどうか、ご自身で判断してください。</p>
 
     <div class="cta-tabs" role="tablist">
-      <button class="cta-tab active" data-tab="doc" role="tab" aria-selected="true">
+      <button class="cta-tab active" data-tab="seminar" role="tab" aria-selected="true">
         <span class="tab-num">01</span>
-        <span class="tab-label">資料請求<small>規約・報酬シミュレーション</small></span>
-      </button>
-      <button class="cta-tab" data-tab="seminar" role="tab" aria-selected="false">
-        <span class="tab-num">02</span>
         <span class="tab-label">説明会に参加<small>少人数・オンライン・60分</small></span>
       </button>
       <button class="cta-tab" data-tab="meeting" role="tab" aria-selected="false">
-        <span class="tab-num">03</span>
+        <span class="tab-num">02</span>
         <span class="tab-label">個別面談を予約<small>1対1・45分・秘密厳守</small></span>
       </button>
     </div>
 
-    <!-- TAB 01: 資料請求 -->
-    <div class="cta-panel active" data-panel="doc">
-      <div class="cta-pack">
-        <div>
-          <h4>資料パッケージ — 同梱内容</h4>
-          <div class="cta-pack-items">
-            <div>サービス規約（全文PDF）</div>
-            <div>報酬シミュレーション資料</div>
-            <div>契約・請求フローのサンプル</div>
-            <div>案件カテゴリ一覧</div>
-            <div>料金体系の解説</div>
-            <div>働き方別のFAQ集</div>
-          </div>
-        </div>
-      </div>
-      <form class="cta-form" data-lark-type="資料請求" onsubmit="submitToLark(event, this)">
-        <input type="email" placeholder="your.name@email.com" required>
-        <button class="cta-btn" type="submit">資料を受け取る<span class="arr">→</span></button>
-      </form>
-      <p class="cta-fine">※ 3分以内に登録メールアドレスに資料をお送りします。営業電話は一切行いません。</p>
-    </div>
-
-    <!-- TAB 02: 説明会 -->
-    <div class="cta-panel" data-panel="seminar">
+    <!-- TAB 01: 説明会 -->
+    <div class="cta-panel active" data-panel="seminar">
       <div class="cta-pack">
         <div>
           <h4>説明会で扱う内容</h4>
