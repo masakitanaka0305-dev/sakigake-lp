@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SAKIGAKE — 会社のマージンを、あなたの報酬に変えろ。</title>
+<title>SAKIGAKE — 今のSES営業から、SAKIGAKEのエージェントへ。</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,6 @@
   *{box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--jp);font-feature-settings:"palt" 1;}
   body{font-size:15px;line-height:1.75;letter-spacing:.01em}
-  /* Japanese display headlines: keep phrases together, allow natural breaks only at <br> */
   h1, h2, h3, .vision-title, .sec-title{word-break:keep-all;overflow-wrap:normal;line-break:strict}
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
@@ -51,7 +50,7 @@
   .brand{display:flex;align-items:center;gap:10px;font-family:var(--en);font-weight:900;letter-spacing:.18em;font-size:14px}
   .brand-mark{width:22px;height:22px;border-radius:6px;background:var(--ink);position:relative;overflow:hidden}
   .brand-mark::after{content:"";position:absolute;inset:5px;background:var(--accent);border-radius:2px;transform:skewX(-18deg)}
-  .nav-links{display:flex;gap:28px;font-size:13px;color:var(--ink-soft)}
+  .nav-links{display:flex;gap:26px;font-size:13px;color:var(--ink-soft)}
   .nav-links a:hover{color:var(--ink)}
   .nav-cta{display:flex;align-items:center;gap:10px}
   .btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:999px;font-weight:700;font-size:13.5px;letter-spacing:.04em;transition:transform .15s ease, background .2s ease, color .2s ease}
@@ -60,36 +59,38 @@
   .btn-primary .arr{width:18px;height:18px;border-radius:999px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-size:11px}
   .btn-ghost{color:var(--ink);border:1px solid var(--line)}
   .btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-  @media (max-width:780px){.nav-links{display:none}}
+  @media (max-width:920px){.nav-links{display:none}}
+  @media (max-width:520px){.nav-cta .btn-ghost{display:none}}
 
   /* ────── Hero ────── */
   .hero{padding:64px 0 96px;position:relative;overflow:hidden}
-  .hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end}
-  @media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:32px}}
+  .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:stretch}
+  @media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:32px}.hero-visual{min-height:0}.hero-photo{position:relative;inset:auto;width:100%;aspect-ratio:4/5}}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--en);font-size:11.5px;font-weight:700;letter-spacing:.24em;color:var(--ink-soft);text-transform:uppercase}
   .eyebrow::before{content:"";width:28px;height:1px;background:var(--ink)}
-  .hero h1{font-family:var(--jp);font-weight:900;font-size:clamp(40px,5.4vw,84px);line-height:1.1;letter-spacing:-.02em;margin:28px 0 0;color:var(--ink);word-break:keep-all;overflow-wrap:break-word}
+  .hero h1{font-family:var(--jp);font-weight:900;font-size:clamp(34px,4.6vw,68px);line-height:1.18;letter-spacing:-.02em;margin:28px 0 0;color:var(--ink);word-break:keep-all;overflow-wrap:normal}
   .hero h1 .accent{background-image:linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 92%, transparent 92%);background-repeat:no-repeat;padding:0 .04em}
-  .hero h1 .small{display:block;font-size:.36em;font-weight:700;color:var(--ink-soft);margin-top:.7em;letter-spacing:0;line-height:1.5}
-  .hero-sub{max-width:480px;color:var(--ink-soft);font-size:16px;line-height:1.95;margin-top:32px}
+  .hero h1 .small{display:block;font-family:var(--jp);font-size:.34em;font-weight:700;color:var(--ink-soft);margin-top:1em;letter-spacing:.02em;line-height:1.6}
+  .hero-sub{max-width:500px;color:var(--ink-soft);font-size:16px;line-height:1.95;margin-top:32px}
+  .hero-sub strong{color:var(--ink);font-weight:900}
+  .hero-eg{display:block;margin:20px 0;color:var(--ink);font-size:15px;line-height:2;font-weight:500}
+  .hero-sub .mk{background-image:linear-gradient(transparent 58%, var(--accent) 58%, var(--accent) 94%, transparent 94%);background-repeat:no-repeat;padding:0 .04em;font-weight:900;color:var(--ink)}
   .hero-cta{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
-  .hero-meta{display:flex;gap:32px;margin-top:48px;border-top:1px solid var(--line);padding-top:24px;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:30px;margin-top:48px;border-top:1px solid var(--line);padding-top:24px;flex-wrap:wrap}
   .hero-meta div{display:flex;flex-direction:column;gap:4px}
-  .hero-meta .k{font-size:11px;letter-spacing:.18em;color:var(--ink-mute);font-family:var(--en);font-weight:700}
+  .hero-meta .k{font-size:11px;letter-spacing:.16em;color:var(--ink-mute);font-family:var(--en);font-weight:700}
   .hero-meta .v{font-size:18px;font-weight:700}
 
-  .hero-visual{position:relative;height:100%;min-height:480px;display:flex;align-items:flex-end;justify-content:center}
-  .hero-card{background:var(--ink);color:#fff;border-radius:20px;padding:36px;width:100%;position:relative;overflow:hidden;box-shadow:0 30px 80px -30px rgba(10,10,10,.4)}
-  .hero-card::before{content:"";position:absolute;inset:auto -20% -40% auto;width:340px;height:340px;background:radial-gradient(closest-side, rgba(0,229,160,.35), transparent 70%)}
-  .hero-card-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
-  .hero-card-label{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700}
-  .hero-card-dot{width:8px;height:8px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 4px rgba(0,229,160,.18)}
-  .hero-card-num{font-family:var(--en);font-weight:900;font-size:clamp(96px,12vw,160px);line-height:.85;letter-spacing:-.04em;margin:36px 0 8px;color:#fff;position:relative}
-  .hero-card-num .pct{color:var(--accent);font-size:.5em;vertical-align:.4em;margin-left:.05em}
-  .hero-card-desc{color:rgba(255,255,255,.7);font-size:13px;max-width:280px;position:relative}
-  .hero-card-row{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);position:relative}
-  .hero-card-tag{font-family:var(--en);font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.5)}
-  .hero-card-arrow{width:36px;height:36px;border-radius:99px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-size:14px}
+  .hero-visual{position:relative;min-height:420px}
+  .hero-photo{position:absolute;inset:0;margin:0;border-radius:20px;overflow:hidden;background:#0A0A0A;box-shadow:0 30px 80px -30px rgba(10,10,10,.4)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 26%;display:block}
+  .hero-photo-pill{position:absolute;top:18px;left:18px;display:inline-flex;align-items:center;gap:9px;background:rgba(10,10,10,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.18em;padding:9px 15px;border-radius:99px}
+  .hero-photo-pill .dot{width:7px;height:7px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 4px rgba(0,229,160,.25)}
+  .hero-photo-cap{position:absolute;left:0;right:0;bottom:0;padding:64px 26px 24px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;background:linear-gradient(to top, rgba(10,10,10,.9), rgba(10,10,10,.45) 55%, transparent)}
+  .hero-photo-cap .cap-k{display:block;font-family:var(--jp);font-size:12px;color:rgba(255,255,255,.72);letter-spacing:.04em;margin-bottom:6px}
+  .hero-photo-cap .cap-v{font-family:var(--jp);font-size:15px;color:#fff;font-weight:700;line-height:1.1}
+  .hero-photo-cap .cap-v strong{font-family:var(--en);font-weight:900;font-size:30px;color:var(--accent);letter-spacing:-.01em;margin:0 .08em;vertical-align:-.04em}
+  .hero-photo-cap .cap-tag{font-family:var(--jp);font-size:11.5px;letter-spacing:.02em;font-weight:700;color:var(--ink);background:var(--accent);padding:7px 13px;border-radius:99px;white-space:nowrap}
 
   .hero-ticker{margin-top:80px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;white-space:nowrap;display:flex;gap:48px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
   .ticker-track{display:flex;gap:48px;animation:ticker 50s linear infinite;flex-shrink:0}
@@ -101,63 +102,154 @@
   section{padding:120px 0;position:relative}
   @media (max-width:780px){section{padding:80px 0}}
   .sec-head{display:grid;grid-template-columns:auto 1fr;gap:24px 56px;align-items:start;margin-bottom:64px}
-  @media (max-width:780px){.sec-head{grid-template-columns:1fr;gap:24px;margin-bottom:40px}}
-  .sec-num{font-family:var(--en);font-weight:900;font-size:14px;letter-spacing:.2em;color:var(--ink-mute)}
-  .sec-title{font-family:var(--jp);font-weight:900;font-size:clamp(30px,3.6vw,52px);line-height:1.15;letter-spacing:-.015em;margin:0;max-width:22ch;word-break:keep-all;overflow-wrap:normal}
-  .sec-lede{color:var(--ink-soft);font-size:15.5px;line-height:1.95;max-width:42ch;margin-top:18px}
+  @media (max-width:780px){.sec-head{grid-template-columns:1fr;gap:20px;margin-bottom:40px}}
+  .sec-num{font-family:var(--en);font-weight:900;font-size:14px;letter-spacing:.2em;color:var(--ink-mute);white-space:nowrap}
+  .sec-title{font-family:var(--jp);font-weight:900;font-size:clamp(28px,3.4vw,50px);line-height:1.22;letter-spacing:-.015em;margin:0;max-width:24ch;word-break:keep-all;overflow-wrap:normal}
+  .sec-title .hl{background-image:linear-gradient(transparent 60%, var(--accent) 60%, var(--accent) 94%, transparent 94%);background-repeat:no-repeat;padding:0 .06em}
+  .sec-lede{color:var(--ink-soft);font-size:15.5px;line-height:1.95;max-width:44ch;margin-top:18px}
 
-  /* ────── 課題 ────── */
+  /* ────── 課題 / THE REALITY ────── */
   .problem{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
   .problem-lede{font-family:var(--jp);font-weight:900;font-size:clamp(26px,3vw,40px);line-height:1.45;letter-spacing:-.01em;max-width:40ch;color:var(--ink);word-break:keep-all}
-  .problem-lede em{font-style:normal;background:linear-gradient(transparent 60%, rgba(255,90,60,.25) 60%)}
-  .problem-list{margin-top:64px;border-top:1px solid var(--line)}
-  .problem-row{display:grid;grid-template-columns:80px 1fr auto;gap:32px;padding:32px 0;border-bottom:1px solid var(--line);align-items:center}
-  @media (max-width:780px){.problem-row{grid-template-columns:50px 1fr;gap:16px}.problem-row .pct-big{grid-column:1/-1;text-align:left}}
-  .problem-row .idx{font-family:var(--en);font-weight:900;font-size:14px;color:var(--ink-mute);letter-spacing:.16em}
-  .problem-row .q{font-family:var(--jp);font-weight:700;font-size:clamp(18px,2vw,24px);line-height:1.6;color:var(--ink)}
-  .problem-row .pct-big{font-family:var(--en);font-weight:900;font-size:clamp(36px,4vw,56px);line-height:1;color:var(--warn);letter-spacing:-.02em}
-  .problem-row .pct-big small{font-size:.4em;color:var(--ink-mute);margin-left:.3em;display:inline-block;vertical-align:middle;font-weight:500;letter-spacing:.1em}
+  .reality-list{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  @media (max-width:780px){.reality-list{grid-template-columns:1fr}}
+  .reality-row{display:flex;gap:22px;align-items:flex-start;padding:34px 32px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .reality-x{flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(255,90,60,.1);color:var(--warn);display:grid;place-items:center;font-family:var(--en);font-weight:900;font-size:18px;line-height:1}
+  .reality-row p{margin:0;font-family:var(--jp);font-weight:700;font-size:clamp(16px,1.7vw,19px);line-height:1.65;color:var(--ink)}
+  .reality-row p small{display:block;font-weight:500;font-size:13.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:0}
+  .reality-foot{margin-top:48px;font-family:var(--jp);font-weight:900;font-size:clamp(20px,2.4vw,30px);line-height:1.5;letter-spacing:-.01em;color:var(--ink)}
+  .reality-foot .hl{background-image:linear-gradient(transparent 60%, var(--accent) 60%, var(--accent) 94%, transparent 94%);background-repeat:no-repeat;padding:0 .06em}
 
-  /* ────── Solution intro ────── */
-  .solution{background:var(--bg)}
-  .solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-  @media (max-width:900px){.solution-grid{grid-template-columns:1fr;gap:48px}}
-  .solution h2{font-family:var(--jp);font-weight:900;font-size:clamp(32px,4vw,60px);line-height:1.18;letter-spacing:-.02em;margin:24px 0 0;word-break:keep-all;overflow-wrap:normal}
-  .solution h2 .strike{color:var(--ink-mute);text-decoration:line-through;text-decoration-thickness:3px;font-weight:700}
-  .solution h2 .hl{color:var(--ink);background-image:linear-gradient(transparent 58%, var(--accent) 58%, var(--accent) 96%, transparent 96%);background-repeat:no-repeat;padding:0 .08em}
-  .solution-body{color:var(--ink-soft);font-size:16px;line-height:2;margin-top:32px;max-width:46ch}
-  .solution-sign{margin-top:40px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink)}
+  /* ────── Proof / THE SHIFT ────── */
+  .proof{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+  .proof::before{content:"";position:absolute;top:-160px;right:-160px;width:480px;height:480px;background:radial-gradient(circle, rgba(0,229,160,.22), transparent 70%);border-radius:99px}
+  .proof .sec-title{color:#fff}
+  .proof .sec-num{color:rgba(255,255,255,.4)}
+  .proof-head{position:relative;z-index:2;margin-bottom:56px}
+  .proof-head .eyebrow{color:rgba(255,255,255,.7)}
+  .proof-head .eyebrow::before{background:#fff}
+  .proof-head h2{font-family:var(--jp);font-weight:900;font-size:clamp(30px,3.8vw,56px);line-height:1.22;letter-spacing:-.02em;margin:22px 0 0;max-width:24ch;word-break:keep-all}
+  .proof-head h2 .accent{color:var(--accent)}
 
-  .solution-card{background:var(--ink);color:#fff;border-radius:24px;padding:48px;position:relative;overflow:hidden;aspect-ratio:1/1.05}
-  .sc-corner{position:absolute;top:24px;right:24px;font-family:var(--en);font-size:11px;letter-spacing:.22em;color:rgba(255,255,255,.4)}
-  .sc-name{font-family:var(--en);font-weight:900;font-size:clamp(40px,5.4vw,80px);letter-spacing:.01em;line-height:1;margin-top:auto;color:#fff;position:absolute;left:48px;right:48px;bottom:120px;white-space:nowrap;overflow:hidden;text-overflow:clip}
-  .sc-name .dot{color:var(--accent)}
-  .sc-tag{position:absolute;left:48px;bottom:64px;font-family:var(--jp);font-size:14px;color:rgba(255,255,255,.7);letter-spacing:.12em}
-  .sc-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center, #000 40%, transparent 80%)}
-  .sc-orb{position:absolute;top:-20%;right:-15%;width:60%;height:60%;background:radial-gradient(circle, var(--accent), transparent 65%);opacity:.4;filter:blur(20px)}
-  .sc-circle{position:absolute;right:48px;top:48px;width:100px;height:100px;border:1px solid rgba(255,255,255,.2);border-radius:99px;display:grid;place-items:center;font-family:var(--en);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.6)}
+  .proof-compare{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch;margin-bottom:24px}
+  @media (max-width:780px){.proof-compare{grid-template-columns:1fr;gap:16px}}
+  .proof-box{border-radius:20px;padding:36px 32px;display:flex;flex-direction:column;justify-content:center}
+  .proof-box .lab{font-family:var(--en);font-size:11px;letter-spacing:.2em;font-weight:700;margin-bottom:6px}
+  .proof-box .name{font-family:var(--jp);font-size:14px;font-weight:700;margin-bottom:22px}
+  .proof-box .num{font-family:var(--en);font-weight:900;font-size:clamp(48px,6.5vw,84px);line-height:.9;letter-spacing:-.03em}
+  .proof-box .num .yen{font-size:.36em;vertical-align:.5em;margin-right:.05em}
+  .proof-box .num .unit{font-size:.3em;vertical-align:.6em;margin-left:.06em;font-weight:700}
+  .proof-box.before{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+  .proof-box.before .lab{color:rgba(255,255,255,.45)}
+  .proof-box.before .name{color:rgba(255,255,255,.7)}
+  .proof-box.before .num{color:rgba(255,255,255,.55)}
+  .proof-box.after{background:#fff;color:var(--ink);border:1px solid var(--accent);box-shadow:0 0 0 6px rgba(0,229,160,.14)}
+  .proof-box.after .lab{color:var(--accent-2)}
+  .proof-box.after .num .yen,.proof-box.after .num .unit{color:var(--ink-mute)}
+  .proof-mult{display:grid;place-items:center;text-align:center;padding:0 8px}
+  @media (max-width:780px){.proof-mult{padding:8px 0}}
+  .proof-mult .arr{font-family:var(--en);font-weight:900;font-size:32px;color:var(--accent);line-height:1}
+  .proof-mult .x{font-family:var(--en);font-weight:900;font-size:clamp(28px,4vw,44px);color:var(--accent);letter-spacing:-.02em;line-height:1.1}
+  .proof-mult .x small{display:block;font-size:.32em;letter-spacing:.18em;color:rgba(255,255,255,.5);margin-top:4px}
+  .proof-year{position:relative;z-index:2;background:var(--accent);color:var(--ink);border-radius:20px;padding:28px 36px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .proof-year .l .t{font-family:var(--jp);font-weight:900;font-size:clamp(17px,2vw,22px)}
+  .proof-year .l .s{font-family:var(--en);font-size:11px;letter-spacing:.14em;font-weight:700;opacity:.6;margin-top:4px}
+  .proof-year .n{font-family:var(--en);font-weight:900;font-size:clamp(34px,5vw,56px);letter-spacing:-.03em;line-height:1}
+  .proof-year .n .yen{font-size:.42em;vertical-align:.45em;margin-right:.05em}
+  .proof-year .n .unit{font-size:.34em;vertical-align:.5em;margin-left:.04em}
 
-  /* ────── 4 pillars ────── */
-  .pillars{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
-  .pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-  @media (max-width:980px){.pillars-grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:560px){.pillars-grid{grid-template-columns:1fr}}
-  .pillar{padding:40px 32px 48px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:var(--surface);transition:background .25s ease}
-  .pillar:hover{background:var(--bg)}
-  .pillar-num{font-family:var(--en);font-weight:700;font-size:12px;color:var(--ink-mute);letter-spacing:.2em}
-  .pillar-icon{margin:24px 0 32px;width:48px;height:48px;border-radius:12px;background:var(--accent);color:var(--ink);display:grid;place-items:center}
-  .pillar-icon svg{width:24px;height:24px}
-  .pillar h3{font-family:var(--jp);font-weight:900;font-size:22px;line-height:1.4;letter-spacing:-.005em;margin:0 0 16px;min-height:62px}
-  .pillar p{color:var(--ink-soft);font-size:13.5px;line-height:1.85;margin:0}
-  .pillar-tag{font-family:var(--en);font-size:10.5px;color:var(--ink-mute);letter-spacing:.2em;font-weight:700;margin-top:24px;display:block}
+  .benefits{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:72px;border-top:1px solid rgba(255,255,255,.14);border-left:1px solid rgba(255,255,255,.14)}
+  @media (max-width:900px){.benefits{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.benefits{grid-template-columns:1fr}}
+  .benefit{padding:32px 28px 36px;border-right:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+  .benefit .bn{font-family:var(--en);font-weight:700;font-size:11px;letter-spacing:.2em;color:var(--accent)}
+  .benefit h4{font-family:var(--jp);font-weight:900;font-size:18.5px;line-height:1.45;margin:20px 0 12px;color:#fff}
+  .benefit p{margin:0;color:rgba(255,255,255,.62);font-size:13px;line-height:1.85}
+
+  /* ────── ABOUT — middleman vs us ────── */
+  .about{background:var(--bg)}
+  .vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+  @media (max-width:780px){.vs-grid{grid-template-columns:1fr}}
+  .vs-card{border-radius:20px;padding:32px;border:1px solid var(--line);background:var(--surface)}
+  .vs-card.bad{background:var(--bg)}
+  .vs-card.good{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .vs-card .vlab{font-family:var(--en);font-size:11px;letter-spacing:.2em;font-weight:700;display:flex;align-items:center;gap:8px}
+  .vs-card.bad .vlab{color:var(--ink-mute)}
+  .vs-card.good .vlab{color:var(--accent)}
+  .vs-card .vlab .dot{width:7px;height:7px;border-radius:99px;background:currentColor}
+  .vs-card h3{font-family:var(--jp);font-weight:900;font-size:clamp(22px,2.4vw,30px);margin:18px 0 0;letter-spacing:-.01em;line-height:1.3}
+  .vs-card.bad h3{color:var(--ink-mute)}
+  .vs-rows{margin-top:28px;display:grid;gap:0}
+  .vs-rows .r{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+  .vs-card.good .vs-rows .r{border-top-color:rgba(255,255,255,.12)}
+  .vs-rows .r .rk{font-family:var(--en);font-size:10.5px;letter-spacing:.14em;font-weight:700;color:var(--ink-mute);padding-top:3px}
+  .vs-card.good .vs-rows .r .rk{color:rgba(255,255,255,.45)}
+  .vs-rows .r .rv{font-size:14px;line-height:1.6;font-weight:500}
+  .vs-card.bad .vs-rows .r .rv{color:var(--ink-soft)}
+  .vs-card.good .vs-rows .r .rv{color:#fff}
+  .vs-card.good .vs-rows .r .rv strong{color:var(--accent);font-weight:900}
+
+  /* ────── Same boat / why ────── */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  @media (max-width:900px){.why-grid{grid-template-columns:1fr}}
+  .why-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:32px}
+  .why-card .ck{width:30px;height:30px;border-radius:8px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-family:var(--en);font-weight:900;font-size:15px;line-height:1}
+  .why-card h4{font-family:var(--jp);font-weight:900;font-size:20px;line-height:1.4;margin:22px 0 12px;letter-spacing:-.005em}
+  .why-card p{margin:0;color:var(--ink-soft);font-size:13.5px;line-height:1.85}
+
+  /* ────── Roles (3 things) ────── */
+  .roles{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .roles-three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:780px){.roles-three{grid-template-columns:1fr}}
+  .role-card{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:36px 32px;position:relative}
+  .role-card .rnum{font-family:var(--en);font-weight:900;font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-.03em;color:var(--accent-2)}
+  .role-card h4{font-family:var(--jp);font-weight:900;font-size:22px;margin:20px 0 10px;letter-spacing:-.01em}
+  .role-card p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.8}
+  .roles-rest{margin-top:24px;background:var(--ink);color:#fff;border-radius:20px;padding:40px 36px}
+  .roles-rest .rr-head{font-family:var(--jp);font-weight:900;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.01em;margin:0 0 6px}
+  .roles-rest .rr-head .accent{color:var(--accent)}
+  .roles-rest .rr-sub{color:rgba(255,255,255,.6);font-size:14px;margin:0 0 28px}
+  .rr-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 32px}
+  @media (max-width:780px){.rr-list{grid-template-columns:1fr}}
+  .rr-list li{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:14px;color:rgba(255,255,255,.85)}
+  .rr-list li::before{content:"✓";color:var(--accent);font-family:var(--en);font-weight:900;flex-shrink:0}
+
+  /* ────── How it works — free margin ────── */
+  .how{background:var(--bg)}
+  .how-flow{display:grid;grid-template-columns:1fr 1fr 1fr auto 1.1fr;gap:14px;align-items:stretch;margin-top:8px}
+  @media (max-width:980px){.how-flow{grid-template-columns:1fr 1fr;gap:14px}}
+  @media (max-width:560px){.how-flow{grid-template-columns:1fr}}
+  .how-cell{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;justify-content:center}
+  .how-cell .hk{font-family:var(--en);font-size:10.5px;letter-spacing:.16em;font-weight:700;color:var(--ink-mute);margin-bottom:14px}
+  .how-cell .hv{font-family:var(--en);font-weight:900;font-size:clamp(30px,3.6vw,46px);line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .how-cell .hv .unit{font-size:.38em;color:var(--ink-mute);margin-left:.06em}
+  .how-cell .hd{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6}
+  .how-cell.you{background:rgba(0,229,160,.06);border-color:rgba(0,229,160,.4)}
+  .how-cell.fix{background:var(--surface)}
+  .how-cell.fix .hv{color:var(--ink)}
+  .how-cell.result{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .how-cell.result .hk{color:var(--accent)}
+  .how-cell.result .hv{color:#fff}
+  .how-cell.result .hv .formula{font-size:.5em;color:rgba(255,255,255,.65);font-weight:700}
+  .how-cell.result .hd{color:rgba(255,255,255,.6)}
+  .how-op{display:grid;place-items:center;font-family:var(--en);font-weight:900;font-size:26px;color:var(--ink-mute)}
+  @media (max-width:980px){.how-op{display:none}}
+  .how-ex{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:780px){.how-ex{grid-template-columns:1fr}}
+  .how-ex .ex{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .how-ex .ex .exl{font-size:13px;color:var(--ink-soft);line-height:1.7}
+  .how-ex .ex .exl b{color:var(--ink);font-weight:900}
+  .how-ex .ex .exn{font-family:var(--en);font-weight:900;font-size:clamp(28px,3.4vw,40px);color:var(--accent-2);letter-spacing:-.02em;white-space:nowrap}
+  .how-ex .ex .exn .yen{font-size:.42em;vertical-align:.45em;color:var(--ink-mute)}
+  .how-note{margin-top:24px;font-size:13px;color:var(--ink-soft);line-height:1.8}
 
   /* ────── Simulator ────── */
   .sim{background:var(--ink);color:#fff;position:relative;overflow:hidden}
-  .sim::before{content:"";position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle, rgba(0,229,160,.25), transparent 70%);border-radius:99px}
+  .sim::before{content:"";position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle, rgba(0,229,160,.22), transparent 70%);border-radius:99px}
   .sim .sec-num{color:rgba(255,255,255,.4)}
   .sim .sec-title{color:#fff}
   .sim .sec-lede{color:rgba(255,255,255,.65)}
-  .sim-body{display:grid;grid-template-columns:.9fr 1.4fr;gap:48px;margin-top:48px;align-items:start}
+  .sim-body{display:grid;grid-template-columns:.95fr 1.35fr;gap:48px;margin-top:8px;align-items:start}
   @media (max-width:980px){.sim-body{grid-template-columns:1fr;gap:32px}}
   .sim-controls{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px;backdrop-filter:blur(20px)}
   .sim-controls h4{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700;margin:0 0 24px}
@@ -168,112 +260,243 @@
   input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:rgba(255,255,255,.12);border-radius:2px;outline:none}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:99px;background:var(--accent);cursor:pointer;border:3px solid var(--ink);box-shadow:0 0 0 1px var(--accent)}
   input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:99px;background:var(--accent);cursor:pointer;border:3px solid var(--ink);box-shadow:0 0 0 1px var(--accent)}
+  .sim-seg{display:flex;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:5px}
+  .sim-seg button{flex:1;padding:11px 8px;border-radius:8px;font-family:var(--en);font-weight:700;font-size:14px;color:rgba(255,255,255,.6);transition:all .15s ease;letter-spacing:.02em}
+  .sim-seg button.active{background:var(--accent);color:var(--ink)}
   .sim-note{margin-top:16px;font-size:11.5px;color:rgba(255,255,255,.5);line-height:1.7}
 
-  .sim-result{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media (max-width:600px){.sim-result{grid-template-columns:1fr}}
-  .sim-card{padding:32px;border-radius:20px;position:relative;overflow:hidden}
-  .sim-card.before{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
-  .sim-card.after{background:#fff;color:var(--ink);border:1px solid var(--accent);box-shadow:0 0 0 6px rgba(0,229,160,.12)}
+  .sim-out{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:600px){.sim-out{grid-template-columns:1fr}}
+  .sim-card{padding:30px 32px;border-radius:20px;position:relative;overflow:hidden}
+  .sim-card.month{background:#fff;color:var(--ink);border:1px solid var(--accent);box-shadow:0 0 0 6px rgba(0,229,160,.12)}
+  .sim-card.year{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
   .sim-card-label{font-family:var(--en);font-size:11px;letter-spacing:.22em;font-weight:700;margin-bottom:8px}
-  .sim-card.before .sim-card-label{color:rgba(255,255,255,.4)}
-  .sim-card.after .sim-card-label{color:var(--accent-2)}
-  .sim-card-name{font-family:var(--jp);font-size:14px;font-weight:700;margin-bottom:24px}
-  .sim-card.before .sim-card-name{color:rgba(255,255,255,.7)}
-  .sim-card-num{font-family:var(--en);font-weight:900;font-size:clamp(48px,7vw,80px);line-height:1;letter-spacing:-.03em;margin-bottom:6px}
-  .sim-card-num .yen{font-size:.4em;font-weight:700;color:var(--ink-mute);margin-right:.1em;vertical-align:.2em}
-  .sim-card.before .sim-card-num .yen{color:rgba(255,255,255,.4)}
-  .sim-card-suffix{font-size:13px;color:rgba(255,255,255,.5)}
-  .sim-card.after .sim-card-suffix{color:var(--ink-soft)}
-  .sim-card-meta{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;line-height:1.8}
-  .sim-card.after .sim-card-meta{border-top-color:var(--line)}
-  .sim-card-meta div{display:flex;justify-content:space-between;color:rgba(255,255,255,.6)}
-  .sim-card.after .sim-card-meta div{color:var(--ink-soft)}
-  .sim-diff{grid-column:1/-1;margin-top:8px;padding:24px 32px;background:var(--accent);color:var(--ink);border-radius:16px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .sim-diff .label-jp{font-family:var(--jp);font-weight:900;font-size:18px}
-  .sim-diff .label-en{font-family:var(--en);font-size:11px;letter-spacing:.22em;font-weight:700;opacity:.6;margin-top:2px}
-  .sim-diff .num{font-family:var(--en);font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.02em}
-  .sim-diff .num .yen{font-size:.5em;margin-right:.1em}
+  .sim-card.month .sim-card-label{color:var(--accent-2)}
+  .sim-card.year .sim-card-label{color:rgba(255,255,255,.45)}
+  .sim-card-num{font-family:var(--en);font-weight:900;font-size:clamp(46px,6.5vw,76px);line-height:1;letter-spacing:-.03em;margin-bottom:6px}
+  .sim-card.year .sim-card-num{color:#fff}
+  .sim-card-num .yen{font-size:.36em;font-weight:700;color:var(--ink-mute);margin-right:.08em;vertical-align:.3em}
+  .sim-card.year .sim-card-num .yen{color:rgba(255,255,255,.4)}
+  .sim-card-num .unit{font-size:.3em;font-weight:700;color:var(--ink-mute);margin-left:.06em;vertical-align:.5em}
+  .sim-card.year .sim-card-num .unit{color:rgba(255,255,255,.4)}
+  .sim-card-suffix{font-size:13px;color:var(--ink-soft)}
+  .sim-card.year .sim-card-suffix{color:rgba(255,255,255,.55)}
+  .sim-card-meta{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.8}
+  .sim-card.year .sim-card-meta{border-top-color:rgba(255,255,255,.1)}
+  .sim-card-meta div{display:flex;justify-content:space-between;color:var(--ink-soft)}
+  .sim-card.year .sim-card-meta div{color:rgba(255,255,255,.6)}
+  .sim-bars{grid-column:1/-1;margin-top:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px 28px}
+  .sim-bars .sbh{font-family:var(--en);font-size:11px;letter-spacing:.18em;font-weight:700;color:rgba(255,255,255,.55);margin-bottom:16px}
+  .sb-row{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;margin-bottom:12px}
+  .sb-row:last-child{margin-bottom:0}
+  .sb-row .sbk{font-family:var(--en);font-weight:700;font-size:13px;color:rgba(255,255,255,.7)}
+  .sb-track{height:12px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+  .sb-fill{height:100%;background:var(--accent);border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .sb-row .sbv{font-family:var(--en);font-weight:900;font-size:15px;color:#fff;white-space:nowrap}
+
+  /* ────── Reward table ────── */
+  .rtable-wrap{margin-top:48px;border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden}
+  .rtable{width:100%;border-collapse:collapse;font-size:14px}
+  .rtable th,.rtable td{padding:18px 20px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1)}
+  .rtable thead th{font-family:var(--en);font-size:11px;letter-spacing:.16em;font-weight:700;color:rgba(255,255,255,.55);background:rgba(255,255,255,.03)}
+  .rtable thead th.you{color:var(--accent)}
+  .rtable td.unit-col{font-family:var(--en);font-weight:900;font-size:18px;color:#fff}
+  .rtable td .big{font-family:var(--en);font-weight:900;font-size:24px;color:var(--accent);letter-spacing:-.02em}
+  .rtable td small{display:block;color:rgba(255,255,255,.5);font-size:11.5px;margin-top:3px;letter-spacing:0}
+  .rtable tbody tr:last-child td{border-bottom:0}
+  @media (max-width:600px){.rtable th,.rtable td{padding:14px 12px;font-size:13px}.rtable td .big{font-size:20px}}
 
   /* ────── Comparison table ────── */
-  .compare{background:var(--bg)}
-  .compare-table{margin-top:24px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface)}
-  .compare-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;border-bottom:1px solid var(--line);align-items:stretch}
+  .compare{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .compare-table{margin-top:8px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface)}
+  .compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--line);align-items:stretch}
   .compare-row:last-child{border-bottom:0}
-  .compare-row > div{padding:24px 28px;display:flex;align-items:center}
+  .compare-row > div{padding:22px 26px;display:flex;align-items:center}
   @media (max-width:780px){
     .compare-row{grid-template-columns:1fr 1fr}
-    .compare-row > div:first-child{grid-column:1/-1;border-bottom:1px dashed var(--line-2);padding:18px 20px;background:var(--bg);font-weight:700}
-    .compare-row > div{padding:18px 20px;font-size:13.5px}
+    .compare-row > div:first-child{grid-column:1/-1;border-bottom:1px dashed var(--line-2);padding:16px 18px;background:var(--bg);font-weight:700}
+    .compare-row > div{padding:16px 18px;font-size:13.5px}
   }
   .compare-head{background:var(--ink);color:#fff}
-  .compare-head > div{padding:32px 28px;font-family:var(--en);font-size:11px;letter-spacing:.22em;font-weight:700}
+  .compare-head > div{padding:28px 26px;font-family:var(--en);font-size:11px;letter-spacing:.2em;font-weight:700}
   .compare-head .col-them{color:rgba(255,255,255,.5);border-left:1px solid rgba(255,255,255,.1)}
   .compare-head .col-us{color:var(--accent);background:rgba(0,229,160,.08);border-left:1px solid rgba(255,255,255,.1)}
   .compare-head .col-us::before{content:"●";font-size:8px;margin-right:8px}
   .compare-row .axis{font-family:var(--jp);font-weight:700;font-size:14.5px;color:var(--ink);background:var(--bg);border-right:1px solid var(--line)}
-  .compare-row .them{color:var(--ink-soft);font-size:14px;border-right:1px solid var(--line);position:relative}
-  .compare-row .them::before{content:"×";position:absolute;left:8px;top:50%;transform:translateY(-50%);color:var(--ink-mute);font-family:var(--en);font-weight:900;display:none}
-  .compare-row .us{color:var(--ink);font-size:14px;font-weight:500;background:rgba(0,229,160,.04);position:relative}
-  .compare-row .us::before{content:"";display:inline-block;width:6px;height:6px;border-radius:99px;background:var(--accent);margin-right:10px;flex-shrink:0;align-self:center}
+  .compare-row .them{color:var(--ink-soft);font-size:14px;border-right:1px solid var(--line)}
+  .compare-row .us{color:var(--ink);font-size:14px;font-weight:500;background:rgba(0,229,160,.04)}
+  .compare-row .us strong{color:var(--accent-2);font-weight:900}
 
-  /* ────── Flow ────── */
-  .flow{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
-  .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:24px}
+  /* ────── Ramp-up ────── */
+  .ramp{background:var(--bg)}
+  .ramp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+  @media (max-width:980px){.ramp-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.ramp-grid{grid-template-columns:1fr}}
+  .ramp-step{position:relative;padding:32px 28px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  .ramp-step::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);font-family:var(--en);font-size:18px;color:var(--ink-mute);z-index:2;background:var(--bg);width:26px;text-align:center}
+  .ramp-step:last-child::after{display:none}
+  @media (max-width:980px){.ramp-step::after{display:none}}
+  .ramp-step .rp{font-family:var(--en);font-weight:900;font-size:11px;letter-spacing:.14em;color:var(--accent-2);background:rgba(0,229,160,.12);padding:6px 12px;border-radius:99px;display:inline-block}
+  .ramp-step h4{font-family:var(--jp);font-weight:900;font-size:19px;line-height:1.4;margin:22px 0 10px;letter-spacing:-.005em}
+  .ramp-step p{margin:0;color:var(--ink-soft);font-size:13px;line-height:1.8}
+  .ramp-step .amt{font-family:var(--en);font-weight:900;font-size:20px;color:var(--ink);margin-top:18px;display:block;letter-spacing:-.01em}
+  .ramp-step .amt .yen{font-size:.6em;color:var(--ink-mute)}
+  .ramp-foot{margin-top:24px;font-size:12.5px;color:var(--ink-soft);line-height:1.8}
+
+  /* ────── Safety (payment flow + risk) ────── */
+  .safety{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .pay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+  @media (max-width:980px){.pay-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.pay-grid{grid-template-columns:1fr}}
+  .pay-step{padding:30px 26px;background:var(--bg);border-radius:16px;position:relative}
+  .pay-step .pn{font-family:var(--en);font-weight:900;font-size:11px;letter-spacing:.16em;color:var(--ink-mute)}
+  .pay-step h4{font-family:var(--jp);font-weight:900;font-size:18px;line-height:1.4;margin:16px 0 10px}
+  .pay-step p{margin:0;color:var(--ink-soft);font-size:13px;line-height:1.8}
+  .pay-step .tag{margin-top:18px;display:inline-block;font-family:var(--en);font-size:10.5px;letter-spacing:.12em;font-weight:700;color:var(--accent-2);background:rgba(0,229,160,.1);padding:5px 10px;border-radius:99px}
+  .risk-wrap{margin-top:48px;background:var(--ink);color:#fff;border-radius:20px;padding:44px 40px}
+  .risk-wrap .rh{font-family:var(--jp);font-weight:900;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.01em;margin:0 0 6px}
+  .risk-wrap .rh .accent{color:var(--accent)}
+  .risk-wrap .rs{color:rgba(255,255,255,.6);font-size:14px;margin:0 0 32px;max-width:54ch;line-height:1.8}
+  .risk-three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:780px){.risk-three{grid-template-columns:1fr}}
+  .risk-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:28px 26px}
+  .risk-card .rcn{font-family:var(--en);font-weight:900;font-size:32px;color:var(--accent);line-height:1}
+  .risk-card h5{font-family:var(--jp);font-weight:900;font-size:16.5px;margin:16px 0 10px;color:#fff}
+  .risk-card p{margin:0;color:rgba(255,255,255,.62);font-size:13px;line-height:1.8}
+
+  /* ────── Pricing ────── */
+  .pricing{background:var(--bg)}
+  .price-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+  @media (max-width:900px){.price-grid{grid-template-columns:1fr;gap:32px}}
+  .price-card{background:var(--ink);color:#fff;border-radius:24px;padding:48px 44px;position:relative;overflow:hidden}
+  .price-card::before{content:"";position:absolute;inset:auto -20% -30% auto;width:300px;height:300px;background:radial-gradient(closest-side, rgba(0,229,160,.3), transparent 70%)}
+  .price-card .pl{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700;position:relative}
+  .price-card .pnum{font-family:var(--en);font-weight:900;font-size:clamp(72px,9vw,120px);line-height:.9;letter-spacing:-.04em;margin:24px 0 4px;position:relative}
+  .price-card .pnum .yen{font-size:.34em;vertical-align:.55em;color:rgba(255,255,255,.6);margin-right:.04em}
+  .price-card .pnum .man{font-size:.34em;vertical-align:.55em;margin-left:.02em}
+  .price-card .pnum .tax{font-size:.18em;vertical-align:.9em;color:rgba(255,255,255,.5);margin-left:.2em;letter-spacing:.05em}
+  .price-card .punit{position:relative;color:rgba(255,255,255,.65);font-size:14px}
+  .price-card .pfree{position:relative;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:13.5px;color:rgba(255,255,255,.78);line-height:1.85}
+  .price-card .pfree b{color:var(--accent);font-weight:900}
+  .price-incl{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  @media (max-width:560px){.price-incl{grid-template-columns:1fr}}
+  .price-incl .pi{padding:24px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-incl .pi .pik{font-family:var(--jp);font-weight:900;font-size:15px;margin-bottom:6px;display:flex;align-items:center;gap:9px}
+  .price-incl .pi .pik::before{content:"✓";color:var(--accent-2);font-family:var(--en);font-weight:900}
+  .price-incl .pi p{margin:0;color:var(--ink-soft);font-size:12.5px;line-height:1.7}
+
+  /* ────── Freedom / stealth / confidence ────── */
+  .freedom{background:var(--surface);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .free-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:64px}
+  @media (max-width:900px){.free-feats{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.free-feats{grid-template-columns:1fr}}
+  .free-feat{padding:28px 26px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
+  .free-feat .fk{font-family:var(--en);font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--accent-2)}
+  .free-feat h4{font-family:var(--jp);font-weight:900;font-size:18px;margin:14px 0 10px;letter-spacing:-.005em}
+  .free-feat p{margin:0;color:var(--ink-soft);font-size:13px;line-height:1.8}
+  .stealth{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:900px){.stealth{grid-template-columns:1fr}}
+  .stealth-card{border-radius:20px;padding:40px 36px}
+  .stealth-card.dark{background:var(--ink);color:#fff}
+  .stealth-card.light{background:var(--bg);border:1px solid var(--line)}
+  .stealth-card .sk{font-family:var(--en);font-size:11px;letter-spacing:.2em;font-weight:700;margin-bottom:14px}
+  .stealth-card.dark .sk{color:var(--accent)}
+  .stealth-card.light .sk{color:var(--ink-mute)}
+  .stealth-card h3{font-family:var(--jp);font-weight:900;font-size:clamp(22px,2.6vw,30px);line-height:1.35;letter-spacing:-.01em;margin:0 0 14px}
+  .stealth-card .sd{font-size:14px;line-height:1.9;margin:0 0 24px}
+  .stealth-card.dark .sd{color:rgba(255,255,255,.65)}
+  .stealth-card.light .sd{color:var(--ink-soft)}
+  .stealth-list{list-style:none;margin:0;padding:0;display:grid;gap:0}
+  .stealth-list li{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.6}
+  .stealth-card.dark .stealth-list li{border-top-color:rgba(255,255,255,.12);color:rgba(255,255,255,.85)}
+  .stealth-card.light .stealth-list li{color:var(--ink)}
+  .stealth-list li::before{content:"✓";font-family:var(--en);font-weight:900;color:var(--accent-2);flex-shrink:0}
+  .stealth-card.dark .stealth-list li::before{color:var(--accent)}
+
+  /* ────── Flow (4 steps) ────── */
+  .flow{background:var(--bg)}
+  .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
   @media (max-width:980px){.flow-grid{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:560px){.flow-grid{grid-template-columns:1fr}}
-  .flow-step{position:relative;padding:32px 28px;background:var(--bg);border-radius:16px}
-  .flow-step::after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-family:var(--en);font-size:18px;color:var(--ink-mute);z-index:2}
+  .flow-step{position:relative;padding:32px 28px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  .flow-step::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);font-family:var(--en);font-size:18px;color:var(--ink-mute);z-index:2;background:var(--bg);width:26px;text-align:center}
   .flow-step:last-child::after{display:none}
   @media (max-width:980px){.flow-step::after{display:none}}
-  .flow-num{font-family:var(--en);font-weight:900;font-size:11px;letter-spacing:.2em;color:var(--accent-2);background:rgba(0,229,160,.15);padding:6px 10px;border-radius:99px;display:inline-block}
-  .flow-step h4{font-family:var(--jp);font-weight:900;font-size:20px;line-height:1.4;margin:24px 0 12px;letter-spacing:-.005em}
+  .flow-num{font-family:var(--en);font-weight:900;font-size:11px;letter-spacing:.16em;color:var(--accent-2);background:rgba(0,229,160,.12);padding:6px 12px;border-radius:99px;display:inline-block}
+  .flow-step h4{font-family:var(--jp);font-weight:900;font-size:19px;line-height:1.4;margin:22px 0 10px;letter-spacing:-.005em}
   .flow-step p{color:var(--ink-soft);font-size:13px;line-height:1.85;margin:0}
-  .flow-step .time{font-family:var(--en);font-size:11px;letter-spacing:.16em;color:var(--ink-mute);margin-top:16px;display:block;font-weight:700}
-
-  /* ────── Vision ────── */
-  .vision{background:var(--bg);position:relative;overflow:hidden}
-  .vision-inner{position:relative;z-index:2}
-  .vision-title{font-family:var(--jp);font-weight:900;font-size:clamp(34px,4.8vw,76px);line-height:1.18;letter-spacing:-.02em;max-width:30ch;word-break:keep-all}
-  .vision-title .ot{color:var(--ink-mute)}
-  .vision-title .strk{position:relative}
-  .vision-title .strk::after{content:"";position:absolute;left:0;right:0;top:55%;height:6px;background:var(--ink-mute);transform:rotate(-3deg)}
-  .vision-title .new{color:var(--ink);background-image:linear-gradient(transparent 64%, var(--accent) 64%, var(--accent) 92%, transparent 92%);background-repeat:no-repeat;padding:0 .06em}
-  .vision-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-top:80px}
-  @media (max-width:900px){.vision-body{grid-template-columns:1fr;gap:24px}}
-  .vision-card{padding:32px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
-  .vision-card .lab{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--ink-mute);font-weight:700}
-  .vision-card h4{font-family:var(--jp);font-weight:900;font-size:22px;line-height:1.4;margin:16px 0 16px}
-  .vision-card p{color:var(--ink-soft);font-size:13.5px;line-height:1.85;margin:0}
-  .vision-card .arrow{margin-top:24px;font-family:var(--en);font-size:14px;color:var(--accent-2);font-weight:700;letter-spacing:.1em}
+  .flow-step .time{font-family:var(--en);font-size:11px;letter-spacing:.14em;color:var(--ink-mute);margin-top:16px;display:block;font-weight:700}
 
   /* ────── FAQ ────── */
   .faq{background:var(--surface);border-top:1px solid var(--line-2)}
-  .faq-list{margin-top:24px;border-top:1px solid var(--line)}
+  .faq-list{margin-top:8px;border-top:1px solid var(--line)}
   details.faq-item{border-bottom:1px solid var(--line);padding:0}
   details.faq-item summary{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:28px 4px;cursor:pointer;list-style:none;font-family:var(--jp);font-weight:700;font-size:18px;line-height:1.5}
   details.faq-item summary::-webkit-details-marker{display:none}
   details.faq-item summary::after{content:"+";font-family:var(--en);font-weight:300;font-size:28px;color:var(--ink-mute);line-height:1;transition:transform .2s ease, color .2s ease;flex-shrink:0}
   details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--accent-2)}
   details.faq-item .q-en{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--ink-mute);font-weight:700;margin-right:24px;align-self:center}
-  details.faq-item .a{padding:0 4px 28px;color:var(--ink-soft);font-size:14.5px;line-height:1.95;max-width:70ch}
+  details.faq-item .a{padding:0 4px 28px;color:var(--ink-soft);font-size:14.5px;line-height:1.95;max-width:74ch}
+
+  /* ────── Vision ────── */
+  .vision{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+  .vision::before{content:"";position:absolute;left:50%;top:-30%;width:80%;height:120%;background:radial-gradient(ellipse at center, rgba(0,229,160,.16), transparent 60%);transform:translateX(-50%)}
+  .vision-inner{position:relative;z-index:2}
+  .vision .eyebrow{color:rgba(255,255,255,.7)}
+  .vision .eyebrow::before{background:#fff}
+  .vision-title{font-family:var(--jp);font-weight:900;font-size:clamp(34px,5vw,76px);line-height:1.18;letter-spacing:-.02em;max-width:18ch;word-break:keep-all;margin:24px 0 0}
+  .vision-title .accent{color:var(--accent)}
+  .vision-lede{color:rgba(255,255,255,.7);font-size:16px;line-height:1.95;max-width:52ch;margin-top:28px}
+  .vision-lede .em{color:#fff;font-weight:700}
+  .vision-track{margin-top:72px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+  @media (max-width:780px){.vision-track{grid-template-columns:1fr;gap:32px}}
+  .vision-big{font-family:var(--en);font-weight:900;font-size:clamp(120px,18vw,220px);line-height:.82;letter-spacing:-.05em;color:var(--accent)}
+  .vision-big small{display:block;font-family:var(--en);font-size:.1em;letter-spacing:.24em;color:rgba(255,255,255,.5);margin-top:.3em;font-weight:700}
+  .vision-phases{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.14)}
+  .vision-phase{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .vision-phase .vp-k{font-family:var(--en);font-weight:700;font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.5);min-width:120px}
+  .vision-phase .vp-bar{height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+  .vision-phase .vp-bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+  .vision-phase .vp-v{font-family:var(--en);font-weight:900;font-size:16px;color:#fff;white-space:nowrap}
 
   /* ────── CTA ────── */
-  .cta{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:120px 0 80px}
+  .cta{background:var(--bg);position:relative;overflow:hidden;padding:120px 0 96px}
   .cta-grid{position:relative;z-index:2}
-  .cta::before{content:"";position:absolute;left:50%;top:50%;width:90%;height:120%;background:radial-gradient(ellipse at center, rgba(0,229,160,.15), transparent 60%);transform:translate(-50%,-50%);z-index:1}
-  .cta-eyebrow{color:var(--accent)}
-  .cta-eyebrow::before{background:var(--accent)}
-  .cta h2{font-family:var(--jp);font-weight:900;font-size:clamp(34px,4.8vw,72px);line-height:1.15;letter-spacing:-.02em;margin:24px 0 0;max-width:30ch;word-break:keep-all}
-  .cta h2 .accent{color:var(--accent)}
-  .cta-sub{color:rgba(255,255,255,.7);font-size:16px;line-height:1.95;max-width:48ch;margin-top:32px}
+  .cta-eyebrow{color:var(--accent-2)}
+  .cta-eyebrow::before{background:var(--accent-2)}
+  .cta h2{font-family:var(--jp);font-weight:900;font-size:clamp(32px,4.4vw,64px);line-height:1.2;letter-spacing:-.02em;margin:24px 0 0;max-width:24ch;word-break:keep-all}
+  .cta h2 .accent{background-image:linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 92%, transparent 92%);background-repeat:no-repeat;padding:0 .04em}
+  .cta-sub{color:var(--ink-soft);font-size:16px;line-height:1.95;max-width:50ch;margin-top:28px}
 
-  .cta-pack{margin-top:48px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
-  @media (max-width:780px){.cta-pack{grid-template-columns:1fr;gap:24px}}
+  .cta-steps{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  @media (max-width:900px){.cta-steps{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.cta-steps{grid-template-columns:1fr}}
+  .cta-step{padding:22px 20px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+  .cta-step .cn{font-family:var(--en);font-weight:900;font-size:12px;color:var(--accent-2);letter-spacing:.1em}
+  .cta-step h5{font-family:var(--jp);font-weight:900;font-size:15px;margin:12px 0 6px;line-height:1.4}
+  .cta-step p{margin:0;font-size:12px;color:var(--ink-soft);line-height:1.7}
+
+  .cta-panel-wrap{margin-top:56px;background:var(--ink);color:#fff;border-radius:24px;padding:48px 44px;position:relative;overflow:hidden}
+  .cta-panel-wrap::before{content:"";position:absolute;inset:auto auto -40% -10%;width:360px;height:360px;background:radial-gradient(closest-side, rgba(0,229,160,.18), transparent 70%)}
+  .cta-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:6px;position:relative;z-index:2}
+  @media (max-width:780px){.cta-tabs{grid-template-columns:1fr}}
+  .cta-tab{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:10px;color:rgba(255,255,255,.55);text-align:left;cursor:pointer;transition:all .2s ease;border:1px solid transparent;min-height:64px}
+  .cta-tab:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.03)}
+  .cta-tab.active{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+  .cta-tab .tab-num{font-family:var(--en);font-weight:900;font-size:11px;letter-spacing:.16em;opacity:.6}
+  .cta-tab.active .tab-num{opacity:.5;color:var(--ink)}
+  .cta-tab .tab-label{font-family:var(--jp);font-weight:700;font-size:14px;line-height:1.3;display:flex;flex-direction:column;gap:2px}
+  .cta-tab .tab-label small{font-weight:500;font-size:11px;opacity:.65;letter-spacing:.04em}
+
+  .cta-panel{display:none;animation:fadein .4s ease both;position:relative;z-index:2}
+  .cta-panel.active{display:block}
+  @keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .cta-pack{margin-top:32px}
   .cta-pack h4{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700;margin:0 0 16px}
   .cta-pack-items{display:flex;flex-wrap:wrap;gap:8px 24px;color:rgba(255,255,255,.85);font-size:13.5px}
   .cta-pack-items div{display:flex;align-items:center;gap:8px}
-  .cta-pack-items div::before{content:"";width:14px;height:14px;border-radius:99px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-family:var(--en);font-size:10px;font-weight:900;line-height:14px;text-align:center}
+  .cta-pack-items div::before{content:"";width:14px;height:14px;border-radius:99px;background:var(--accent);flex-shrink:0}
 
   .cta-form{display:flex;gap:8px;margin-top:32px;max-width:560px;flex-wrap:wrap}
   .cta-form input{flex:1 1 240px;height:56px;padding:0 20px;border-radius:99px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:#fff;font-size:14.5px;outline:none;transition:border .2s ease, background .2s ease}
@@ -284,22 +507,6 @@
   .cta-btn .arr{width:24px;height:24px;border-radius:99px;background:var(--ink);color:var(--accent);display:grid;place-items:center;font-size:12px}
   .cta-fine{margin-top:20px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.8}
 
-  /* CTA Tabs */
-  .cta-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:48px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:6px}
-  @media (max-width:780px){.cta-tabs{grid-template-columns:1fr}}
-  .cta-tab{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:10px;color:rgba(255,255,255,.55);text-align:left;cursor:pointer;transition:all .2s ease;border:1px solid transparent;min-height:64px}
-  .cta-tab:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.03)}
-  .cta-tab.active{background:var(--accent);color:var(--ink);border-color:var(--accent)}
-  .cta-tab .tab-num{font-family:var(--en);font-weight:900;font-size:11px;letter-spacing:.16em;opacity:.6}
-  .cta-tab.active .tab-num{opacity:.5;color:var(--ink)}
-  .cta-tab .tab-label{font-family:var(--jp);font-weight:700;font-size:14px;line-height:1.3;display:flex;flex-direction:column;gap:2px}
-  .cta-tab .tab-label small{font-weight:500;font-size:11px;opacity:.65;letter-spacing:.04em}
-
-  .cta-panel{display:none;animation:fadein .4s ease both}
-  .cta-panel.active{display:block}
-  @keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-
-  /* Seminar date picker */
   .cta-dates{margin:32px 0 24px}
   .dates-label{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:var(--accent);font-weight:700;display:block;margin-bottom:14px}
   .dates-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
@@ -308,12 +515,10 @@
   .date-card{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .2s ease;position:relative}
   .date-card:hover:not(.soldout){border-color:rgba(0,229,160,.5);background:rgba(0,229,160,.06)}
   .date-card input{position:absolute;opacity:0;pointer-events:none}
-  .date-card input:checked + .date-day{color:var(--accent)}
   .date-card:has(input:checked){background:rgba(0,229,160,.12);border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
   .date-card.soldout{opacity:.35;cursor:not-allowed}
   .date-day{display:flex;flex-direction:column;align-items:center;line-height:1;flex-shrink:0;transition:color .2s ease}
   .date-day .d-num{font-family:var(--en);font-weight:900;font-size:24px;letter-spacing:-.02em;color:#fff}
-  .date-card.soldout .d-num{color:rgba(255,255,255,.6)}
   .date-card:has(input:checked) .date-day .d-num{color:var(--accent)}
   .date-day .d-mo{font-family:var(--en);font-weight:700;font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.5);margin-top:4px}
   .date-meta{display:flex;flex-direction:column;gap:2px;font-size:11px}
@@ -322,7 +527,6 @@
   .date-meta .d-tag{color:var(--accent);font-family:var(--en);font-size:10px;letter-spacing:.16em;font-weight:700;margin-top:2px}
   .date-card.soldout .d-tag{color:var(--warn)}
 
-  /* Meeting fields */
   .cta-meeting-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
   @media (max-width:600px){.cta-meeting-fields{grid-template-columns:1fr}}
   .m-field{display:flex;flex-direction:column;gap:8px}
@@ -339,53 +543,12 @@
   @media (max-width:780px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
   .foot-brand .brand-mark{background:#fff}
   .foot-brand .brand-mark::after{background:var(--accent)}
-  .foot-brand p{margin-top:16px;font-size:13px;line-height:1.85;max-width:32ch}
+  .foot-brand p{margin-top:16px;font-size:13px;line-height:1.85;max-width:34ch}
   .foot-col h5{font-family:var(--en);font-size:11px;letter-spacing:.22em;color:#fff;font-weight:700;margin:0 0 18px}
   .foot-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.55);margin-bottom:10px;transition:color .15s}
   .foot-col a:hover{color:#fff}
   .foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-family:var(--en);font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:16px}
 
-  /* ────── Tier structure ────── */
-  .tier{background:var(--bg)}
-  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media (max-width:900px){.tier-grid{grid-template-columns:1fr}}
-  .tier-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:36px 32px;position:relative;display:flex;flex-direction:column}
-  .tier-card.tier-max{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .tier-card.tier-max .tier-list{color:rgba(255,255,255,.7)}
-  .tier-card.tier-max .tier-list li{border-bottom-color:rgba(255,255,255,.1)}
-  .tier-card.tier-max p{color:rgba(255,255,255,.65)}
-  .tier-tag{font-family:var(--en);font-size:11px;letter-spacing:.22em;font-weight:700;color:var(--ink-mute);align-self:flex-start;padding:6px 10px;border:1px solid var(--line);border-radius:99px}
-  .tier-card.tier-plus .tier-tag{color:var(--accent-2);border-color:rgba(0,229,160,.4);background:rgba(0,229,160,.06)}
-  .tier-card.tier-max .tier-tag{color:var(--accent);border-color:rgba(0,229,160,.4);background:rgba(0,229,160,.08)}
-  .tier-rate{font-family:var(--en);font-weight:900;font-size:clamp(64px,8vw,104px);line-height:.9;letter-spacing:-.03em;margin:32px 0 8px;color:var(--ink)}
-  .tier-card.tier-max .tier-rate{color:var(--accent)}
-  .tier-card.tier-plus .tier-rate{color:var(--ink)}
-  .tier-rate .pct{font-size:.4em;font-weight:700;color:var(--ink-mute);margin-left:.05em;vertical-align:.35em}
-  .tier-card.tier-max .tier-rate .pct{color:rgba(255,255,255,.5)}
-  .tier-card h4{font-family:var(--jp);font-weight:900;font-size:18px;margin:0 0 12px;letter-spacing:-.005em}
-  .tier-card p{color:var(--ink-soft);font-size:13.5px;line-height:1.85;margin:0 0 24px}
-  .tier-list{list-style:none;padding:0;margin:auto 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
-  .tier-list li{padding:12px 0;border-bottom:1px solid var(--line-2);position:relative;padding-left:18px}
-  .tier-list li:last-child{border-bottom:0}
-  .tier-list li::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:99px;background:var(--accent)}
-  .tier-list li small{display:block;color:var(--ink-mute);font-size:11.5px;margin-top:2px}
-  .tier-card.tier-max .tier-list li small{color:rgba(255,255,255,.45)}
-  .tier-list strong{font-family:var(--en);font-weight:900;color:var(--ink);margin-right:6px}
-  .tier-card.tier-max .tier-list strong{color:var(--accent)}
-  .tier-foot{margin-top:32px;font-size:12px;color:var(--ink-mute);line-height:1.85;max-width:80ch}
-
-  /* ────── Sim tier checkboxes ────── */
-  .sim-tiers{margin:8px 0 20px;padding:20px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(0,229,160,.04)}
-  .sim-tiers-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--en);font-size:11px;letter-spacing:.18em;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed rgba(255,255,255,.12)}
-  .sim-tiers-head .mono-num{font-size:22px;color:var(--accent);letter-spacing:-.02em}
-  .sim-check{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:13.5px;color:rgba(255,255,255,.85);cursor:pointer;user-select:none}
-  .sim-check input{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1.5px solid rgba(255,255,255,.3);border-radius:5px;display:grid;place-items:center;cursor:pointer;transition:all .15s ease;flex-shrink:0;background:transparent;margin:0}
-  .sim-check input:checked{background:var(--accent);border-color:var(--accent)}
-  .sim-check input:checked::after{content:"✓";color:var(--ink);font-size:13px;font-weight:900;line-height:1}
-  .sim-check span{display:flex;justify-content:space-between;align-items:center;flex:1;gap:8px}
-  .sim-check small{font-family:var(--en);font-weight:700;color:var(--accent);font-size:12px;letter-spacing:.06em}
-
-  /* ────── OTHER ────── */
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
@@ -400,11 +563,12 @@
       <span>SAKIGAKE</span>
     </a>
     <div class="nav-links">
-      <a href="#problem">課題</a>
-      <a href="#solution">仕組み</a>
-      <a href="#tier">料金体系</a>
-      <a href="#simulator">報酬試算</a>
+      <a href="#reality">課題</a>
+      <a href="#about">仕組み</a>
+      <a href="#how">報酬</a>
+      <a href="#simulator">試算</a>
       <a href="#compare">比較</a>
+      <a href="#pricing">料金</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
@@ -419,490 +583,761 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">For SES Sales Professionals</span>
+        <span class="eyebrow">次世代SESエージェントファーム</span>
         <h1>
-          会社の<span class="accent">マージン</span>を、<br>
-          あなたの<span class="accent">報酬</span>に。
-          <span class="small">SES営業のための、独立OS。</span>
+          自由に働いて、<br>
+          <span class="accent">もっと稼ぐ</span>。
+          <span class="small">SESのプロが集まる、新しい働き方のかたち。</span>
         </h1>
         <p class="hero-sub">
-          あなたが獲ってきた案件の利益、その大半は今、会社のものになっている。<br>
-          SAKIGAKEは、プラットフォーム利用料<strong style="color:var(--ink);font-weight:900">一律3万円/案件</strong>のみ。粗利の残りは全てあなたのものです。エンジニア確保・契約・請求・入金管理——独立のすべての面倒を、私たちが引き受けます。
+          SAKIGAKEは、SESのプロフェッショナルが集まる次世代SESエージェントファーム。フリーランスとして自由な場所・時間で活動しながら、契約・請求・入金管理はすべて私たちが代行します。
+          <span class="hero-eg">たとえば60万円の案件なら、エンジニアに48万円（80%還元）、SAKIGAKEの手数料は<strong>3万円（税別）だけ</strong>。<br>残りの<span class="mk">9万円は、全部あなたの報酬に。</span></span>
+          会社のマージンに消えていた利益を、あなたの手に取り戻す。それがSAKIGAKEエージェントの働き方です。
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#cta" onclick="setTimeout(()=>document.querySelector('[data-tab=doc]')?.click(),300)">資料・報酬シミュレーションを受け取る<span class="arr">→</span></a>
           <a class="btn btn-ghost" href="#simulator">先に試算してみる</a>
         </div>
         <div class="hero-meta">
-          <div><span class="k">PLATFORM FEE</span><span class="v mono-num">¥3<small style="font-size:.5em">万/案件</small></span></div>
-          <div><span class="k">ENGINEERS</span><span class="v mono-num">3,200<small style="font-size:.5em">+ 名</small></span></div>
-          <div><span class="k">AVG MATCHING</span><span class="v mono-num">5.2<small style="font-size:.5em"> 日</small></span></div>
-          <div><span class="k">BACKOFFICE</span><span class="v">フル代行</span></div>
+          <div><span class="k">手数料</span><span class="v mono-num">¥3<small style="font-size:.6em">万 / 案件</small></span></div>
+          <div><span class="k">エンジニア還元率</span><span class="v mono-num">80–85<small style="font-size:.5em">% 自由設定</small></span></div>
+          <div><span class="k">働き方</span><span class="v">フルリモート</span></div>
+          <div><span class="k">ノルマ</span><span class="v">ノルマなし</span></div>
         </div>
       </div>
 
       <div class="hero-visual">
-        <div class="hero-card">
-          <div class="sc-grid" style="opacity:.5"></div>
-          <div class="hero-card-top">
-            <span class="hero-card-label">YOUR SHARE</span>
-            <span class="hero-card-dot"></span>
-          </div>
-          <div class="hero-card-num mono-num" style="font-size:clamp(64px,8vw,100px)">¥3<span class="pct" style="color:var(--accent);font-size:.45em">万</span></div>
-          <div class="hero-card-desc">プラットフォーム利用料は一律3万円/案件。案件の規模に関わらず定額。粗利の残りは全てあなたの報酬になります。</div>
-          <div class="hero-card-row">
-            <span class="hero-card-tag">FLAT FEE — NO MARGIN CUT</span>
-            <span class="hero-card-arrow">↗</span>
-          </div>
-        </div>
+        <figure class="hero-photo">
+          <img src="assets/hero-agent.png" alt="SAKIGAKEのエージェントとして自由に働く営業プロフェッショナル">
+          <span class="hero-photo-pill"><span class="dot"></span>SAKIGAKEエージェント</span>
+          <figcaption class="hero-photo-cap">
+            <div>
+              <span class="cap-k">1稼働あたり、あなたの報酬（例）</span>
+              <span class="cap-v">毎月<strong>+9万円</strong></span>
+            </div>
+            <span class="cap-tag">今のSES会社の約7倍</span>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
     <!-- ticker -->
     <div class="hero-ticker">
       <div class="ticker-track">
-        <span>BREAK THE MARGIN</span>
-        <span>OWN YOUR PIPELINE</span>
-        <span>FLAT ¥30K / DEAL</span>
-        <span>ZERO BACKOFFICE</span>
-        <span>AI-MATCHED ENGINEERS</span>
-        <span>SAKIGAKE OS</span>
-        <span>BREAK THE MARGIN</span>
-        <span>OWN YOUR PIPELINE</span>
-        <span>FLAT ¥30K / DEAL</span>
-        <span>ZERO BACKOFFICE</span>
-        <span>AI-MATCHED ENGINEERS</span>
-        <span>SAKIGAKE OS</span>
+        <span>手数料は一律3万円</span>
+        <span>粗利はあなたが決める</span>
+        <span>案件も顧客もあなたの資産</span>
+        <span>事務はぜんぶ代行</span>
+        <span>完全非公開で始められる</span>
+        <span>ノルマなし</span>
+        <span>手数料は一律3万円</span>
+        <span>粗利はあなたが決める</span>
+        <span>案件も顧客もあなたの資産</span>
+        <span>事務はぜんぶ代行</span>
+        <span>完全非公開で始められる</span>
+        <span>ノルマなし</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PROBLEM ============ -->
-<section class="problem" id="problem" data-screen-label="02 problem">
+<!-- ============ THE REALITY ============ -->
+<section class="problem" id="reality" data-screen-label="02 reality">
   <div class="wrap">
     <div class="sec-head">
+      <div><span class="sec-num">01 ／ 現実</span></div>
       <div>
-        <span class="sec-num">01 / THE GAP</span>
-      </div>
-      <div>
-        <h2 class="sec-title">なぜ、優秀な営業ほど<br>会社という<em style="font-style:normal;background:linear-gradient(transparent 60%, rgba(255,90,60,.25) 60%)">檻</em>の中で損をするのか。</h2>
-        <p class="sec-lede">案件を獲るのも、エンジニアを口説くのも、納品まで責任を持つのも——全部あなた。なのに、利益の大半は会社のものになり、あなたの手元には数%のインセンティブだけが残る。これは、SES業界の構造的な歪みです。</p>
+        <h2 class="sec-title">売っても、<br>報酬は増えない。</h2>
+        <p class="sec-lede">どれだけ案件を獲っても、SES営業の手元に残るのはわずか数%。利益の大半は会社のマージンに消えていきます。これは個人の問題ではなく、業界の構造の問題です。</p>
       </div>
     </div>
 
-    <div class="problem-list">
-      <div class="problem-row">
-        <span class="idx">Q. 01</span>
-        <span class="q">月商600万円の案件を3本獲ったのに、自分の年収はほぼ変わらない。</span>
-        <span class="pct-big mono-num">87<small>% の営業が経験</small></span>
+    <div class="reality-list">
+      <div class="reality-row">
+        <span class="reality-x">✕</span>
+        <p>どれだけ案件を獲っても、報酬は数%。<small>稼いだ利益の大半は、会社のマージンに消えていく。</small></p>
       </div>
-      <div class="problem-row">
-        <span class="idx">Q. 02</span>
-        <span class="q">独立したいが、エンジニアの確保と契約・請求業務に踏み込めない。</span>
-        <span class="pct-big mono-num">71<small>% が独立を断念</small></span>
+      <div class="reality-row">
+        <span class="reality-x">✕</span>
+        <p>案件も顧客も、会社の資産。<small>自分が築いた関係も商流も、辞めれば手元には残らない。</small></p>
       </div>
-      <div class="problem-row">
-        <span class="idx">Q. 03</span>
-        <span class="q">クライアントから直接「君個人で頼みたい」と言われても、応えられない。</span>
-        <span class="pct-big mono-num">63<small>% が機会損失</small></span>
+      <div class="reality-row">
+        <span class="reality-x">✕</span>
+        <p>ノルマと社内評価に縛られる。<small>働き方も時間も場所も、自分では選べない。</small></p>
       </div>
-      <div class="problem-row">
-        <span class="idx">Q. 04</span>
-        <span class="q">案件があっても、出せるエンジニアがいない月が必ずある。</span>
-        <span class="pct-big mono-num">2.1<small>ヶ月/年 平均</small></span>
+      <div class="reality-row">
+        <span class="reality-x">✕</span>
+        <p>事務作業に追われる毎日。<small>契約・請求・督促……本来の営業に集中できない。</small></p>
       </div>
-      <div class="problem-row">
-        <span class="idx">Q. 05</span>
-        <span class="q">入社時に約束された「インセンティブ」が、結局あいまいなまま終わっている。</span>
-        <span class="pct-big mono-num">54<small>% が不満を表明</small></span>
+    </div>
+
+    <p class="reality-foot">——その構造、<span class="hl">SAKIGAKEで変えられます。</span></p>
+  </div>
+</section>
+
+<!-- ============ PROOF / THE SHIFT ============ -->
+<section class="proof" id="proof" data-screen-label="03 proof">
+  <div class="wrap">
+    <div class="proof-head">
+      <span class="eyebrow">今のSES営業 → SAKIGAKE</span>
+      <h2>あなたが獲った案件の利益。<br>その大半が、<span class="accent">そのままあなたの報酬に。</span></h2>
+    </div>
+
+    <div class="proof-compare">
+      <div class="proof-box before">
+        <div class="lab">今のSES会社</div>
+        <div class="name">1案件であなたに残るお金</div>
+        <div class="num mono-num"><span class="yen">¥</span>1–2<span class="unit">万</span></div>
+      </div>
+      <div class="proof-mult">
+        <div class="arr">→</div>
+        <div class="x">×7<small>およそ7倍</small></div>
+      </div>
+      <div class="proof-box after">
+        <div class="lab">● SAKIGAKE</div>
+        <div class="name">1案件であなたに残るお金</div>
+        <div class="num mono-num"><span class="yen">¥</span>9<span class="unit">万</span></div>
+      </div>
+    </div>
+
+    <div class="proof-year">
+      <div class="l">
+        <div class="t">10件を同時に動かせば</div>
+        <div class="s">60万案件・80%還元で1件9万円 × 10件の例</div>
+      </div>
+      <div class="n mono-num"><span class="yen">¥</span>1,080<span class="unit">万 / 年</span></div>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <span class="bn">01 ／ 報酬</span>
+        <h4>1稼働につき、<br>毎月9万円が報酬に。</h4>
+        <p>稼働が続く限り、ずっと積み上がる。獲った利益の大半が、そのままあなたの収入になります。</p>
+      </div>
+      <div class="benefit">
+        <span class="bn">02 ／ 自由</span>
+        <h4>フルリモートで、<br>自由に働く。</h4>
+        <p>働く場所も時間も、会社に縛られない。営業と人脈づくり、そして自分の時間に集中できます。</p>
+      </div>
+      <div class="benefit">
+        <span class="bn">03 ／ 代行</span>
+        <h4>面倒は、<br>ぜんぶ代行。</h4>
+        <p>スキルシート・AIマッチング・契約・請求・与信・法務まで。事務はすべて私たちが引き受けます。</p>
+      </div>
+      <div class="benefit">
+        <span class="bn">04 ／ ノルマなし</span>
+        <h4>ノルマなし、<br>人に寄り添える。</h4>
+        <p>数字に追われず、エンジニア一人ひとりの人生に向き合える。それが本来の営業のかたちです。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SOLUTION ============ -->
-<section class="solution" id="solution" data-screen-label="03 solution">
+<!-- ============ ABOUT — middleman vs us ============ -->
+<section class="about" id="about" data-screen-label="04 about">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sec-num">02 / THE SHIFT</span></div>
-      <div></div>
-    </div>
-    <div class="solution-grid">
+      <div><span class="sec-num">02 ／ SAKIGAKEとは</span></div>
       <div>
-        <span class="eyebrow">A NEW OPERATING SYSTEM</span>
-        <h2>
-          <span class="strike">組織の所有物</span><span style="display:inline-block">から、</span><br>
-          <span class="hl">自分のビジネス</span><span style="display:inline-block">の所有者へ。</span>
-        </h2>
-        <p class="solution-body">
-          SAKIGAKEは「会社」ではなく、営業のための「OS」です。<br>
-          あなたは雇われずに、しかし独立よりはるかに少ないリスクで、自分のパイプラインから利益を直接受け取れます。
-          <br><br>
-          私たちは案件の取り合いをしません。あなたが獲った案件は、あなたの資産。エンジニアの確保、契約書、請求、入金管理、トラブル対応——営業を「営業の仕事」だけに戻すための、すべての裏側を、私たちが運用します。
-        </p>
-        <div class="solution-sign">— Build your own book of business.</div>
+        <h2 class="sec-title">私たちは、<br><span class="hl">あなたの専属バックオフィス</span>です。</h2>
+        <p class="sec-lede">SAKIGAKEは、マージンを抜く中間業者ではありません。次世代SESエージェントファームとして、契約・請求・入金・与信・法務をすべて引き受け、あなたが営業に集中できる基盤を提供します。</p>
       </div>
+    </div>
 
-      <div class="solution-card">
-        <div class="sc-orb"></div>
-        <div class="sc-grid"></div>
-        <span class="sc-corner">SAKIGAKE / OS v.1</span>
-        <div class="sc-circle">since 2024</div>
-        <div class="sc-name">SAKIGAKE<span class="dot">.</span></div>
-        <div class="sc-tag">先駆 — Be the first to leave the cage.</div>
+    <div class="vs-grid">
+      <div class="vs-card bad">
+        <div class="vlab"><span class="dot"></span>よくある中間業者</div>
+        <h3>マージンを抜く</h3>
+        <div class="vs-rows">
+          <div class="r"><div class="rk">役割</div><div class="rv">案件を右から左へ流すだけ</div></div>
+          <div class="r"><div class="rk">収益モデル</div><div class="rv">中間マージンを大きく搾取</div></div>
+          <div class="r"><div class="rk">立場</div><div class="rv">案件も顧客も業者のもの</div></div>
+          <div class="r"><div class="rk">体制</div><div class="rv">事務は基本ノータッチ</div></div>
+        </div>
+      </div>
+      <div class="vs-card good">
+        <div class="vlab"><span class="dot"></span>SAKIGAKE</div>
+        <h3>あなたの基盤になる</h3>
+        <div class="vs-rows">
+          <div class="r"><div class="rk">役割</div><div class="rv">契約・請求・入金・与信・法務を<strong>丸ごと代行</strong></div></div>
+          <div class="r"><div class="rk">収益モデル</div><div class="rv">マージン搾取なし。手数料は<strong>一律3万円（税別）</strong></div></div>
+          <div class="r"><div class="rk">立場</div><div class="rv">案件も顧客も<strong>あなたの資産</strong>。利害が一致</div></div>
+          <div class="r"><div class="rk">体制</div><div class="rv">専属サクセス担当が立ち上げから<strong>伴走</strong></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:64px">
+      <span class="eyebrow" style="margin-bottom:24px;display:inline-flex">私たちは、あなたと同じ船に乗ります</span>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="ck">✓</div>
+          <h4>利害が一致する設計</h4>
+          <p>マージンを抜く構造ではなく、手数料は一律3万円（税別）。あなたの成功が、そのまま私たちの成長になります。</p>
+        </div>
+        <div class="why-card">
+          <div class="ck">✓</div>
+          <h4>お金とリスクを引き受ける</h4>
+          <p>契約・請求・入金・与信・ファクタリング・法務・支払代行まで。バックオフィスを丸ごと担います。</p>
+        </div>
+        <div class="why-card">
+          <div class="ck">✓</div>
+          <h4>創業フェーズの先行者に</h4>
+          <p>2年で500名を目指す立ち上げ期。最初の数十名として、好条件と裁量を持って参画できます。</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 4 PILLARS ============ -->
-<section class="pillars" data-screen-label="04 pillars">
+<!-- ============ ROLES — 3 things ============ -->
+<section class="roles" data-screen-label="05 roles">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sec-num">03 / WHAT YOU GET</span></div>
+      <div><span class="sec-num">03 ／ あなたの役割</span></div>
       <div>
-        <h2 class="sec-title">独立に必要な<br>4つの装備を、<br>セットで。</h2>
-        <p class="sec-lede">安い利用料だけでは独立できません。SAKIGAKEは、報酬・人材・運用・キャリアの4軸で、あなたの営業力が「資産」になるまでを支えます。</p>
+        <h2 class="sec-title">あなたがやるのは、<br><span class="hl">3つだけ。</span></h2>
+        <p class="sec-lede">案件もエンジニアも、ゼロからじゃない。あなたの人脈とSAKIGAKEの供給を掛け合わせて立ち上げます。案件情報はSAKIGAKEからも開示されるので、ゼロから商談を起こす必要はありません。</p>
       </div>
     </div>
 
-    <div class="pillars-grid">
-      <div class="pillar">
-        <span class="pillar-num">01 / REVENUE</span>
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>
-          </svg>
-        </div>
-        <h3>利用料は一律<br>3万円/案件。</h3>
-        <p>案件の規模に関わらず、プラットフォーム利用料は一律3万円。粗利の残りは全額あなたの報酬です。％ベースのマージンは一切取りません。</p>
-        <span class="pillar-tag">¥ — DIRECT DEPOSIT</span>
+    <div class="roles-three">
+      <div class="role-card">
+        <div class="rnum mono-num">01</div>
+        <h4>エンジニアを探す</h4>
+        <p>あなたの人脈と、条件に合う人材をすぐ提案するAIマッチングを活用して探します。</p>
       </div>
+      <div class="role-card">
+        <div class="rnum mono-num">02</div>
+        <h4>案件にアサインする</h4>
+        <p>あなたの商流に加え、SAKIGAKEから開示された案件にエンジニアを当てます。</p>
+      </div>
+      <div class="role-card">
+        <div class="rnum mono-num">03</div>
+        <h4>稼働管理をする</h4>
+        <p>エンジニアの体調やコンディションを見守る。長く定着してもらうための関係づくり。</p>
+      </div>
+    </div>
 
-      <div class="pillar">
-        <span class="pillar-num">02 / ENGINEERS</span>
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0"/><circle cx="17" cy="9.5" r="2.5"/><path d="M22 19a5 5 0 00-7-4.6"/>
-          </svg>
-        </div>
-        <h3>AI実装エンジニアを<br>安定供給。</h3>
-        <p>提携エンジニア3,200名超のプールから、案件要件にマッチする人材をAIスコアリングで自動抽出。「案件はあるのにエンジニアが足りない」を構造的に解決します。</p>
-        <span class="pillar-tag">⌗ — MATCH IN 5.2 DAYS AVG.</span>
-      </div>
-
-      <div class="pillar">
-        <span class="pillar-num">03 / BACKOFFICE</span>
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>
-          </svg>
-        </div>
-        <h3>契約・請求・入金確認、<br>すべて自動化。</h3>
-        <p>クライアント・エンジニアとの契約書発行、月次請求、入金消し込み、与信、トラブル時の法務対応——全部システムが代行。あなたが触る事務は、ほぼゼロになります。</p>
-        <span class="pillar-tag">⚙ — FULLY AUTOMATED</span>
-      </div>
-
-      <div class="pillar">
-        <span class="pillar-num">04 / CAREER</span>
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3l3 6 6 .9-4.5 4.3 1.1 6.2L12 17.8 6.4 20.4l1.1-6.2L3 9.9 9 9z"/>
-          </svg>
-        </div>
-        <h3>営業ではなく、<br>「投資家」になる。</h3>
-        <p>SAKIGAKE上の案件は、転売・後輩への引継ぎ・チーム化が可能。あなたが構築したパイプラインは、独立後の会社の資産にもなります。「卒業」を前提に設計されています。</p>
-        <span class="pillar-tag">↗ — BUILD YOUR EQUITY</span>
-      </div>
+    <div class="roles-rest">
+      <h3 class="rr-head">あとは、<span class="accent">ぜんぶSAKIGAKE。</span></h3>
+      <p class="rr-sub">面倒な作業も書類も、すべて私たちが引き受けます。</p>
+      <ul class="rr-list">
+        <li>エンジニアのスキルシート作成</li>
+        <li>エンジニア要員サマリの作成</li>
+        <li>SAKIGAKE案件情報の開示</li>
+        <li>契約書・NDAの発行</li>
+        <li>月次請求・入金消し込み</li>
+        <li>与信審査・法務サポート</li>
+        <li>提携ファクタリング（売掛買取）</li>
+        <li>エンジニア・取引先への支払代行</li>
+        <li>確定申告サポート</li>
+        <li>専属サクセス担当の伴走</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ============ TIER STRUCTURE ============ -->
-<section class="tier" id="tier" data-screen-label="05 tier">
+<!-- ============ HOW IT WORKS — free margin ============ -->
+<section class="how" id="how" data-screen-label="06 how">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sec-num">04 / REVENUE TIER</span></div>
+      <div><span class="sec-num">04 ／ 報酬の仕組み</span></div>
       <div>
-        <h2 class="sec-title">料金は、<br>シンプルに「一律3万円」。</h2>
-        <p class="sec-lede">SAKIGAKEの料金体系は究極にシンプル。案件1件あたり月額3万円のプラットフォーム利用料のみ。案件規模や粗利額に関わらず定額です。粗利の残りは、全額あなたの報酬になります。</p>
+        <h2 class="sec-title">粗利は、<br><span class="hl">あなたが自由に決める。</span></h2>
+        <p class="sec-lede">エンジニアへの還元率も案件単価も、SAKIGAKEは縛りません。完全に自由な取引です。固定されているのは、SAKIGAKEの取り分がどんな案件でも一律3万円（税別）だけということ。</p>
       </div>
     </div>
 
-    <div class="tier-grid">
-      <div class="tier-card tier-base">
-        <span class="tier-tag">PLATFORM FEE</span>
-        <div class="tier-rate" style="display:flex;align-items:baseline;gap:4px"><span style="font-size:.4em;color:var(--ink-mute);font-weight:700">¥</span><span class="mono-num">3</span><span class="pct" style="font-size:.35em">万円<span style="font-size:.7em;color:var(--ink-mute);margin-left:2px">/案件/月</span></span></div>
-        <h4>一律プラットフォーム利用料</h4>
-        <p>案件の規模・粗利額に関わらず、1案件あたり月額3万円の定額制。案件数が増えても料率は変わりません。</p>
-        <ul class="tier-list">
-          <li>案件登録 → AIマッチング</li>
-          <li>契約・請求・入金代行</li>
-          <li>与信・法務サポート</li>
-        </ul>
+    <div class="how-flow">
+      <div class="how-cell you">
+        <div class="hk">案件単価</div>
+        <div class="hv mono-num">60<span class="unit">万〜</span></div>
+        <div class="hd">あなたが獲得・交渉</div>
       </div>
-
-      <div class="tier-card tier-plus">
-        <span class="tier-tag">YOUR PROFIT</span>
-        <div class="tier-rate" style="font-size:clamp(48px,6vw,80px)"><span class="mono-num" style="color:var(--ink)">粗利−3万</span></div>
-        <h4>あなたの取り分</h4>
-        <p>粗利からプラットフォーム利用料3万円を引いた全額が、あなたの報酬です。案件単価が高いほど、あなたの手取りが増えます。</p>
-        <ul class="tier-list">
-          <li><strong>例</strong> 粗利27万円の案件<small>→ あなたの取り分 24万円</small></li>
-          <li><strong>例</strong> 粗利40万円の案件<small>→ あなたの取り分 37万円</small></li>
-          <li><strong>例</strong> 粗利55万円の案件<small>→ あなたの取り分 52万円</small></li>
-        </ul>
+      <div class="how-cell you">
+        <div class="hk">エンジニア還元率</div>
+        <div class="hv mono-num">80–85<span class="unit">%</span></div>
+        <div class="hd">比率はあなた次第</div>
       </div>
-
-      <div class="tier-card tier-max">
-        <span class="tier-tag">ALL INCLUDED</span>
-        <div class="tier-rate"><span class="mono-num" style="font-size:clamp(48px,6vw,80px)">全込み</span></div>
-        <h4>3万円に含まれるもの</h4>
-        <p>別途費用は一切なし。すべてのバックオフィス機能が3万円に含まれています。</p>
-        <ul class="tier-list">
-          <li>エンジニアAIマッチング</li>
-          <li>契約書・NDA発行</li>
-          <li>月次請求・入金消し込み</li>
-          <li>与信審査・法務サポート</li>
-          <li>専属サクセス担当</li>
-        </ul>
+      <div class="how-cell fix">
+        <div class="hk">SAKIGAKE・固定はここだけ</div>
+        <div class="hv mono-num">3<span class="unit">万</span></div>
+        <div class="hd">契約・請求・入金代行（税別）</div>
+      </div>
+      <div class="how-op">=</div>
+      <div class="how-cell result">
+        <div class="hk">あなたの報酬</div>
+        <div class="hv mono-num">粗利<span class="formula"> − 3万</span></div>
+        <div class="hd">残り全額があなたの報酬</div>
       </div>
     </div>
 
-    <p class="tier-foot">※ プラットフォーム利用料3万円/案件/月は、与信審査・ファクタリング原価・契約／法務／システム運用・人件費に充てられます。％ベースのマージンを廃止し、業界で最も透明性の高い料金体系を実現しています。</p>
+    <div class="how-ex">
+      <div class="ex">
+        <div class="exl"><b>80%還元</b>の例<br>60万円 → エンジニア48万 / 粗利12万 − 弊社3万</div>
+        <div class="exn mono-num"><span class="yen">¥</span>9万</div>
+      </div>
+      <div class="ex">
+        <div class="exl"><b>85%還元</b>の例<br>60万円 → エンジニア51万 / 粗利9万 − 弊社3万</div>
+        <div class="exn mono-num"><span class="yen">¥</span>6万</div>
+      </div>
+    </div>
+
+    <p class="how-note">エンジニアに厚く還元して長く組むも、粗利を厚く取るも、あなた次第。SAKIGAKEの手数料はどちらの場合も一律3万円（税別）だけです。</p>
   </div>
 </section>
 
 <!-- ============ SIMULATOR ============ -->
-<section class="sim" id="simulator" data-screen-label="06 simulator">
+<section class="sim" id="simulator" data-screen-label="07 simulator">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sec-num">05 / THE MATH</span></div>
+      <div><span class="sec-num">05 ／ 報酬シミュレーション</span></div>
       <div>
-        <h2 class="sec-title">数字は、嘘をつかない。</h2>
-        <p class="sec-lede">同じ案件を持ち込んだとして、既存SES企業とSAKIGAKEで、あなたの手取りはどれだけ変わるか。一律3万円の定額モデルで試算してください。</p>
+        <h2 class="sec-title">回せば回すほど、<br>積み上がる。</h2>
+        <p class="sec-lede">あなた自身の条件で、毎月と年間の報酬を試算してください。手数料は1案件あたり一律3万円（税別）。残りはすべてあなたの報酬です。</p>
       </div>
     </div>
 
     <div class="sim-body">
-      <!-- controls -->
       <div class="sim-controls">
-        <h4>INPUT — あなたの想定</h4>
+        <h4>入力 — あなたの想定</h4>
 
         <div class="sim-field">
-          <label>月間獲得案件数 <span class="val mono-num"><span id="sim-cases">3</span><span class="unit">本</span></span></label>
-          <input type="range" id="r-cases" min="1" max="8" step="1" value="3">
+          <label>1案件あたり月額単価 <span class="val mono-num">¥<span id="sim-price">60</span><span class="unit">万</span></span></label>
+          <input type="range" id="r-price" min="40" max="120" step="5" value="60">
         </div>
 
         <div class="sim-field">
-          <label>1案件あたり月額単価 <span class="val mono-num">¥<span id="sim-price">85</span><span class="unit">万</span></span></label>
-          <input type="range" id="r-price" min="50" max="150" step="5" value="85">
-        </div>
-
-        <div class="sim-field">
-          <label>1案件あたり原価率 <span class="val mono-num"><span id="sim-cost">68</span><span class="unit">%</span></span></label>
-          <input type="range" id="r-cost" min="55" max="80" step="1" value="68">
-        </div>
-
-        <div class="sim-field">
-          <label>稼働月数（年間） <span class="val mono-num"><span id="sim-months">12</span><span class="unit">ヶ月</span></span></label>
-          <input type="range" id="r-months" min="6" max="12" step="1" value="12">
-        </div>
-
-        <div class="sim-tiers">
-          <div class="sim-tiers-head">
-            <span>プラットフォーム利用料</span>
-            <span class="mono-num">¥3<span style="font-size:.6em;color:rgba(255,255,255,.5)">万/案件</span></span>
+          <label style="margin-bottom:12px">エンジニア還元率</label>
+          <div class="sim-seg" id="seg-share">
+            <button data-share="80" class="active">80%</button>
+            <button data-share="85">85%</button>
           </div>
-          <div style="color:rgba(255,255,255,.7);font-size:13px;line-height:1.8;padding:4px 0">一律3万円/案件/月。案件規模に関わらず定額。<br>粗利 − 3万円 = あなたの報酬。</div>
         </div>
 
-        <p class="sim-note">※ 既存SES：粗利の15%を営業インセンティブと想定<br>※ SAKIGAKE：プラットフォーム利用料 一律3万円/案件/月</p>
+        <div class="sim-field" style="margin-top:24px">
+          <label>同時に動かす案件数 <span class="val mono-num"><span id="sim-count">10</span><span class="unit">件</span></span></label>
+          <input type="range" id="r-count" min="1" max="15" step="1" value="10">
+        </div>
+
+        <p class="sim-note">※ SAKIGAKEの手数料は1案件あたり一律3万円（税別）。<br>※ あなたの報酬＝（案件単価 − エンジニア報酬 − 手数料3万円）× 案件数。</p>
       </div>
 
-      <!-- result -->
-      <div class="sim-result">
-        <div class="sim-card before">
-          <div class="sim-card-label">EXISTING SES</div>
-          <div class="sim-card-name">既存SES企業</div>
-          <div class="sim-card-num mono-num"><span class="yen">¥</span><span id="before-amount">489</span></div>
-          <div class="sim-card-suffix">万円 / 年（あなたの取り分）</div>
+      <div class="sim-out">
+        <div class="sim-card month">
+          <div class="sim-card-label">● 月間報酬</div>
+          <div class="sim-card-num mono-num"><span class="yen">¥</span><span id="out-month">90</span><span class="unit">万</span></div>
+          <div class="sim-card-suffix">月 / あなたの報酬</div>
           <div class="sim-card-meta">
-            <div><span>年間粗利</span><span class="mono-num">¥<span id="before-gross">979</span>万</span></div>
-            <div><span>還元率</span><span class="mono-num">15%</span></div>
-            <div><span>会社の取り分</span><span class="mono-num">¥<span id="before-co">831</span>万</span></div>
+            <div><span>1案件あたりの報酬</span><span class="mono-num">¥<span id="out-per">9</span>万</span></div>
+            <div><span>エンジニア還元率</span><span class="mono-num"><span id="out-share">80</span>%</span></div>
+            <div><span>同時稼働数</span><span class="mono-num"><span id="out-count">10</span>件</span></div>
           </div>
         </div>
 
-        <div class="sim-card after">
-          <div class="sim-card-label">● SAKIGAKE</div>
-          <div class="sim-card-name">SAKIGAKE 経由</div>
-          <div class="sim-card-num mono-num"><span class="yen">¥</span><span id="after-amount">587</span></div>
-          <div class="sim-card-suffix">万円 / 年（あなたの取り分）</div>
+        <div class="sim-card year">
+          <div class="sim-card-label">年間報酬</div>
+          <div class="sim-card-num mono-num"><span class="yen">¥</span><span id="out-year">1,080</span><span class="unit">万</span></div>
+          <div class="sim-card-suffix">年 / 会社員時代の数倍を、自分の営業力だけで。</div>
           <div class="sim-card-meta">
-            <div><span>年間粗利</span><span class="mono-num">¥<span id="after-gross">979</span>万</span></div>
-            <div><span>利用料</span><span class="mono-num">¥<span id="after-fee-per">3</span>万×<span id="after-cases-display">3</span>件</span></div>
-            <div><span>プラットフォーム利用料</span><span class="mono-num">¥<span id="after-fee">392</span>万</span></div>
+            <div><span>月間報酬 × 12ヶ月</span><span class="mono-num">¥<span id="out-monthly2">90</span>万 × 12</span></div>
+            <div><span>SAKIGAKE手数料（年）</span><span class="mono-num">¥<span id="out-fee">360</span>万</span></div>
           </div>
         </div>
 
-        <div class="sim-diff">
-          <div>
-            <div class="label-en">YOUR ANNUAL UPLIFT</div>
-            <div class="label-jp">あなたの年収、こんなに増える。</div>
-          </div>
-          <div class="num mono-num">+<span class="yen">¥</span><span id="diff-amount">440</span>万円 / 年</div>
+        <div class="sim-bars">
+          <div class="sbh">同時稼働数ごとの月間報酬</div>
+          <div class="sb-row"><span class="sbk">1件</span><div class="sb-track"><div class="sb-fill" data-n="1"></div></div><span class="sbv mono-num">¥<span class="bv" data-n="1">9</span>万</span></div>
+          <div class="sb-row"><span class="sbk">3件</span><div class="sb-track"><div class="sb-fill" data-n="3"></div></div><span class="sbv mono-num">¥<span class="bv" data-n="3">27</span>万</span></div>
+          <div class="sb-row"><span class="sbk">5件</span><div class="sb-track"><div class="sb-fill" data-n="5"></div></div><span class="sbv mono-num">¥<span class="bv" data-n="5">45</span>万</span></div>
+          <div class="sb-row"><span class="sbk">10件</span><div class="sb-track"><div class="sb-fill" data-n="10"></div></div><span class="sbv mono-num">¥<span class="bv" data-n="10">90</span>万</span></div>
         </div>
+      </div>
+    </div>
+
+    <!-- Reward table -->
+    <div class="rtable-wrap">
+      <table class="rtable">
+        <thead>
+          <tr>
+            <th>案件単価（月）</th>
+            <th class="you">80%還元 — エンジニアへ手厚く</th>
+            <th class="you">85%還元 — さらに手厚く</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="unit-col">¥50万</td>
+            <td><span class="big">¥7万</span><small>エンジニア40万 / 粗利10万 − 3万</small></td>
+            <td><span class="big">¥4.5万</span><small>エンジニア42.5万 / 粗利7.5万 − 3万</small></td>
+          </tr>
+          <tr>
+            <td class="unit-col">¥60万</td>
+            <td><span class="big">¥9万</span><small>エンジニア48万 / 粗利12万 − 3万</small></td>
+            <td><span class="big">¥6万</span><small>エンジニア51万 / 粗利9万 − 3万</small></td>
+          </tr>
+          <tr>
+            <td class="unit-col">¥70万</td>
+            <td><span class="big">¥11万</span><small>エンジニア56万 / 粗利14万 − 3万</small></td>
+            <td><span class="big">¥7.5万</span><small>エンジニア59.5万 / 粗利10.5万 − 3万</small></td>
+          </tr>
+          <tr>
+            <td class="unit-col">¥80万</td>
+            <td><span class="big">¥13万</span><small>エンジニア64万 / 粗利16万 − 3万</small></td>
+            <td><span class="big">¥9万</span><small>エンジニア68万 / 粗利12万 − 3万</small></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sim-note" style="margin-top:16px">※ 還元率はあなたが自由に決められます。上表は代表例で、SAKIGAKEの手数料はどの行も一律3万円（税別）。残りが全額あなたの報酬です。</p>
+  </div>
+</section>
+
+<!-- ============ WHY ENGINEERS CHOOSE YOU ============ -->
+<section class="freedom" data-screen-label="08 engineers" style="border-bottom:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">06 ／ エンジニア</span></div>
+      <div>
+        <h2 class="sec-title">高還元だから、<br><span class="hl">エンジニアが集まる。</span></h2>
+        <p class="sec-lede">あなたの収入は、エンジニアが稼働してこそ。だからこそ、エンジニアに「選ばれ、定着する」理由がそろっています。供給の不安は要りません。</p>
+      </div>
+    </div>
+
+    <div class="free-feats" style="margin-bottom:0">
+      <div class="free-feat">
+        <span class="fk">還元率80–85%</span>
+        <h4>業界トップ水準の還元率</h4>
+        <p>80〜85%の高還元。好条件だから、エンジニアが自然と集まります。</p>
+      </div>
+      <div class="free-feat">
+        <span class="fk">クリーンな取引</span>
+        <h4>中間搾取のない取引</h4>
+        <p>手数料は一律3万円のみ。透明だから、エンジニアに信頼されやすい。</p>
+      </div>
+      <div class="free-feat">
+        <span class="fk">直接ケア</span>
+        <h4>あなたが直接ケアする関係</h4>
+        <p>稼働管理まで寄り添うから、長く定着してくれます。</p>
+      </div>
+      <div class="free-feat">
+        <span class="fk">AIマッチング</span>
+        <h4>AIマッチング＆案件プール</h4>
+        <p>探す手間を最小化。条件に合う人材をすぐに提案します。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ COMPARISON ============ -->
-<section class="compare" id="compare" data-screen-label="06 compare">
+<section class="compare" id="compare" data-screen-label="09 compare">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sec-num">06 / SIDE BY SIDE</span></div>
+      <div><span class="sec-num">07 ／ 既存SESとの比較</span></div>
       <div>
-        <h2 class="sec-title">既存SES企業と、<br>SAKIGAKEの違い。</h2>
-        <p class="sec-lede">構造を見比べれば、なぜ既存の仕組みでは営業が報われないのかが分かります。SAKIGAKEは、営業を主役にして組み直したOSです。</p>
+        <h2 class="sec-title">既存のSES企業と、<br>何が違うのか。</h2>
+        <p class="sec-lede">同じ案件を扱っても、あなたの手元に残るものは大きく変わります。違いは「誰が決め、誰のものになるか」です。</p>
       </div>
     </div>
 
     <div class="compare-table">
       <div class="compare-row compare-head">
-        <div>COMPARISON AXIS</div>
-        <div class="col-them">既存SES企業</div>
+        <div>比較項目</div>
+        <div class="col-them">既存のSES企業</div>
         <div class="col-us">SAKIGAKE</div>
       </div>
       <div class="compare-row">
-        <div class="axis">案件粗利の取り分</div>
-        <div class="them">10〜20%（インセンティブ）</div>
-        <div class="us">粗利 − 3万円/案件（残り全額）</div>
+        <div class="axis">粗利・還元率</div>
+        <div class="them">会社が一律に決定</div>
+        <div class="us"><strong>あなたが自由に決定</strong>（自由取引）</div>
       </div>
       <div class="compare-row">
-        <div class="axis">案件の帰属</div>
-        <div class="them">会社の資産（退職時に失う）</div>
-        <div class="us">あなたの資産（持ち出し可能）</div>
+        <div class="axis">60万案件での報酬</div>
+        <div class="them">約 1〜2万円</div>
+        <div class="us"><strong>9万円</strong>（80%還元時・粗利−3万円が全額）</div>
       </div>
       <div class="compare-row">
-        <div class="axis">エンジニア確保</div>
-        <div class="them">自社プール頼み・空き次第</div>
-        <div class="us">3,200名超からAIマッチング</div>
+        <div class="axis">案件・顧客の帰属</div>
+        <div class="them">会社に帰属</div>
+        <div class="us"><strong>すべてあなたの資産</strong></div>
       </div>
       <div class="compare-row">
-        <div class="axis">契約・請求業務</div>
-        <div class="them">営業/管理が手作業で対応</div>
-        <div class="us">システムが全自動で代行</div>
+        <div class="axis">エンジニア選定</div>
+        <div class="them">社内リソースから</div>
+        <div class="us">自分の人脈で直接アサイン</div>
       </div>
       <div class="compare-row">
-        <div class="axis">入金リスク</div>
-        <div class="them">回収まで個人が責任を負うことも</div>
-        <div class="us">与信審査代行・ファクタリング対応（オプション）</div>
+        <div class="axis">事務作業</div>
+        <div class="them">自分で対応</div>
+        <div class="us">SAKIGAKEが全て代行</div>
       </div>
       <div class="compare-row">
-        <div class="axis">評価制度</div>
-        <div class="them">上長判断・年1〜2回の査定</div>
-        <div class="us">売上連動・査定なし</div>
-      </div>
-      <div class="compare-row">
-        <div class="axis">独立への道筋</div>
-        <div class="them">退職してゼロから再スタート</div>
-        <div class="us">案件を持ったまま法人化が可能</div>
-      </div>
-      <div class="compare-row">
-        <div class="axis">立場</div>
-        <div class="them">会社員（労務管理下）</div>
-        <div class="us">業務委託 / 個人事業主 / 法人</div>
+        <div class="axis">働き方</div>
+        <div class="them">会社の規定に準拠</div>
+        <div class="us"><strong>フルリモート・自由</strong></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FLOW ============ -->
-<section class="flow" data-screen-label="07 flow">
+<!-- ============ RAMP-UP ============ -->
+<section class="ramp" data-screen-label="10 ramp">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sec-num">07 / HOW IT WORKS</span></div>
+      <div><span class="sec-num">08 ／ 立ち上がり</span></div>
       <div>
-        <h2 class="sec-title">登録から初報酬まで、<br>最短2週間。</h2>
-        <p class="sec-lede">既存の案件をそのまま持ち込むことも、SAKIGAKE経由で新規開拓することも可能。あなたの今の動き方を、そのままアップグレードできます。</p>
+        <h2 class="sec-title">現実的な、<br>立ち上がりモデル。</h2>
+        <p class="sec-lede">焦らず、自分のペースで。ノルマはありません。副業で並走しながら、本業の収入を超えたら独立への移行を判断できます。</p>
+      </div>
+    </div>
+
+    <div class="ramp-grid">
+      <div class="ramp-step">
+        <span class="rp">0–1ヶ月</span>
+        <h4>準備・登録</h4>
+        <p>面談のうえ、今の案件やエンジニアを登録。副業として並走で始められます。</p>
+        <span class="amt">収入リスクを抑えて開始</span>
+      </div>
+      <div class="ramp-step">
+        <span class="rp">1–3ヶ月</span>
+        <h4>初案件が稼働</h4>
+        <p>最初の1件が動き出します。まずは小さく成功体験を。</p>
+        <span class="amt mono-num">月 <span class="yen">¥</span>9万 〜</span>
+      </div>
+      <div class="ramp-step">
+        <span class="rp">3–6ヶ月</span>
+        <h4>3件前後に</h4>
+        <p>商流と信頼が広がり、稼働が積み上がっていきます。</p>
+        <span class="amt mono-num">月 <span class="yen">¥</span>27万 〜</span>
+      </div>
+      <div class="ramp-step">
+        <span class="rp">6–12ヶ月</span>
+        <h4>5件前後・本業化も</h4>
+        <p>本業の収入を超えたら、独立への移行を判断できます。</p>
+        <span class="amt mono-num">月 <span class="yen">¥</span>45万 〜</span>
+      </div>
+    </div>
+    <p class="ramp-foot">※ あくまで一例です。立ち上がりの速さは商流や稼働数で変わります。60万案件・80%還元での目安です。</p>
+  </div>
+</section>
+
+<!-- ============ SAFETY — payment flow + risk ============ -->
+<section class="safety" data-screen-label="11 safety">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">09 ／ お金の流れ</span></div>
+      <div>
+        <h2 class="sec-title">お金の流れは、<br><span class="hl">シンプルで安全。</span></h2>
+        <p class="sec-lede">請求も回収も立替も、一切なし。あなたはお金に触れることなく、毎月決まったタイミングで報酬を受け取れます。資金繰りの不安はありません。</p>
+      </div>
+    </div>
+
+    <div class="pay-grid">
+      <div class="pay-step">
+        <span class="pn">ステップ 1</span>
+        <h4>月末締め・請求</h4>
+        <p>稼働実績をもとに、SAKIGAKEが取引先へ請求書を発行します。</p>
+        <span class="tag">あなたの作業ゼロ</span>
+      </div>
+      <div class="pay-step">
+        <span class="pn">ステップ 2</span>
+        <h4>SAKIGAKEが回収</h4>
+        <p>入金の確認・消し込みまで代行。あなたが督促することはありません。</p>
+        <span class="tag">回収もおまかせ</span>
+      </div>
+      <div class="pay-step">
+        <span class="pn">ステップ 3</span>
+        <h4>エンジニアへ支払い</h4>
+        <p>エンジニアへの報酬支払いもSAKIGAKEが代行。立替も振込作業も不要。</p>
+        <span class="tag">支払代行</span>
+      </div>
+      <div class="pay-step">
+        <span class="pn">ステップ 4</span>
+        <h4>あなたへ報酬を振込</h4>
+        <p>手数料3万円（税別）を引いた全額を、毎月あなたの口座へ直接お振込み。</p>
+        <span class="tag">毎月・定額サイクル</span>
+      </div>
+    </div>
+
+    <div class="risk-wrap">
+      <h3 class="rh">あなたが負うリスクは、<span class="accent">限りなくゼロに。</span></h3>
+      <p class="rs">「取引先が払わなかったら？」——その不安に、3段構えの仕組みで備えます。入口で防ぎ、万一に備え、トラブルは専門家が対応します。</p>
+      <div class="risk-three">
+        <div class="risk-card">
+          <div class="rcn mono-num">01</div>
+          <h5>入口：与信審査</h5>
+          <p>取引開始前に取引先の与信を審査し、リスクの高い取引を未然に防ぎます。</p>
+        </div>
+        <div class="risk-card">
+          <div class="rcn mono-num">02</div>
+          <h5>万一：売掛買取（ファクタリング）</h5>
+          <p>提携ファクタリングの売掛買取オプションで、未回収に備えられます。</p>
+        </div>
+        <div class="risk-card">
+          <div class="rcn mono-num">03</div>
+          <h5>トラブル：法務サポート</h5>
+          <p>契約・債権まわりのトラブルは、SAKIGAKEの法務が対応します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing" data-screen-label="12 pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">10 ／ 料金</span></div>
+      <div>
+        <h2 class="sec-title">料金は、<br><span class="hl">1案件3万円だけ。</span></h2>
+        <p class="sec-lede">初期費用・月額固定費・成約手数料は一切いただきません。この3万円（税別）に、バックオフィスのすべてが含まれます。</p>
+      </div>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="pl">プラットフォーム手数料</span>
+        <div class="pnum mono-num"><span class="yen">¥</span>3<span class="man">万</span><span class="tax">税別</span></div>
+        <div class="punit">／ 1案件・1ヶ月あたり</div>
+        <div class="pfree"><b>追加費用ゼロ。</b><br>初期費用・月額固定費・成約手数料は一切なし。粗利からこの3万円を引いた残りが、全額あなたの報酬です。</div>
+      </div>
+
+      <div class="price-incl">
+        <div class="pi">
+          <div class="pik">契約書・NDA発行</div>
+          <p>取引先・エンジニア双方の契約書類を作成・締結代行。</p>
+        </div>
+        <div class="pi">
+          <div class="pik">月次請求・入金消し込み</div>
+          <p>毎月の請求書発行から入金確認まで完全代行。</p>
+        </div>
+        <div class="pi">
+          <div class="pik">与信審査・法務サポート</div>
+          <p>取引開始時に与信審査を実施。法務面も標準サポート。</p>
+        </div>
+        <div class="pi">
+          <div class="pik">提携ファクタリング</div>
+          <p>万一の未回収にも、売掛買取オプションで備えられる。</p>
+        </div>
+        <div class="pi">
+          <div class="pik">専属サクセス担当</div>
+          <p>立ち上げから運用まで、専任担当が伴走します。</p>
+        </div>
+        <div class="pi">
+          <div class="pik">確定申告サポート</div>
+          <p>初めての個人収入でも、税務まわりを安心しておまかせ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREEDOM / STEALTH / SAFE START ============ -->
+<section class="freedom" data-screen-label="13 freedom">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">11 ／ 自由と安心</span></div>
+      <div>
+        <h2 class="sec-title">働く時間も場所も、<br><span class="hl">あなたが決める。</span></h2>
+        <p class="sec-lede">会社の規定もノルマもありません。事務作業はすべて代行されるから、営業と人脈づくり、そして自分の時間に集中できます。会社に知られず、安全に始められます。</p>
+      </div>
+    </div>
+
+    <div class="free-feats">
+      <div class="free-feat">
+        <span class="fk">フルリモート</span>
+        <h4>フルリモート</h4>
+        <p>場所に縛られず、どこからでも活動できます。</p>
+      </div>
+      <div class="free-feat">
+        <span class="fk">時間の自由</span>
+        <h4>時間も自由</h4>
+        <p>稼働時間は自分で設計。家庭や副業とも両立。</p>
+      </div>
+      <div class="free-feat">
+        <span class="fk">ノルマなし</span>
+        <h4>ノルマなし</h4>
+        <p>数字に追われず、一人ひとりに向き合える。</p>
+      </div>
+      <div class="free-feat">
+        <span class="fk">スモールスタート</span>
+        <h4>副業からでOK</h4>
+        <p>まず1案件から。自分のペースで本業へ。</p>
+      </div>
+    </div>
+
+    <div class="stealth">
+      <div class="stealth-card dark">
+        <div class="sk">完全非公開（ステルス）制度</div>
+        <h3>会社にバレずに、<br>安全にはじめられる。</h3>
+        <p class="sd">実名や顔写真を出さずに活動できる「完全非公開（ステルス）エージェント制度」を導入。副業禁止の企業にお勤めの方でも、本業に影響が出ないよう安全にスタートできます。</p>
+        <ul class="stealth-list">
+          <li>実名・顔写真を一切出さずにエージェント活動が可能</li>
+          <li>これまでの人脈を活かした、複業としての稼働もOK</li>
+          <li>はじめての個人収入でも、確定申告までサポート</li>
+        </ul>
+      </div>
+      <div class="stealth-card light">
+        <div class="sk">今の会社とぶつからない始め方</div>
+        <h3>今の会社と、<br>ぶつからずに始める。</h3>
+        <p class="sd">「今の会社の案件を持ち出すの？」——いいえ。既存の会社の案件・顧客はそのままに、利益相反のない新規商流から始めます。</p>
+        <ul class="stealth-list">
+          <li>会社の案件・顧客は持ち出さない（引き抜きにあたりません）</li>
+          <li>副業・完全非公開でスタート。本業に影響を出さない</li>
+          <li>NDA・業務委託契約など、必要書類はすべてSAKIGAKEが整備</li>
+          <li>競業避止の懸念は、参画前に法務とすり合わせ可能</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW — 4 steps ============ -->
+<section class="flow" data-screen-label="14 flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num">12 ／ はじめ方</span></div>
+      <div>
+        <h2 class="sec-title">はじめ方は、<br>4ステップ。</h2>
+        <p class="sec-lede">今ある案件をそのまま登録でき、あなたのエンジニアもそのままアサイン可能。オンラインで完結します。</p>
       </div>
     </div>
 
     <div class="flow-grid">
       <div class="flow-step">
-        <span class="flow-num">STEP 01</span>
-        <h4>面談・与信審査</h4>
-        <p>営業経験・既存パイプラインをヒアリング。簡単な与信審査の後、SAKIGAKEのアカウントが発行されます。</p>
-        <span class="time">— 3〜5 days</span>
+        <span class="flow-num">ステップ 01</span>
+        <h4>オンライン面談</h4>
+        <p>まずは30分お話を。現在の状況をうかがい、活動イメージをご説明します。</p>
+        <span class="time">— 所要30分</span>
       </div>
       <div class="flow-step">
-        <span class="flow-num">STEP 02</span>
-        <h4>案件登録 / エンジニア依頼</h4>
-        <p>既存案件 or 新規案件を登録。要件を入力すれば、AIマッチングで候補エンジニアが提示されます。</p>
-        <span class="time">— same day</span>
+        <span class="flow-num">ステップ 02</span>
+        <h4>案件を登録する</h4>
+        <p>今ある案件をそのまま登録。あなたのエンジニアもそのままアサインできます。</p>
+        <span class="time">— 即日</span>
       </div>
       <div class="flow-step">
-        <span class="flow-num">STEP 03</span>
-        <h4>契約・参画</h4>
-        <p>クライアント・エンジニア双方の契約書発行、NDA、機密保持、入場手続きまで全自動で完了。</p>
-        <span class="time">— 5〜7 days</span>
+        <span class="flow-num">ステップ 03</span>
+        <h4>契約・書類の準備</h4>
+        <p>契約書・NDA・入場手続きなど、必要書類はすべてSAKIGAKEが準備。</p>
+        <span class="time">— 5〜7日</span>
       </div>
       <div class="flow-step">
-        <span class="flow-num">STEP 04</span>
-        <h4>毎月、自動で入金</h4>
-        <p>稼働開始の翌月末、粗利から利用料3万円を差し引いた全額を指定口座へ。請求・回収・入金消し込みはすべて代行します。</p>
+        <span class="flow-num">ステップ 04</span>
+        <h4>毎月、報酬を受け取る</h4>
+        <p>手数料を引いた全額を毎月口座へ。請求・回収もすべて代行します。</p>
         <span class="time">— recurring</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ VISION ============ -->
-<section class="vision" data-screen-label="08 vision">
-  <div class="wrap vision-inner">
-    <div class="sec-head">
-      <div><span class="sec-num">08 / NEXT CHAPTER</span></div>
-      <div>
-        <p class="eyebrow">GRADUATION FROM SES SALES</p>
-        <h2 class="vision-title">
-          <span class="ot strk">「インセン待ちの会社員」</span><br>
-          という働き方を、<br>
-          <span class="new">卒業する。</span>
-        </h2>
-      </div>
-    </div>
-
-    <div class="vision-body">
-      <div class="vision-card">
-        <span class="lab">YEAR 01</span>
-        <h4>「営業の人」から、<br>「案件オーナー」へ。</h4>
-        <p>所属に縛られず、自分の名前で案件を回す感覚を取り戻す。手取りが増え、評価面談から解放される最初の年。</p>
-        <span class="arrow">→ 平均年収 +280万円</span>
-      </div>
-      <div class="vision-card">
-        <span class="lab">YEAR 02</span>
-        <h4>「個人」から、<br>「チーム」へ。</h4>
-        <p>SAKIGAKE上で後輩営業・パートナーを巻き込み、チームで案件を回す。あなたは元締めとして取りまとめ分も収益化。</p>
-        <span class="arrow">→ パイプライン化が進む</span>
-      </div>
-      <div class="vision-card">
-        <span class="lab">YEAR 03+</span>
-        <h4>「業務委託」から、<br>「経営者」へ。</h4>
-        <p>案件・エンジニア・収益基盤を持ったまま法人化。SAKIGAKEは引き続きインフラとして使い続けることができます。</p>
-        <span class="arrow">→ 持ち出し独立可能</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ FAQ ============ -->
-<section class="faq" id="faq" data-screen-label="09 faq">
+<section class="faq" id="faq" data-screen-label="15 faq">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sec-num">09 / FAQ</span></div>
+      <div><span class="sec-num">13 ／ よくある質問</span></div>
       <div>
         <h2 class="sec-title">よくある質問。</h2>
         <p class="sec-lede">「結局、何かカラクリがあるのでは？」——その疑問に、構造で答えます。</p>
@@ -911,164 +1346,194 @@
 
     <div class="faq-list">
       <details class="faq-item" open>
-        <summary><span class="q-en">Q.01</span><span>なぜ一律3万円でサービスを提供できるのですか？</span></summary>
-        <div class="a">SAKIGAKEは、契約・請求・入金管理をシステムで自動化し、エンジニアマッチングもAIで効率化しているため、運営コストを極限まで抑えています。本社機能と中間管理層を手厚く抱える既存SES企業とは構造が根本的に異なります。1案件あたり3万円で、与信審査・ファクタリング原価・契約／法務／システム運用・人件費をすべてカバーできる仕組みを構築しています。</div>
+        <summary><span class="q-en">質問 01</span><span>還元率は本当に自由に決められる？</span></summary>
+        <div class="a">はい。案件単価もエンジニアへの還元率も、あなたが自由に設定できます。SAKIGAKEの取り分は、どの取引でも一律3万円（税別）だけです。エンジニアに厚く還元して長く組むも、粗利を厚く取るも、あなた次第です。</div>
       </details>
       <details class="faq-item">
-        <summary><span class="q-en">Q.02</span><span>入金トラブルは、運営がすべて補填してくれるのですか？</span></summary>
-        <div class="a">完全保証ではありません。クライアント企業との取引開始時に与信審査を行い、未回収リスクを事前に控除します。ご希望される案件については、提携ファクタリング会社を介した買取や保証サービス（手数料17〜18%程度、選択制）をご用意しています。個人が訴訟リスクを負わないための法務サポートは、プラットフォーム標準で提供します。</div>
+        <summary><span class="q-en">質問 02</span><span>報酬はいつ振り込まれる？</span></summary>
+        <div class="a">毎月、決まったサイクルであなたの口座へ直接お振込みします。締め日・支払日は契約時に明示。請求も回収もSAKIGAKEが代行するため、あなたが督促や立替をすることはありません。</div>
       </details>
       <details class="faq-item">
-        <summary><span class="q-en">Q.03</span><span>今の会社を辞めずに、副業から始められますか？</span></summary>
-        <div class="a">可能です。多くの方が、まずは1案件のみSAKIGAKEで回して感覚を掴み、軌道に乗ってから本業をシフトしています。本業との競業避止義務を確認のうえ、副業範囲のご相談から始めてください。</div>
+        <summary><span class="q-en">質問 03</span><span>エンジニアへの支払いは誰がする？</span></summary>
+        <div class="a">SAKIGAKEが支払いを代行します。あなたが立替えたり振り込んだりする必要は一切ありません。お金の流れにはあなたが触れずに済むため、資金繰りの不安がありません。</div>
       </details>
       <details class="faq-item">
-        <summary><span class="q-en">Q.04</span><span>持ち出した案件で、クライアント側に問題は起きませんか？</span></summary>
-        <div class="a">SAKIGAKEは、クライアント企業に対しても透明性のある契約を提供します。実際には「営業担当者がより手厚く担当してくれるようになった」「請求書のフォーマットが洗練された」と好評を得ています。事前に契約形態のすり合わせサポートも行います。</div>
+        <summary><span class="q-en">質問 04</span><span>税金やインボイスはどうなる？</span></summary>
+        <div class="a">フリーランス（個人事業）としての業務委託契約です。確定申告・インボイス対応もサポートします。開業のご相談も可能です。初めての個人収入でも、税務まわりを安心しておまかせいただけます。</div>
       </details>
       <details class="faq-item">
-        <summary><span class="q-en">Q.05</span><span>エンジニアの質は担保されていますか？</span></summary>
-        <div class="a">3,200名超の提携エンジニアは、スキル・参画実績・コミュニケーション評価の3軸でスコアリングされています。案件要件に対して、過去マッチングデータをもとに上位候補のみが提示されるため、ハズレ確率は最小化されています。</div>
+        <summary><span class="q-en">質問 05</span><span>なぜ3万円（税別）で提供できるの？</span></summary>
+        <div class="a">バックオフィスをシステムで自動化し、運営コストを最小化しているためです。また、エンジニア探しはご自身の人脈で行っていただくため、その分のコストも不要になります。だからこそ、業界では実現しにくい低コストでの提供が可能です。</div>
       </details>
       <details class="faq-item">
-        <summary><span class="q-en">Q.06</span><span>所属形態は、業務委託になりますか？</span></summary>
-        <div class="a">原則として個人事業主 or 法人としての業務委託契約となります。社会保険等のサポートも提携先を通じて利用可能です。雇用契約を希望される場合の選択肢も用意しています。</div>
+        <summary><span class="q-en">質問 06</span><span>合わなければ、やめられる？</span></summary>
+        <div class="a">はい。最低稼働数や違約金はありません。まず1案件から、自分のペースで続けるかどうかを判断できます。副業として並走しながら、納得して本業化するか決められます。</div>
       </details>
     </div>
   </div>
 </section>
 
+<!-- ============ VISION ============ -->
+<section class="vision" data-screen-label="16 vision">
+  <div class="wrap vision-inner">
+    <span class="eyebrow">私たちのビジョン ・ 2年後</span>
+    <h2 class="vision-title">2年後、SAKIGAKEのエージェントを<span class="accent">500名へ。</span></h2>
+    <p class="vision-lede">マージン構造に縛られないSES営業を、日本のスタンダードに。<span class="em">一人ひとりが、自分のパイプラインを持てる世界へ。</span>その500名の、最初のひとりに。</p>
+
+    <div class="vision-track">
+      <div class="vision-big mono-num">500<small>2028年のエージェント数</small></div>
+      <div class="vision-phases">
+        <div class="vision-phase">
+          <span class="vp-k">今</span>
+          <div class="vp-bar"><i style="width:6%"></i></div>
+          <span class="vp-v">はじまったばかり</span>
+        </div>
+        <div class="vision-phase">
+          <span class="vp-k">1年後 ／ 拡大フェーズ</span>
+          <div class="vp-bar"><i style="width:45%"></i></div>
+          <span class="vp-v mono-num">拡大中</span>
+        </div>
+        <div class="vision-phase">
+          <span class="vp-k">2年後 ／ 2028年</span>
+          <div class="vp-bar"><i style="width:100%"></i></div>
+          <span class="vp-v mono-num">500名</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CTA ============ -->
-<section class="cta" id="cta" data-screen-label="10 cta">
+<section class="cta" id="cta" data-screen-label="17 cta">
   <div class="wrap cta-grid">
-    <span class="eyebrow cta-eyebrow">READY TO LEAVE THE CAGE?</span>
-    <h2>あなたの営業力を、<br>会社のものに<br>させ続ける<span class="accent">理由は、もうない</span>。</h2>
-    <p class="cta-sub">完全オンラインで完結。まずは資料を受け取って構造を理解する。もしくは少人数の説明会で直接質問する——あなたのペースで進められる2つの入口を用意しています。</p>
+    <span class="eyebrow cta-eyebrow">次のステップ</span>
+    <h2>参画を決めたら、<br>あとは<span class="accent">シンプル。</span></h2>
+    <p class="cta-sub">本日の内容をお持ち帰りいただき、ご検討ください。急かすことはありません。まずは資料を受け取るか、少人数の説明会で直接質問する——あなたのペースで進められる入口を用意しています。</p>
 
-    <div class="cta-tabs" role="tablist">
-      <button class="cta-tab active" data-tab="doc" role="tab" aria-selected="true">
-        <span class="tab-num">01</span>
-        <span class="tab-label">資料請求<small>規約・報酬シミュレーション</small></span>
-      </button>
-      <button class="cta-tab" data-tab="seminar" role="tab" aria-selected="false">
-        <span class="tab-num">02</span>
-        <span class="tab-label">説明会に参加<small>少人数・オンライン・60分</small></span>
-      </button>
-      <button class="cta-tab" data-tab="meeting" role="tab" aria-selected="false">
-        <span class="tab-num">03</span>
-        <span class="tab-label">個別面談を予約<small>1対1・45分・秘密厳守</small></span>
-      </button>
+    <div class="cta-steps">
+      <div class="cta-step"><div class="cn">01</div><h5>ご説明を聞く</h5><p>仕組み・報酬・サポートをご理解いただく。</p></div>
+      <div class="cta-step"><div class="cn">02</div><h5>お持ち帰りで検討</h5><p>自分のペースで、ご家族とも相談を。</p></div>
+      <div class="cta-step"><div class="cn">03</div><h5>業務委託契約を送付</h5><p>ご意思の確認しだい、すぐにお送り。</p></div>
+      <div class="cta-step"><div class="cn">04</div><h5>ご締結</h5><p>内容にご納得のうえ、オンラインで完結。</p></div>
+      <div class="cta-step"><div class="cn">05</div><h5>案件登録・即スタート</h5><p>今ある案件・エンジニアをすぐ登録。</p></div>
     </div>
 
-    <!-- TAB 01: 資料請求 -->
-    <div class="cta-panel active" data-panel="doc">
-      <div class="cta-pack">
-        <div>
-          <h4>RESOURCE PACKAGE — 同梱内容</h4>
+    <div class="cta-panel-wrap">
+      <div class="cta-tabs" role="tablist">
+        <button class="cta-tab active" data-tab="doc" role="tab" aria-selected="true">
+          <span class="tab-num">01</span>
+          <span class="tab-label">資料請求<small>説明会資料・報酬早見表</small></span>
+        </button>
+        <button class="cta-tab" data-tab="seminar" role="tab" aria-selected="false">
+          <span class="tab-num">02</span>
+          <span class="tab-label">説明会に参加<small>少人数・オンライン・30分</small></span>
+        </button>
+        <button class="cta-tab" data-tab="meeting" role="tab" aria-selected="false">
+          <span class="tab-num">03</span>
+          <span class="tab-label">個別面談を予約<small>1対1・秘密厳守・ステルス可</small></span>
+        </button>
+      </div>
+
+      <!-- TAB 01 -->
+      <div class="cta-panel active" data-panel="doc">
+        <div class="cta-pack">
+          <h4>資料パッケージ — 同梱内容</h4>
           <div class="cta-pack-items">
-            <div>サービス規約（全文PDF）</div>
-            <div>報酬シミュレーション資料</div>
-            <div>契約・請求フローのサンプル</div>
-            <div>提携エンジニア・案件カテゴリ一覧</div>
-            <div>料金体系の解説</div>
-            <div>独立形態別のFAQ集</div>
+            <div>エージェント向け説明会資料（全文PDF）</div>
+            <div>案件単価別・報酬早見表</div>
+            <div>料金・手数料3万円の内訳</div>
+            <div>契約・お金の流れのサンプル</div>
+            <div>ステルス制度・安全に始める方法</div>
+            <div>FAQ集</div>
           </div>
         </div>
+        <form class="cta-form" onsubmit="event.preventDefault();alert('資料を送信しました。\nメールをご確認ください。')">
+          <input type="email" placeholder="your.name@email.com" required>
+          <button class="cta-btn" type="submit">資料を受け取る<span class="arr">→</span></button>
+        </form>
+        <p class="cta-fine">※ 3分以内に登録メールアドレスに資料をお送りします。しつこい営業電話は行いません。</p>
       </div>
-      <form class="cta-form" onsubmit="event.preventDefault();alert('資料を送信しました。\nメールをご確認ください。')">
-        <input type="email" placeholder="your.name@email.com" required>
-        <button class="cta-btn" type="submit">資料を受け取る<span class="arr">→</span></button>
-      </form>
-      <p class="cta-fine">※ 3分以内に登録メールアドレスに資料をお送りします。営業電話は一切行いません。</p>
-    </div>
 
-    <!-- TAB 02: 説明会 -->
-    <div class="cta-panel" data-panel="seminar">
-      <div class="cta-pack">
-        <div>
-          <h4>SEMINAR — 説明会で扱う内容</h4>
+      <!-- TAB 02 -->
+      <div class="cta-panel" data-panel="seminar">
+        <div class="cta-pack">
+          <h4>説明会で扱う内容</h4>
           <div class="cta-pack-items">
-            <div>SAKIGAKEの収益構造（運営原価まで開示）</div>
-            <div>料金体系と収益シミュレーション</div>
-            <div>既存案件を持ち込む際の進め方</div>
-            <div>独立／副業／法人化それぞれのパス</div>
-            <div>質疑応答（30分／最大8名）</div>
+            <div>SAKIGAKEの仕組み（手数料3万円の根拠まで）</div>
+            <div>案件単価別の報酬の作り方</div>
+            <div>今の案件・エンジニアの持ち込み方</div>
+            <div>副業／ステルス／本業化のパス</div>
+            <div>質疑応答（最大8名）</div>
           </div>
         </div>
-      </div>
-
-      <div class="cta-dates">
-        <span class="dates-label">UPCOMING SESSIONS</span>
-        <div class="dates-grid" id="dates-grid">
-          <label class="date-card">
-            <input type="radio" name="seminar" value="2026-06-04">
-            <div class="date-day"><span class="d-num">04</span><span class="d-mo">JUN</span></div>
-            <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">19:30 – 20:30</span><span class="d-tag">残 3名</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="seminar" value="2026-06-11">
-            <div class="date-day"><span class="d-num">11</span><span class="d-mo">JUN</span></div>
-            <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">12:00 – 13:00</span><span class="d-tag">ランチ枠</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="seminar" value="2026-06-15">
-            <div class="date-day"><span class="d-num">15</span><span class="d-mo">JUN</span></div>
-            <div class="date-meta"><span class="d-wk">月曜日</span><span class="d-time">21:00 – 22:00</span><span class="d-tag">残 6名</span></div>
-          </label>
-          <label class="date-card">
-            <input type="radio" name="seminar" value="2026-06-22">
-            <div class="date-day"><span class="d-num">22</span><span class="d-mo">JUN</span></div>
-            <div class="date-meta"><span class="d-wk">月曜日</span><span class="d-time">19:30 – 20:30</span><span class="d-tag">受付中</span></div>
-          </label>
-          <label class="date-card soldout">
-            <input type="radio" name="seminar" value="" disabled>
-            <div class="date-day"><span class="d-num">28</span><span class="d-mo">JUN</span></div>
-            <div class="date-meta"><span class="d-wk">日曜日</span><span class="d-time">15:00 – 16:00</span><span class="d-tag">満席</span></div>
-          </label>
+        <div class="cta-dates">
+          <span class="dates-label">開催スケジュール</span>
+          <div class="dates-grid">
+            <label class="date-card">
+              <input type="radio" name="seminar" value="2026-06-04">
+              <div class="date-day"><span class="d-num">04</span><span class="d-mo">6月</span></div>
+              <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">19:30 – 20:00</span><span class="d-tag">残 3名</span></div>
+            </label>
+            <label class="date-card">
+              <input type="radio" name="seminar" value="2026-06-11">
+              <div class="date-day"><span class="d-num">11</span><span class="d-mo">6月</span></div>
+              <div class="date-meta"><span class="d-wk">木曜日</span><span class="d-time">12:00 – 12:30</span><span class="d-tag">ランチ枠</span></div>
+            </label>
+            <label class="date-card">
+              <input type="radio" name="seminar" value="2026-06-15">
+              <div class="date-day"><span class="d-num">15</span><span class="d-mo">6月</span></div>
+              <div class="date-meta"><span class="d-wk">月曜日</span><span class="d-time">21:00 – 21:30</span><span class="d-tag">残 6名</span></div>
+            </label>
+            <label class="date-card">
+              <input type="radio" name="seminar" value="2026-06-22">
+              <div class="date-day"><span class="d-num">22</span><span class="d-mo">6月</span></div>
+              <div class="date-meta"><span class="d-wk">月曜日</span><span class="d-time">19:30 – 20:00</span><span class="d-tag">受付中</span></div>
+            </label>
+            <label class="date-card soldout">
+              <input type="radio" name="seminar" value="" disabled>
+              <div class="date-day"><span class="d-num">28</span><span class="d-mo">6月</span></div>
+              <div class="date-meta"><span class="d-wk">日曜日</span><span class="d-time">15:00 – 15:30</span><span class="d-tag">満席</span></div>
+            </label>
+          </div>
         </div>
+        <form class="cta-form" onsubmit="event.preventDefault();var d=document.querySelector('input[name=seminar]:checked');if(!d){alert('参加日を選択してください');return false}alert('説明会のお申込みを受け付けました。\n参加URLをメールでお送りします。')">
+          <input type="email" placeholder="your.name@email.com" required>
+          <button class="cta-btn" type="submit">説明会に申し込む<span class="arr">→</span></button>
+        </form>
+        <p class="cta-fine">※ Zoom開催。カメラOFF・名前非表示での参加もOK。会社に知られずに情報収集できます。</p>
       </div>
 
-      <form class="cta-form" onsubmit="event.preventDefault();var d=document.querySelector('input[name=seminar]:checked');if(!d){alert('参加日を選択してください');return false}alert('説明会のお申込みを受け付けました。\n参加URLをメールでお送りします。')">
-        <input type="email" placeholder="your.name@email.com" required>
-        <button class="cta-btn" type="submit">説明会に申し込む<span class="arr">→</span></button>
-      </form>
-      <p class="cta-fine">※ Zoom開催。カメラOFF・名前非表示での参加もOK。会社にバレずに情報収集できます。</p>
-    </div>
-
-    <!-- TAB 03: 個別面談 -->
-    <div class="cta-panel" data-panel="meeting">
-      <div class="cta-pack">
-        <div>
-          <h4>1-ON-1 — 個別面談で確認できること</h4>
+      <!-- TAB 03 -->
+      <div class="cta-panel" data-panel="meeting">
+        <div class="cta-pack">
+          <h4>個別面談で確認できること</h4>
           <div class="cta-pack-items">
-            <div>あなたの既存案件をSAKIGAKEで回した場合の試算</div>
+            <div>あなたの案件をSAKIGAKEで回した場合の試算</div>
             <div>持ち込みエンジニアの条件確認</div>
             <div>現職との競業避止に関する個別相談</div>
-            <div>法人化／個人事業主スキームのアドバイス</div>
+            <div>ステルス（完全非公開）での始め方</div>
             <div>秘密厳守（NDA締結可）</div>
           </div>
         </div>
+        <div class="cta-meeting-fields">
+          <div class="m-field">
+            <label>お名前（ニックネーム可）</label>
+            <input type="text" placeholder="例：佐藤 / 営業歴8年" required>
+          </div>
+          <div class="m-field">
+            <label>メールアドレス</label>
+            <input type="email" placeholder="your.name@email.com" required>
+          </div>
+          <div class="m-field m-field-full">
+            <label>ご相談内容（任意）</label>
+            <textarea rows="3" placeholder="現職の状況、独立のタイミング、相談したいことなど"></textarea>
+          </div>
+        </div>
+        <form class="cta-form" onsubmit="event.preventDefault();alert('個別面談のリクエストを受け付けました。\n2営業日以内に日程候補をお送りします。')">
+          <button class="cta-btn cta-btn-full" type="submit">日程候補を受け取る<span class="arr">→</span></button>
+        </form>
+        <p class="cta-fine">※ 平日19:00〜23:00、土日も対応可。お問い合わせ後、2営業日以内に担当者からご連絡します。</p>
       </div>
-
-      <div class="cta-meeting-fields">
-        <div class="m-field">
-          <label>お名前（ニックネーム可）</label>
-          <input type="text" placeholder="例：佐藤 / 営業歴8年" required>
-        </div>
-        <div class="m-field">
-          <label>メールアドレス</label>
-          <input type="email" placeholder="your.name@email.com" required>
-        </div>
-        <div class="m-field m-field-full">
-          <label>ご相談内容（任意）</label>
-          <textarea rows="3" placeholder="現職の状況、独立のタイミング、相談したいことなど"></textarea>
-        </div>
-      </div>
-
-      <form class="cta-form" onsubmit="event.preventDefault();alert('個別面談のリクエストを受け付けました。\n2営業日以内に日程候補をお送りします。')">
-        <button class="cta-btn cta-btn-full" type="submit">日程候補を受け取る<span class="arr">→</span></button>
-      </form>
-      <p class="cta-fine">※ 平日19:00〜23:00、土日も対応可。お問い合わせ後、2営業日以内に担当者からご連絡します。</p>
     </div>
   </div>
 </section>
@@ -1079,24 +1544,25 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="brand"><span class="brand-mark"></span><span style="color:#fff">SAKIGAKE</span></div>
-        <p>SES営業のための、独立OS。<br>マージン構造を捨て、自分のパイプラインを持つすべての営業へ。</p>
+        <p>次世代SESエージェントファーム。<br>マージン構造を捨て、自分のパイプラインを持つすべてのSES営業へ。</p>
       </div>
       <div class="foot-col">
-        <h5>PRODUCT</h5>
-        <a href="#solution">仕組み</a>
+        <h5>サービス</h5>
+        <a href="#about">仕組み</a>
+        <a href="#how">報酬の決め方</a>
         <a href="#simulator">報酬試算</a>
-        <a href="#compare">既存SESとの比較</a>
+        <a href="#pricing">料金</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="foot-col">
-        <h5>COMPANY</h5>
+        <h5>会社</h5>
         <a href="#">会社情報</a>
+        <a href="#">ビジョン</a>
         <a href="#">ニュース</a>
-        <a href="#">採用</a>
         <a href="#">パートナー</a>
       </div>
       <div class="foot-col">
-        <h5>LEGAL</h5>
+        <h5>規約</h5>
         <a href="#">利用規約</a>
         <a href="#">プライバシー</a>
         <a href="#">特定商取引法</a>
@@ -1104,55 +1570,70 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <div>© 2026 SAKIGAKE INC. ALL RIGHTS RESERVED.</div>
-      <div>BUILT FOR SES SALES PROFESSIONALS / v.1.0</div>
+      <div>© 2026 SAKIGAKE株式会社</div>
+      <div>次世代SESエージェントファーム</div>
     </div>
   </div>
 </footer>
 
 <script>
-  // ────── Simulator ──────
+  // ────── Simulator (flat-fee model) ──────
   (function(){
     const $ = id => document.getElementById(id);
-    const fmt = n => Math.round(n).toLocaleString('ja-JP');
+    const FEE = 3;          // 万円 / 案件
+    let share = 80;         // %
+
+    function perCaseReward(priceMan, sharePct){
+      const eng = priceMan * sharePct/100;       // エンジニア報酬
+      const gross = priceMan - eng;              // 粗利
+      return Math.max(0, gross - FEE);           // 報酬 = 粗利 − 3万
+    }
+    function fmt(n){
+      // round to 1 decimal if needed
+      const r = Math.round(n*10)/10;
+      return (Number.isInteger(r) ? r : r.toFixed(1)).toLocaleString('ja-JP');
+    }
 
     function recalc(){
-      const cases = +$('r-cases').value;
-      const priceMan = +$('r-price').value;       // 万円
-      const costRate = +$('r-cost').value / 100;
-      const months = +$('r-months').value;
+      const price = +$('r-price').value;
+      const count = +$('r-count').value;
+      const per = perCaseReward(price, share);
+      const month = per * count;
+      const year = month * 12;
+      const feeYear = FEE * count * 12;
 
-      // 月額売上 (万円)
-      const monthlyRev = cases * priceMan;
-      // 月次粗利
-      const monthlyGross = monthlyRev * (1 - costRate);
-      // 年次粗利
-      const yearlyGross = monthlyGross * months;
+      $('sim-price').textContent = price;
+      $('sim-count').textContent = count;
+      $('out-per').textContent = fmt(per);
+      $('out-share').textContent = share;
+      $('out-count').textContent = count;
+      $('out-month').textContent = fmt(month);
+      $('out-monthly2').textContent = fmt(month);
+      $('out-year').textContent = fmt(year);
+      $('out-fee').textContent = fmt(feeYear);
 
-      // プラットフォーム利用料: 3万円/案件/月
-      const platformFee = cases * 3 * months; // 万円
-
-      const beforeShare = 0.15;
-      const beforeAmt = yearlyGross * beforeShare;
-      const afterAmt = yearlyGross - platformFee;
-      const beforeCo = yearlyGross * (1 - beforeShare);
-
-      $('sim-cases').textContent = cases;
-      $('sim-price').textContent = priceMan;
-      $('sim-cost').textContent = +$('r-cost').value;
-      $('sim-months').textContent = months;
-      $('after-cases-display').textContent = cases;
-
-      $('before-amount').textContent = fmt(beforeAmt);
-      $('after-amount').textContent  = fmt(afterAmt);
-      $('before-gross').textContent  = fmt(yearlyGross);
-      $('after-gross').textContent   = fmt(yearlyGross);
-      $('before-co').textContent     = fmt(beforeCo);
-      $('after-fee').textContent     = fmt(platformFee);
-      $('diff-amount').textContent   = fmt(afterAmt - beforeAmt);
+      // bars: monthly reward for 1/3/5/10 cases at current price+share
+      const maxN = 10;
+      const maxVal = per * maxN || 1;
+      document.querySelectorAll('.sb-fill').forEach(f=>{
+        const n = +f.dataset.n;
+        f.style.width = Math.min(100, (per*n)/maxVal*100) + '%';
+      });
+      document.querySelectorAll('.bv').forEach(b=>{
+        const n = +b.dataset.n;
+        b.textContent = fmt(per*n);
+      });
     }
-    ['r-cases','r-price','r-cost','r-months'].forEach(id=>{
-      $(id).addEventListener('input', recalc);
+
+    $('r-price').addEventListener('input', recalc);
+    $('r-count').addEventListener('input', recalc);
+    document.querySelectorAll('#seg-share button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('#seg-share button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        share = +btn.dataset.share;
+        recalc();
+      });
     });
     recalc();
   })();
