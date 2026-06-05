@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://masakitanaka0305-dev.github.io/sakigake-lp/sitemap.xml
